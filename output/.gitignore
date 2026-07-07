@@ -1,0 +1,4 @@
+# User-added: sync generated CV PDFs to private repo (root .gitignore excludes output/ for the public upstream).
+# HTML intermediates stay untracked — regenerable from templates.
+!*.pdf
+!.gitignore
