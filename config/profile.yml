@@ -1,0 +1,90 @@
+# Career-Ops Profile Configuration
+# Single source of truth for personal data across all modes.
+
+candidate:
+  full_name: "Shayan Shakeri"
+  email: "shayansnezhad@gmail.com"
+  phone: "+1-416-471-6651"
+  location: "Toronto, Canada"
+  github: "github.com/sshakerinezhad"
+  portfolio_url: "https://sshakerinezhad.github.io"  # personal site, Win95-style React
+  lab_url: "https://merlyn-labs.com"  # Merlyn Labs — independent research collective (3 people, co-founded)
+
+target_roles:
+  # North Star: lucrative + engaging AI role at the frontier.
+  # Two love axes: (1) frontier robotics (VLA, sim2real, RL),
+  # (2) alignment — especially eval design and adversarial/game-like eval construction.
+  primary:
+    - "Research Engineer (Robotics / VLA / Embodied AI)"
+    - "Research Engineer (Alignment / Evals)"
+    - "ML Research Engineer (Frontier Lab)"
+  archetypes:
+    - name: "Robotics / VLA Research Engineer"
+      level: "Mid-Senior"
+      fit: "primary"
+    - name: "Alignment / Evals Research Engineer"
+      level: "Mid-Senior"
+      fit: "primary"
+    - name: "ML / LLM Research Engineer"
+      level: "Mid-Senior"
+      fit: "primary"
+    - name: "Founding / Early AI Engineer (startup)"
+      level: "Founding/MTS"
+      fit: "secondary"
+    - name: "AI Engineer (Agents / LLM Systems)"
+      level: "Mid-Senior"
+      fit: "secondary"
+    - name: "Robotics Software Engineer"
+      level: "Mid-Senior"
+      fit: "secondary"
+    - name: "Applied ML Engineer (Enterprise / Finance)"
+      level: "Mid-Senior"
+      fit: "adjacent"
+
+narrative:
+  headline: "AI research engineer across frontier robotics (VLA/RL) and alignment evals"
+  exit_story: >
+    AI Research Engineer at BMO's AI Centre of Excellence (GenAI bias detection,
+    agent eval pipelines) and co-founder of Merlyn Labs, doing independent VLA/robotics
+    research with published results (8th place, Stanford BEHAVIOR-1K Challenge).
+    Now targeting a frontier research engineering role where the two threads meet:
+    embodied AI and rigorous, hard-to-game evaluation.
+  superpowers:
+    - "Eval design instinct: found systematic risk-downplaying bias in a $200B+ AUM GenAI tool; builds deterministic eval pipelines and VLM judges designed to resist reward gaming"
+    - "Real VLA research output: BEHAVIOR-1K 8th place, LIBERO-PRO overfitting analysis, open-sourced flow-matching VLA integration for RLinf"
+    - "Full-stack embodiment: PCB design to COMSOL modeling to sim2real on hand-built AlohaMini — hardware through policy"
+    - "Ships independent research fast: co-founded lab, published technical report + LessWrong analysis while working full-time"
+  proof_points:
+    - name: "Stanford BEHAVIOR-1K Challenge — 8th place, Standard Track"
+      url: "https://merlyn-labs.com/behavior-report"
+      hero_metric: "60% proprioception masking improved task success up to 48%"
+    - name: "LessWrong analysis of VLA failure modes"
+      url: "https://www.lesswrong.com/posts/4p2HBMxCkh7pZ3xCa"
+      hero_metric: "Chunked execution outperformed temporal ensembling 3x"
+    - name: "RLinf open-source contribution"
+      url: "https://github.com/RLinf/RLinf"
+      hero_metric: "Flow-matching VLA integration enabling RL on BEHAVIOR-1K in OmniGibson"
+    - name: "LIBERO-PRO baseline critique"
+      url: "https://arxiv.org/abs/2510.03827"
+      hero_metric: "Conservative finetuning doubled position-swap success (21% → 42%)"
+
+compensation:
+  # US-first search. High-comp priority is explicit and unapologetic.
+  # Frontier-lab RE total comp commonly $300K-500K+ USD; robotics startups $180K-300K + equity.
+  target_range: "$300K-500K+ USD total comp (US frontier labs); $250K+ for US robotics startups with strong equity"
+  currency: "USD"
+  minimum: "$180K USD (or exceptional Canadian role at CAD equivalent)"
+  location_flexibility: "Relocation to US preferred and welcomed; remote-from-Toronto for a top-tier USD role is the dream scenario; stellar Canadian roles considered"
+
+location:
+  country: "Canada"
+  city: "Toronto"
+  timezone: "America/Toronto"
+  # Canadian citizen → TN visa (USMCA) for US roles: no lottery, no cap,
+  # "Engineer" category fits M.Eng+B.Eng. On forms: "No sponsorship required —
+  # Canadian citizen, TN-eligible" (H-1B not needed). ITAR/US-person defense
+  # roles remain blocked — flag those per role.
+  visa_status: "Canadian citizen — TN-eligible for US roles, no H-1B sponsorship needed"
+
+cv:
+  output_format: "latex"

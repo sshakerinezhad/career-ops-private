@@ -1,0 +1,10 @@
+# report	pdf	html	format	date — written by generate-pdf.mjs, do not edit
+	output/cv-candidate-skild-pt-2026-07-05.pdf	output/cv-candidate-skild-pt.html	letter	2026-07-06
+	output/cv-candidate-metr-2026-07-05.pdf	output/cv-candidate-metr.html	letter	2026-07-06
+	output/cv-candidate-mechanize-2026-07-05.pdf	output/cv-candidate-mechanize.html	letter	2026-07-06
+	output/cv-candidate-amazon-far-2026-07-05.pdf	output/cv-candidate-amazon-far.html	letter	2026-07-06
+	output/cv-candidate-cohere-eval-2026-07-05.pdf	output/cv-candidate-cohere-eval.html	letter	2026-07-06
+	output/cv-candidate-figure-helix-2026-07-05.pdf	output/cv-candidate-figure-helix.html	letter	2026-07-06
+	output/cv-candidate-goodstart-rs-2026-07-05.pdf	output/cv-candidate-goodstart-rs.html	letter	2026-07-06
+	output/cv-candidate-openai-agent-pt-2026-07-05.pdf	output/cv-candidate-openai-agent-pt.html	letter	2026-07-06
+	output/cv-candidate-openai-evals-re-2026-07-05.pdf	output/cv-candidate-openai-evals-re.html	letter	2026-07-06

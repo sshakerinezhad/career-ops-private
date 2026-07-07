@@ -1,0 +1,4 @@
+# User-added: re-include reports in private repo (root .gitignore excludes them for the public upstream)
+!*.md
+# ...but reservation sentinels stay ephemeral (created by reserve-report-num.mjs)
+*-RESERVED.md

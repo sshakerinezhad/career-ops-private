@@ -1,0 +1,10 @@
+# User-added: re-include personal data in private repo (root .gitignore excludes it for the public upstream)
+!applications.md
+!pipeline.md
+!follow-ups.md
+!scan-history.tsv
+!pdf-index.tsv
+!agent-inbox.md
+!apply-session-*.md
+!projects/
+!projects/**

@@ -1,0 +1,676 @@
+# Portal Scanner Configuration — Shayan Shakeri
+# Targeting: Research Engineer roles in frontier robotics (VLA/RL/embodied AI)
+# and alignment/evals. US-first, Canada for stellar roles, remote-US-comp ideal.
+#
+# Companies with `api:` are hit directly (zero-token). Uncertain ATS slugs use
+# scan_method: websearch as fallback.
+
+scan_history:
+  recheck_after_days: 45
+
+# US + Canada focus. always_allow rescues multi-location postings.
+location_filter:
+  always_allow:
+    - "United States"
+    - "Toronto"
+    - "Canada"
+    - "Remote"
+    - "San Francisco"
+    - "New York"
+  allow:
+    - "Remote"
+    - "United States"
+    - "USA"
+    - "US"
+    - "Canada"
+    - "Toronto"
+    - "Vancouver"
+    - "Montreal"
+    - "San Francisco"
+    - "Bay Area"
+    - "Palo Alto"
+    - "Mountain View"
+    - "New York"
+    - "Seattle"
+    - "Boston"
+    - "Austin"
+    - "Pittsburgh"
+    - "Redwood City"
+    - "Sunnyvale"
+    - "San Jose"
+  block:
+    - "India"
+    - "Bengaluru"
+    - "Singapore"
+    - "Japan"
+    - "Germany"
+    - "France"
+    - "Poland"
+    - "Brazil"
+    - "Australia"
+    - "China"
+    - "Shanghai"
+    - "Beijing"
+
+title_filter:
+  positive:
+    - "Research Engineer"
+    - "Research Scientist"
+    - "Researcher"
+    - "Machine Learning"
+    - "ML Engineer"
+    - "Robotics"
+    - "Robot Learning"
+    - "Embodied"
+    - "VLA"
+    - "Manipulation"
+    - "Reinforcement Learning"
+    - "Imitation Learning"
+    - "Simulation"
+    - "Perception"
+    - "Alignment"
+    - "Safety"
+    - "Evaluation"
+    - "Evals"
+    - "Red Team"
+    - "AI Engineer"
+    - "LLM"
+    - "Agent"
+    - "Agentic"
+    - "Foundation Model"
+    - "Deep Learning"
+    - "Post-Training"
+    - "Fine-tuning"
+    - "RLHF"
+  negative:
+    - "Intern"
+    - "Internship"
+    - "New College Grad"
+    - "Manager"
+    - "Director"
+    - "VP"
+    - "Head of"
+    - "Developer Relations"
+    - "Advocate"
+    - "Solutions Architect"
+    - "Solution Architect"
+    - "Program Manager"
+    - "Product Manager"
+    - "DevOps"
+    - "Quality Assurance"
+    - "Compliance"
+    - "Cyber"
+    - "VLSI"
+    - "ASIC"
+    - "Silicon"
+    - "Hardware Security"
+    - "IT "
+    - "Support Engineer"
+    - "Sales"
+    - "Marketing"
+    - "Recruiter"
+    - "Recruiting"
+    - "Account Executive"
+    - "Account Manager"
+    - "Customer Success"
+    - "Legal"
+    - "Counsel"
+    - "Finance"
+    - "Accountant"
+    - "People Ops"
+    - "Business Development"
+    - "Communications"
+    - "Designer"
+    - "Web3"
+    - "Blockchain"
+    - "Crypto"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Member of Technical Staff"
+    - "Research"
+
+search_queries:
+  - name: Ashby — Robotics/VLA Research
+    query: 'site:jobs.ashbyhq.com "Research Engineer" robotics OR VLA OR "robot learning" OR embodied'
+    enabled: true
+
+  - name: Greenhouse — Robotics/VLA Research
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Research Engineer" robotics OR "robot learning" OR manipulation OR embodied'
+    enabled: true
+
+  - name: Lever — Robotics Research
+    query: 'site:jobs.lever.co "Research Engineer" OR "Machine Learning" robotics OR "reinforcement learning"'
+    enabled: true
+
+  - name: Ashby — Alignment & Evals
+    query: 'site:jobs.ashbyhq.com alignment OR evals OR "model evaluation" OR "red team" "Research Engineer" OR "Research Scientist"'
+    enabled: true
+
+  - name: Greenhouse — Alignment & Evals
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "alignment" OR "safety" OR "evaluations" "Research Engineer"'
+    enabled: true
+
+  - name: Frontier labs — Member of Technical Staff
+    query: '"Member of Technical Staff" AI research site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io'
+    enabled: true
+
+  - name: YC / Work at a Startup — Robotics & RL
+    query: 'site:workatastartup.com "robotics" OR "reinforcement learning" OR "embodied" "engineer"'
+    enabled: true
+
+  - name: HN Who's Hiring — Robotics/Alignment
+    query: 'site:news.ycombinator.com "robotics" OR "alignment" OR "research engineer" hiring'
+    enabled: true
+
+  - name: Ashby — Founding Engineer AI
+    query: 'site:jobs.ashbyhq.com "Founding Engineer" OR "Founding AI Engineer" OR "Member of Technical Staff"'
+    enabled: true
+
+  - name: Greenhouse — Founding/MTS AI
+    query: 'site:job-boards.greenhouse.io "Founding Engineer" OR "Member of Technical Staff" AI OR ML'
+    enabled: true
+
+  - name: ai-jobs.net — Research & Robotics
+    query: 'site:ai-jobs.net "Research Engineer" OR "Robotics" OR "Reinforcement Learning" United States OR Remote'
+    enabled: true
+
+  - name: Post-training / RLHF roles
+    query: '"post-training" OR "RLHF" OR "reward model" "research engineer" site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io OR site:jobs.lever.co'
+    enabled: true
+
+  - name: High-comp AI startups — cross-portal
+    query: '"AI" "research engineer" OR "ML engineer" "$300" OR "$350" OR "$400" site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io'
+    enabled: true
+
+tracked_companies:
+
+  # -- Frontier labs (alignment + evals + general RE) --
+
+  - name: Anthropic
+    careers_url: https://job-boards.greenhouse.io/anthropic
+    api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+    notes: "Alignment/evals dream target. SF/NYC/Seattle."
+    enabled: true
+
+  - name: OpenAI
+    careers_url: https://jobs.ashbyhq.com/openai
+    notes: "SF. Research Engineer + Preparedness/evals roles."
+    enabled: true
+
+  - name: Google DeepMind
+    careers_url: https://job-boards.greenhouse.io/deepmind
+    api: https://boards-api.greenhouse.io/v1/boards/deepmind/jobs
+    notes: "Mountain View/NYC/Toronto(!). Robotics team (RT-X, Gemini Robotics) + alignment."
+    enabled: true
+
+  - name: xAI
+    careers_url: https://jobs.ashbyhq.com/xai
+    notes: "SF/Palo Alto/Memphis. High comp."
+    enabled: true
+
+  - name: Meta AI (FAIR / Superintelligence)
+    careers_url: https://www.metacareers.com/jobs
+    scan_method: websearch
+    scan_query: 'site:metacareers.com "Research Engineer" robotics OR embodied OR alignment OR RL'
+    notes: "FAIR robotics + superintelligence lab. Very high comp."
+    enabled: true
+
+  - name: Mistral AI
+    careers_url: https://jobs.lever.co/mistral
+    notes: "Paris but has US roles. Filter handles location."
+    enabled: true
+
+  - name: Cohere
+    careers_url: https://jobs.ashbyhq.com/cohere
+    notes: "Toronto HQ — hometown frontier-adjacent lab."
+    enabled: true
+
+  - name: Scale AI
+    careers_url: https://job-boards.greenhouse.io/scaleai
+    api: https://boards-api.greenhouse.io/v1/boards/scaleai/jobs
+    notes: "SF. Evals/red-teaming (SEAL team), RLHF infra."
+    enabled: true
+
+  # -- Alignment / safety orgs --
+
+  - name: METR
+    careers_url: https://jobs.lever.co/metr
+    notes: "Berkeley. Frontier model evals — dead-center fit for eval-design passion."
+    enabled: true
+
+  - name: Apollo Research
+    careers_url: https://jobs.lever.co/apolloresearch
+    notes: "London but remote-friendly. Scheming/deception evals."
+    enabled: true
+
+  - name: Redwood Research
+    careers_url: https://www.redwoodresearch.org/careers
+    scan_method: websearch
+    scan_query: '"Redwood Research" hiring "research engineer" OR "researcher"'
+    notes: "Berkeley. AI control research."
+    enabled: true
+
+  - name: Goodfire
+    careers_url: https://jobs.ashbyhq.com/goodfire
+    notes: "SF. Interpretability."
+    enabled: true
+
+  # -- Robotics / embodied AI (US) --
+
+  - name: Physical Intelligence
+    careers_url: https://jobs.ashbyhq.com/physicalintelligence
+    notes: "SF. π0/π0.5 — you literally published analysis of their model. Top target."
+    enabled: true
+
+  - name: Figure AI
+    careers_url: https://job-boards.greenhouse.io/figureai
+    api: https://boards-api.greenhouse.io/v1/boards/figureai/jobs
+    notes: "San Jose. Humanoids, Helix VLA."
+    enabled: true
+
+  - name: 1X Technologies
+    careers_url: https://www.1x.tech/careers
+    scan_method: websearch
+    scan_query: '"1X Technologies" careers "AI" OR "robot learning" OR "research"'
+    notes: "Palo Alto/Oslo. NEO humanoid."
+    enabled: true
+
+  - name: Skild AI
+    careers_url: https://job-boards.greenhouse.io/skildai-careers
+    api: https://boards-api.greenhouse.io/v1/boards/skildai-careers/jobs
+    notes: "Pittsburgh. Robot foundation models."
+    enabled: true
+
+  - name: Apptronik
+    careers_url: https://job-boards.greenhouse.io/apptronik
+    api: https://boards-api.greenhouse.io/v1/boards/apptronik/jobs
+    notes: "Austin. Apollo humanoid, Google DeepMind partnership."
+    enabled: true
+
+  - name: Boston Dynamics
+    careers_url: https://bostondynamics.wd1.myworkdayjobs.com/en-US/Boston_Dynamics
+    max_pages: 50
+    notes: "Boston. Atlas ML team growing."
+    enabled: true
+
+  - name: RAI Institute (Boston Dynamics AI Institute)
+    careers_url: https://jobs.lever.co/rai
+    notes: "Boston. Marc Raibert's research institute — research-first culture."
+    enabled: true
+
+  - name: NVIDIA
+    careers_url: https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite
+    max_pages: 150
+    notes: "GR00T humanoid foundation models, Isaac sim. Toronto office exists."
+    enabled: true
+
+  - name: Toyota Research Institute
+    careers_url: https://jobs.lever.co/tri
+    notes: "Los Altos/Cambridge MA. Large behavior models, manipulation research."
+    enabled: true
+
+  - name: Waymo
+    careers_url: https://careers.withwaymo.com
+    scan_method: websearch
+    scan_query: 'waymo careers "research engineer" OR "machine learning" OR "behavior"'
+    notes: "Mountain View. Embodied AI at scale."
+    enabled: true
+
+  - name: Tesla (Optimus / Autopilot)
+    careers_url: https://www.tesla.com/careers
+    scan_method: websearch
+    scan_query: 'site:tesla.com/careers Optimus OR Autopilot "machine learning" OR "AI engineer"'
+    notes: "Palo Alto. Optimus VLA work."
+    enabled: true
+
+  - name: Dexterity
+    careers_url: https://jobs.lever.co/dexterity
+    notes: "Redwood City. Warehouse manipulation robots."
+    enabled: true
+
+  - name: Agility Robotics
+    careers_url: https://www.agilityrobotics.com/careers
+    scan_method: websearch
+    scan_query: '"Agility Robotics" careers "machine learning" OR "controls" OR "research"'
+    notes: "Digit humanoid, deployed in warehouses."
+    enabled: true
+
+  # -- Canada (stellar-only bar, but zero-cost to track) --
+
+  - name: Waabi
+    careers_url: https://jobs.lever.co/waabi
+    notes: "Toronto. Raquel Urtasun's AV company — closed-loop sim focus."
+    enabled: true
+
+  - name: Sanctuary AI
+    careers_url: https://jobs.lever.co/sanctuary
+    notes: "Vancouver. Humanoid robotics, Phoenix."
+    enabled: true
+
+  - name: Tenstorrent
+    careers_url: https://jobs.lever.co/tenstorrent
+    notes: "Toronto. AI hardware + ML stack (Jim Keller)."
+    enabled: true
+
+  - name: Vector Institute
+    careers_url: https://vectorinstitute.ai/careers
+    scan_method: websearch
+    scan_query: '"Vector Institute" careers "research engineer" OR "applied ML"'
+    notes: "Toronto. Research engineering roles, academic-adjacent."
+    enabled: true
+
+  # -- AI infra / agents / evals-adjacent (secondary) --
+
+  - name: Hugging Face
+    careers_url: https://apply.workable.com/huggingface/
+    notes: "Remote-friendly. LeRobot team = open-source robotics — strong fit."
+    enabled: true
+
+  - name: Weights & Biases (CoreWeave)
+    careers_url: https://job-boards.greenhouse.io/coreweave
+    api: https://boards-api.greenhouse.io/v1/boards/coreweave/jobs
+    notes: "Eval tooling (Weave). Remote US."
+    enabled: false
+
+  - name: LangChain
+    careers_url: https://jobs.ashbyhq.com/langchain
+    notes: "SF. Agent frameworks + LangSmith evals."
+    enabled: false
+
+  # -- Wide-net: new/stealth-adjacent frontier labs --
+
+  - name: Thinking Machines Lab
+    careers_url: https://job-boards.greenhouse.io/thinkingmachines
+    api: https://boards-api.greenhouse.io/v1/boards/thinkingmachines/jobs
+    notes: "Mira Murati. Massive comp reputation."
+    enabled: true
+
+  - name: Safe Superintelligence (SSI)
+    careers_url: https://ssi.inc
+    scan_method: websearch
+    scan_query: '"Safe Superintelligence" OR "SSI" Sutskever hiring OR careers engineer'
+    notes: "Sutskever. Minimal web presence; roles surface via search."
+    enabled: true
+
+  - name: Reflection AI
+    careers_url: https://jobs.ashbyhq.com/reflectionai
+    notes: "Ex-DeepMind founders. Autonomous coding/RL."
+    enabled: true
+
+  - name: Liquid AI
+    careers_url: https://jobs.ashbyhq.com/liquid-ai
+    notes: "MIT spinout, Boston. Non-transformer architectures."
+    enabled: true
+
+  - name: World Labs
+    careers_url: https://job-boards.greenhouse.io/worldlabs
+    api: https://boards-api.greenhouse.io/v1/boards/worldlabs/jobs
+    notes: "Fei-Fei Li. Spatial intelligence — adjacent to embodied AI."
+    enabled: true
+
+  - name: Poolside
+    careers_url: https://jobs.ashbyhq.com/poolside
+    notes: "Code models. Remote-friendly, high comp."
+    enabled: true
+
+  - name: Magic
+    careers_url: https://jobs.ashbyhq.com/magic.dev
+    notes: "Code models, SF. Big raises."
+    enabled: true
+
+  - name: Cognition
+    careers_url: https://jobs.ashbyhq.com/cognition
+    notes: "Devin. SF. Acquired Windsurf; aggressive comp."
+    enabled: true
+
+  - name: Anysphere (Cursor)
+    careers_url: https://cursor.com/careers
+    scan_method: websearch
+    scan_query: '"Anysphere" OR "Cursor" careers "research engineer" OR "ML" site:cursor.com OR site:jobs.ashbyhq.com'
+    notes: "Fastest-growing AI startup. Very high comp."
+    enabled: true
+
+  - name: Perplexity
+    careers_url: https://jobs.ashbyhq.com/perplexity-ai
+    notes: "SF. Search + agents. High comp."
+    enabled: true
+
+  - name: Together AI
+    careers_url: https://job-boards.greenhouse.io/togetherai
+    api: https://boards-api.greenhouse.io/v1/boards/togetherai/jobs
+    notes: "Inference/training infra + research team."
+    enabled: true
+
+  - name: Imbue
+    careers_url: https://imbue.com/careers
+    scan_method: websearch
+    scan_query: '"Imbue" careers "research engineer" OR "agents"'
+    notes: "SF. RL agents research."
+    enabled: true
+
+  # -- Wide-net: tiny elite labs (no standard ATS; websearch) --
+
+  - name: Goodstart Labs
+    careers_url: https://goodstartlabs.com/careers
+    scan_method: websearch
+    scan_query: '"Goodstart Labs" OR "Good Start Labs" hiring OR careers research Toronto'
+    notes: "Toronto/NYC. Games as RL environments + evals (AI Diplomacy, theory-of-mind/honesty benchmarks; evaluated GPT-5 pre-release). User-flagged. Careers page is custom HTML — websearch/manual check."
+    enabled: true
+
+  - name: Mechanize
+    careers_url: https://www.mechanize.work
+    scan_method: websearch
+    scan_query: '"Mechanize" Besiroglu OR "mechanize.work" hiring OR careers "RL" OR "environments" OR "engineer"'
+    notes: "Ex-Epoch AI founders. RL environments for automating work. Tiny team, reported $500K+ offers. RL-env design = strong fit."
+    enabled: true
+
+  - name: Periodic Labs
+    careers_url: https://jobs.ashbyhq.com/periodic-labs
+    notes: "Liam Fedus (ex-OpenAI) + Cubuk (ex-GDM). AI + robotic labs for physical science — physics background is direct fit."
+    enabled: true
+
+  - name: Haize Labs
+    careers_url: https://job-boards.greenhouse.io/haizelabs
+    api: https://boards-api.greenhouse.io/v1/boards/haizelabs/jobs
+    notes: "NYC. Automated red-teaming/evals of LLMs — eval-design-as-product."
+    enabled: true
+
+  - name: Gray Swan AI
+    careers_url: https://jobs.ashbyhq.com/Gray%20Swan%20AI
+    notes: "Zico Kolter (CMU). Adversarial robustness, jailbreak arenas — adversarial eval games, literally your stated passion."
+    enabled: true
+
+  - name: Andon Labs
+    careers_url: https://andonlabs.com
+    scan_method: websearch
+    scan_query: '"Andon Labs" hiring OR careers evals OR "research engineer"'
+    notes: "Agentic evals in the physical world (ran Anthropic's vending machine bench). Evals + embodiment overlap."
+    enabled: true
+
+  - name: Prime Intellect
+    careers_url: https://jobs.ashbyhq.com/PrimeIntellect
+    notes: "Decentralized training + open RL environments hub."
+    enabled: true
+
+  - name: EleutherAI
+    careers_url: https://www.eleuther.ai
+    scan_method: websearch
+    scan_query: '"EleutherAI" hiring OR careers "research engineer"'
+    notes: "Non-profit open research; eval harness maintainers (lm-eval-harness)."
+    enabled: true
+
+  # -- Wide-net: evals / data / RLHF economy (pays top-of-market) --
+
+  - name: Surge AI
+    careers_url: https://www.surgehq.ai/careers
+    scan_method: websearch
+    scan_query: '"Surge AI" careers "engineer" OR "research"'
+    notes: "RLHF data. Famously pays $350K+ for engineers, profitable, no VC."
+    enabled: true
+
+  - name: Mercor
+    careers_url: https://mercor.com/careers
+    scan_method: websearch
+    scan_query: '"Mercor" careers "engineer" OR "research" AI'
+    notes: "AI hiring/evals marketplace. Fast-growing, high comp."
+    enabled: true
+
+  - name: Handshake AI
+    careers_url: https://jobs.ashbyhq.com/handshake
+    notes: "Expert-data / evals arm pays frontier-level."
+    enabled: true
+
+  # -- Wide-net: robotics startups (US) --
+
+  - name: Generalist AI
+    careers_url: https://generalistai.com
+    scan_method: websearch
+    scan_query: '"Generalist AI" robotics careers "research engineer" OR "robot learning"'
+    notes: "Pete Florence (ex-Google robotics). Robot foundation models."
+    enabled: true
+
+  - name: Dyna Robotics
+    careers_url: https://jobs.ashbyhq.com/dyna-robotics
+    notes: "Manipulation foundation models."
+    enabled: true
+
+  - name: Standard Bots
+    careers_url: https://jobs.ashbyhq.com/StandardBots
+    notes: "NY. Robot arms + AI control."
+    enabled: true
+
+  - name: Chef Robotics
+    careers_url: https://jobs.lever.co/ChefRobotics
+    notes: "SF. Food manipulation at scale — real deployed manipulation data."
+    enabled: true
+
+  - name: Ambi Robotics
+    careers_url: https://jobs.lever.co/ambirobotics
+    notes: "Berkeley (Ken Goldberg lab spinout). Warehouse manipulation."
+    enabled: true
+
+  - name: Machina Labs
+    careers_url: https://jobs.lever.co/MachinaLabs
+    notes: "LA. Robotic manufacturing."
+    enabled: true
+
+  - name: Collaborative Robotics (Cobot)
+    careers_url: https://www.co.bot/careers
+    scan_method: websearch
+    scan_query: '"Collaborative Robotics" OR "Cobot" careers "ML" OR "robotics" OR "autonomy"'
+    notes: "Santa Clara. Brad Porter (ex-Amazon Robotics)."
+    enabled: true
+
+  - name: Skydio
+    careers_url: https://job-boards.greenhouse.io/skydio
+    api: https://boards-api.greenhouse.io/v1/boards/skydio/jobs
+    notes: "SF Bay. Autonomous drones — strong autonomy/ML org."
+    enabled: true
+
+  - name: Zipline
+    careers_url: https://job-boards.greenhouse.io/flyzipline
+    api: https://boards-api.greenhouse.io/v1/boards/flyzipline/jobs
+    notes: "SF Bay. Delivery drones at scale."
+    enabled: true
+
+  - name: Serve Robotics
+    careers_url: https://jobs.lever.co/serverobotics
+    notes: "SF/LA. Sidewalk delivery robots."
+    enabled: true
+
+  # -- Wide-net: defense/AV (pays extremely well, robotics-heavy) --
+
+  - name: Anduril
+    careers_url: https://job-boards.greenhouse.io/andurilindustries
+    api: https://boards-api.greenhouse.io/v1/boards/andurilindustries/jobs
+    notes: "Costa Mesa/Seattle/remote. Defense autonomy. Very high comp. US-person requirements common — flag per role."
+    enabled: true
+
+  - name: Shield AI
+    careers_url: https://job-boards.greenhouse.io/shieldai
+    api: https://boards-api.greenhouse.io/v1/boards/shieldai/jobs
+    notes: "San Diego. Hivemind autonomy stack."
+    enabled: true
+
+  - name: Applied Intuition
+    careers_url: https://job-boards.greenhouse.io/appliedintuition
+    api: https://boards-api.greenhouse.io/v1/boards/appliedintuition/jobs
+    notes: "Mountain View. AV simulation/tooling. Known for top-of-market pay."
+    enabled: true
+
+  - name: Zoox
+    careers_url: https://jobs.lever.co/zoox
+    notes: "Foster City. Amazon-owned robotaxi."
+    enabled: true
+
+  - name: Nuro
+    careers_url: https://job-boards.greenhouse.io/nuro
+    api: https://boards-api.greenhouse.io/v1/boards/nuro/jobs
+    notes: "Mountain View. AV + ML platform."
+    enabled: true
+
+  - name: Aurora
+    careers_url: https://job-boards.greenhouse.io/aurorainnovation
+    api: https://boards-api.greenhouse.io/v1/boards/aurorainnovation/jobs
+    notes: "Pittsburgh/SF. Self-driving trucks."
+    enabled: true
+
+  - name: Gatik
+    careers_url: https://jobs.lever.co/gatik
+    notes: "Mountain View + Toronto(!). Middle-mile AV."
+    enabled: true
+
+  # -- Wide-net: research institutes & big tech research --
+
+  - name: Allen Institute for AI (Ai2)
+    careers_url: https://job-boards.greenhouse.io/thealleninstitute
+    api: https://boards-api.greenhouse.io/v1/boards/thealleninstitute/jobs
+    notes: "Seattle. PRIOR team = embodied AI. Non-profit but competitive pay."
+    enabled: true
+
+  - name: Amazon — Robotics & Frontier AI
+    provider: amazon
+    amazon:
+      normalized_country_code: [USA, CAN]
+      base_query: robot learning
+    notes: "Amazon Robotics, Covariant team folded in. Toronto offices exist."
+    enabled: true
+
+  - name: Microsoft AI / Research
+    careers_url: https://jobs.careers.microsoft.com
+    scan_method: websearch
+    scan_query: 'site:jobs.careers.microsoft.com "research engineer" robotics OR "reinforcement learning" OR alignment'
+    notes: "MSR robotics + Microsoft AI (Suleyman org)."
+    enabled: true
+
+  - name: Runway
+    careers_url: https://job-boards.greenhouse.io/runwayml
+    api: https://boards-api.greenhouse.io/v1/boards/runwayml/jobs
+    notes: "NYC. Video world models — world-model research overlaps embodied AI."
+    enabled: true
+
+  - name: Luma AI
+    careers_url: https://lumalabs.ai/careers
+    scan_method: websearch
+    scan_query: '"Luma AI" OR "Luma Labs" careers "research engineer" OR "world model"'
+    notes: "Palo Alto. World models / video generation."
+    enabled: true
+
+  # -- Wide-net: zero-token remote feeds (title filter applies) --
+
+  - name: RemoteOK
+    provider: remoteok
+    enabled: true
+
+  - name: We Work Remotely
+    provider: weworkremotely
+    enabled: true
+
+  - name: Himalayas
+    provider: himalayas
+    enabled: true
+
+  - name: Hacker News Who Is Hiring
+    provider: hackernews
+    enabled: true
