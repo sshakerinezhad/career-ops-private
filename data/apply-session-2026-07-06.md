@@ -1,19 +1,21 @@
-# Apply Session Handoff — 2026-07-06
+# Apply Session Handoff — 2026-07-06 (updated 2026-07-07)
 
-Session ended mid-application-run. Next session: resume from "OpenAI #3 pending confirmations" below.
+Session ended mid-application-run. Resume point: OpenAI #3 answer sheet CONFIRMED by user 2026-07-07 — awaiting user submission, then post-submit steps (tracker → Applied, followup-seed, application-answers).
 
 ## State
 
-- Liveness sweep DONE: 13 APPLY roles checked via `node check-liveness.mjs --file`, 12 active.
+- Liveness sweep DONE: 13 APPLY roles checked via `node check-liveness.mjs --file`, 12 active. OpenAI #3 re-verified active 2026-07-07 (API).
 - Tesla (#26) expired → tracker updated to `Discarded` with note (req 187690 closed; watch for Autopilot AI RL repost).
-- Chrome MCP extension NOT connected this session → fallback used: headless Playwright form reader at repo root `.tmp-read-form.mjs` (`node .tmp-read-form.mjs <url>`, must run from repo root for playwright resolution). Read-only, never submits. KEEP until all 12 apps done, then delete.
-- Answers delivered copy-paste style. If extension connected next session, can live-fill instead.
+- `.tmp-read-form.mjs` REWRITTEN 2026-07-07: now API-based (no browser) — Ashby via non-user GraphQL (`jobs.ashbyhq.com/api/non-user-graphql`, returns full applicationForm), Greenhouse via `boards-api.greenhouse.io/v1/boards/{org}/jobs/{id}?questions=true`. Headless Chromium is BLOCKED by the remote environment's egress proxy (ERR_CONNECTION_RESET despite proxy+CA config) — do not retry Playwright page reads here; curl/Node fetch work fine. Lever/Workday/own-site forms: user reads in live browser. KEEP helper until all 12 apps done, then delete.
+- Answers delivered copy-paste style. If Chrome extension connected in a local session, can live-fill instead.
+- User confirmations received 2026-07-07: (1) work-auth pair = Yes / No + TN clarifier in Additional Info; (2) start = 2-4 weeks from offer (form field is a DATE — recommended 2026-08-03, user picks final); (3) US office 3 days/week = Yes.
+- Form re-extracted 2026-07-07 via API: start-date is a Date field (not text); NO EEOC self-ID fields on current form; two user-only certification checkboxes (Arbitration + truthfulness certification).
 
 ## Queue (score order, all liveness-verified 2026-07-06)
 
 | # | Company — Role | Score | ATS | PDF | Status |
 |---|----------------|-------|-----|-----|--------|
-| 3 | OpenAI — Agent Post-Training, Frontier Evals & Environments | 4.8 | Ashby | ✅ `output/cv-candidate-openai-agent-pt-2026-07-05.pdf` | **Answer sheet presented, awaiting 3 user confirmations (below)** |
+| 3 | OpenAI — Agent Post-Training, Frontier Evals & Environments | 4.8 | Ashby | ✅ `output/cv-candidate-openai-agent-pt-2026-07-05.pdf` | **CONFIRMED 2026-07-07 — final sheet delivered, awaiting user submit** |
 | 4 | OpenAI — RE Frontier Evals & Environments | 4.6 | Ashby | ✅ exists | Next after #3. FLAG: Ashby dedups by email per company; 2nd OpenAI app merges into same candidate record (normal, both land) |
 | 12 | METR — MTS Eval Execution | 4.6 | Lever | ✅ exists | Lever hCaptcha fires on checkbox clicks — user must click those live |
 | 13 | Figure — Helix AI Engineer | 4.6 | Greenhouse | ✅ exists | |
