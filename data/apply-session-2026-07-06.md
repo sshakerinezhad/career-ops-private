@@ -1,6 +1,6 @@
 # Apply Session Handoff — 2026-07-06 (updated 2026-07-07)
 
-Session ended mid-application-run. Resume point: OpenAI #3 answer sheet CONFIRMED by user 2026-07-07 — awaiting user submission, then post-submit steps (tracker → Applied, followup-seed, application-answers).
+Resume point: OpenAI #3 SUBMITTED 2026-07-07 (all post-submit steps done). Next up: queue row #4, OpenAI RE Frontier Evals & Environments — reuses ~90% of the #3 answer sheet (same Ashby org; dedups by email into same candidate record, normal, both land). Additional Info final v3 below is the reusable base.
 
 ## State
 
@@ -15,7 +15,7 @@ Session ended mid-application-run. Resume point: OpenAI #3 answer sheet CONFIRME
 
 | # | Company — Role | Score | ATS | PDF | Status |
 |---|----------------|-------|-----|-----|--------|
-| 3 | OpenAI — Agent Post-Training, Frontier Evals & Environments | 4.8 | Ashby | ✅ `output/cv-candidate-openai-agent-pt-2026-07-05.pdf` | **CONFIRMED 2026-07-07 — final sheet delivered, awaiting user submit** |
+| 3 | OpenAI — Agent Post-Training, Frontier Evals & Environments | 4.8 | Ashby | ✅ `output/cv-candidate-openai-agent-pt-2026-07-05.pdf` | ✅ SUBMITTED 2026-07-07 (tracker Applied, follow-up pinned 07-14, answers persisted) |
 | 4 | OpenAI — RE Frontier Evals & Environments | 4.6 | Ashby | ✅ exists | Next after #3. FLAG: Ashby dedups by email per company; 2nd OpenAI app merges into same candidate record (normal, both land) |
 | 12 | METR — MTS Eval Execution | 4.6 | Lever | ✅ exists | Lever hCaptcha fires on checkbox clicks — user must click those live |
 | 13 | Figure — Helix AI Engineer | 4.6 | Greenhouse | ✅ exists | |
