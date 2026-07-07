@@ -43,19 +43,21 @@ Awaiting user answers:
 Drafted copy-paste values (confirmed safe fields):
 - Legal Name: `Shayan Shakeri` · Email: `shayansnezhad@gmail.com` · Phone: `+1 416 471 6651` · Location: `Toronto, Canada` · Preferred Name: skip
 
-Additional Information draft v2 (user rewrote 2026-07-07 fixing a conflation — the LessWrong post is a model-organism view of the BEHAVIOR-1K findings, NOT the LIBERO-PRO/π0.5 paper work; see article-digest.md. Agent polished; user still iterating):
+Additional Information — FINAL, user approved 2026-07-07 (v3: restored RLinf bullet + numbers after conflation fix; the LessWrong post is a model-organism view of the BEHAVIOR-1K findings, NOT the LIBERO-PRO/π0.5 paper work; see article-digest.md):
 
 > Eval design is a through-line of my work.
 >
-> At BMO's AI Centre of Excellence I built deterministic eval tests that surfaced a systematic bias to downplay investment risk in a GenAI tool serving $200B+ AUM.
+> At BMO's AI Centre of Excellence I built deterministic evals (hundreds of synthesized inputs) that surfaced a systematic bias to downplay investment risk in a GenAI tool serving $200B+ AUM.
 >
 > At Merlyn Labs, the 3-person research collective I co-founded, we study VLAs:
 > - VLM judges that score rollouts into dense, context-dependent RL rewards built to resist gaming
 > - A conservative finetuning recipe that doubles π0.5's success on LIBERO-PRO position-swap tasks (21% to 42%), showing the published checkpoint's brittleness is recipe-induced, not an architectural limit
+> - An open-sourced flow-matching VLA integration for RLinf, enabling RL training on BEHAVIOR-1K in OmniGibson
 >
-> We also placed 8th in Stanford's BEHAVIOR-1K Challenge and published the failure modes we found, proprioceptive collapse and action-chunking trade-offs:
+> We also placed 8th in Stanford's BEHAVIOR-1K Challenge and published the failure modes we found (proprioceptive collapse: masking 60% of proprioception improved success up to 48%):
 > https://merlyn-labs.com/behavior-report
 > https://lesswrong.com/posts/4p2HBMxCkh7pZ3xCa
+> github.com/sshakerinezhad
 >
 > Canadian citizen, TN-eligible (no sponsorship needed; TN is issued at the border, no employer petition). Ready to relocate to San Francisco 2-4 weeks from an offer.
 
