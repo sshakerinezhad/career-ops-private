@@ -27,6 +27,8 @@
 | Robotics SWE | ROS2, 7-DOF control pipeline, YOLO+LiDAR grasp planning, hand-built AlohaMini, PCB/hardware roots | cv.md (UofT project, Epineuron, Merlyn Labs) |
 | Enterprise / Finance ML | Production GenAI at BMO, bias/risk detection in regulated wealth management | cv.md (BMO) |
 
+Exact claims per artifact (with hero metrics and do-not-claim notes): `article-digest.md`.
+
 ## Your Exit Narrative
 
 Dual-track researcher: enterprise AI rigor by day (BMO AI CoE), frontier robotics research by night (Merlyn Labs, co-founded). The two converge on one theme — **finding where AI systems fail and building evaluations that surface it**: bias in a $200B AUM GenAI tool, proprioceptive collapse in VLAs, overfitting in published benchmarks. Seeking a frontier role where that convergence is the job.
@@ -39,7 +41,8 @@ Dual-track researcher: enterprise AI rigor by day (BMO AI CoE), frontier robotic
 
 - **sshakerinezhad.github.io** — personal portfolio, Win95-style React site (shows frontend craft + personality; share where culture-fit/creativity valued)
 - **merlyn-labs.com** — Merlyn Labs: independent research collective (3 members, co-founded with friends, self-funded, Toronto). BEHAVIOR technical report at /behavior-report. Positioning: "research collective" / "independent research lab" — honest framing, results are externally verifiable (BEHAVIOR-1K leaderboard, RLinf GitHub, LessWrong).
-- **LessWrong** — VLA failure-mode analysis (share for alignment/evals roles)
+- **LessWrong** — VLA failure-mode analysis (share for alignment/evals roles). This is a **model-organism view of the BEHAVIOR-1K findings** — it is NOT the LIBERO-PRO/π0.5 recipe work (that's the paper below; conflating the two was a real drafting error, caught 2026-07-07)
+- **Paper: "Recalibrating VLA Baselines"** — `data/papers/recalibrating-vla-baselines.pdf`, unpublished (submitted, likely rejected — never claim "published" or a venue). π0.5's LIBERO-PRO position-swap collapse is recipe-induced: conservative FFT doubles success 21% → 42%. Full claim digest: `article-digest.md` §3
 - **GitHub** — github.com/sshakerinezhad; RLinf contribution (share for robotics/RL roles)
 - When to share: always for research roles; report for robotics, LessWrong for alignment
 - **Interview one-liner for "what is Merlyn Labs?":** "Self-organized research collective — three of us doing robotics research nights and weekends. We placed 8th in Stanford's BEHAVIOR-1K Challenge, published our methods, and contribute to open-source RL infra." Never imply funding, headcount, or company status beyond this.
