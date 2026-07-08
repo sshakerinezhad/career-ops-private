@@ -35,7 +35,13 @@
   - End of any session that changed tracker, reports, interview-prep, or profile files: `git add -A && git commit && git push`.
   - After `node update-system.mjs apply`: commit + push the updated system files so other devices get them.
   - The repo contains PII (CV, contact info, interview notes). NEVER make it public, never fork it publicly, never push it to any other remote.
-  - Never commit `.env`, `output/` PDFs, or anything matching passport/diploma filename patterns.
+  - Never commit `.env` or anything matching passport/diploma filename patterns. `output/` PDFs ARE committed on purpose (see Mobile setup below); HTML intermediates stay untracked.
+
+- **Mobile setup (Claude Code mobile / claude.ai) — DO NOT undo these:** this repo was deliberately altered so the full pipeline works from a phone, where there is no local filesystem access and no Playwright/browser MCP.
+  - `output/.gitignore` (user layer, survives updates) un-ignores `*.pdf` so tailored CV PDFs sync to the private remote and can be viewed/downloaded from mobile. Never "clean up" this file or the committed PDFs back to ignored.
+  - `.tmp-read-form.mjs` (repo root) is a read-only, API-based application-form field extractor (Ashby GraphQL + Greenhouse boards API, no browser needed). Use it in `apply` mode when Playwright is unavailable: `node .tmp-read-form.mjs <url>`. It never fills or submits.
+  - On mobile, prefer API-based tools throughout: `check-liveness.mjs` for liveness, `scan.mjs` for portals, `.tmp-read-form.mjs` for forms. Don't treat "Playwright MCP tools not detected" as a setup problem.
+  - Skill entrypoints (e.g. `.qwen/skills/career-ops/SKILL.md`) were sometimes hand-placed via GitHub web upload from mobile; if one diverges from upstream after an update, check the backup branch before assuming it's stale.
 
 ## Custom Workflows
 
