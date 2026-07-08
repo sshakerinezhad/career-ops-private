@@ -201,6 +201,19 @@ AI capitalizes all main words: "Global Context: Critical Mineral Demand." Humans
 
 ---
 
+## 4.5 COVER LETTERS & OUTREACH REGISTER (user corrections, 2026-07-08)
+
+Learned from live feedback while drafting the Figure letter. Applies to cover letters, outreach, and application free-text.
+
+- Register: casual but in an academic capacity. Reads like someone nerding out because they can't help it, never like someone performing enthusiasm or being made to write a letter.
+- Never oversell the fit. No "this is literally my work" energy, no breathless 1:1 mapping of my research to their product. If the match is real the reader will see it from the specifics. Being explicit about it is cringe and reads sus.
+- When talking about a company's deployment/scale moment: the interesting frame is that the real world is a completely different beast from testing AND that's what makes it valuable. Deployed fleets hold contextual learning you can't get any other way; deploying to start mining that data is the smart move. Frame it as that, plainly, in my words.
+- All section-3/4 bans apply doubly here: recruiters read hundreds of AI-written letters. One negative parallelism or dead-vocab word and the letter is landfill.
+
+**Feedback loop rule:** whenever the user corrects my writing or supplies their own phrasing mid-task, fold the generalizable lesson into this file (this section or a new one) in the same session. That's the mechanism by which corrections compound instead of evaporating.
+
+---
+
 ## 5. ANTI-OVERFITTING GUIDE
 
 This document captures taste. It is a guide. Apply it with judgment.
