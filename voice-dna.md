@@ -219,6 +219,13 @@ Lessons from the user's line edits on the Figure letter (2026-07-08), before →
 - "eval pipeline" → "eval." Trim jargon suffixes when the short word carries it.
 - "finding where learned systems actually break, and fixing what I find" → "getting in the mud and finding where learned systems break, then fixing them." Physical idiom for how he works, and a plain "then fixing them" ending. Avoid clever mirrored endings ("...what I find") — they're a writer's flourish, not his.
 
+From his rewrite of the Haize letter (2026-07-08):
+
+- He cut the self-labeling thesis opener ("I design evals and RL reward signals that are hard to game, at a bank by day and...") and replaced it with two plain declarative sentences: "By day, I work as... At night (and on weekends), I work at..." Concrete situation first; never open by naming his own skill category. Plain parallel statements beat one compressed clever sentence.
+- Sentence fragments as punchlines are his: "Someone experienced in research who can apply it to all sorts of business cases." / "Getting in the mud, finding where learned systems break, and fixing them. Things like:" — a fragment plus a casual colon lead-in to a list, instead of a formal transition sentence.
+- He states genuine interest plainly and gives it a metaphor from his own world: "Evals and reward signals are highly exciting for me: I see it as a sort of cat and mouse game between researcher and model. War gaming those interactions out..." The ban on performed enthusiasm ("passionate", "excited to") does not mean flat affect — a plain "this is exciting for me because [specific mechanism]" in his register is exactly right, especially with game/wargame framing (he's a D&D and Twilight Imperium person).
+- He restructures so the through-line statement sits immediately before the evidence bullets, not in a separate bio paragraph.
+
 ---
 
 ## 5. ANTI-OVERFITTING GUIDE
