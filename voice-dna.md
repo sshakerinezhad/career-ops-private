@@ -212,6 +212,13 @@ Learned from live feedback while drafting the Figure letter. Applies to cover le
 
 **Feedback loop rule:** whenever the user corrects my writing or supplies their own phrasing mid-task, fold the generalizable lesson into this file (this section or a new one) in the same session. That's the mechanism by which corrections compound instead of evaporating.
 
+Lessons from the user's line edits on the Figure letter (2026-07-08), before → after:
+
+- "Helix sits exactly where that work has been heading" → "Helix is exactly the type of thing that work has been heading towards." Prefer the looser spoken construction over the polished-tight one. "The type of thing" and ending on a preposition are features. Overly crafted phrasing reads as written, his reads as said.
+- "The timing matters too: now that..." → "And now that..." Cut significance-announcing sentence openers entirely; don't tell the reader a point matters, just make it. Starting the sentence with And does the connective work.
+- "eval pipeline" → "eval." Trim jargon suffixes when the short word carries it.
+- "finding where learned systems actually break, and fixing what I find" → "getting in the mud and finding where learned systems break, then fixing them." Physical idiom for how he works, and a plain "then fixing them" ending. Avoid clever mirrored endings ("...what I find") — they're a writer's flourish, not his.
+
 ---
 
 ## 5. ANTI-OVERFITTING GUIDE

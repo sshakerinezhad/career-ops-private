@@ -1,8 +1,8 @@
 # Agent Inbox — queued for next session
 
-## Session handoff (updated 2026-07-08, end of session 3)
+## Session handoff (updated 2026-07-08, session 4)
 
-**Applications in:** OpenAI #3 (2026-07-07) · METR #12 (2026-07-07). Both follow-ups pinned 2026-07-14. **OpenAI #4 status UNKNOWN — ask first thing** (details + full resume-point in `data/apply-session-2026-07-06.md`, which is the live apply handoff; next up after #4 resolution: Figure #13, fully prepped).
+**Applications in:** OpenAI #3 (2026-07-07) · METR #12 (2026-07-07) · OpenAI #4 (confirmed 2026-07-08, YoE 2-4 picked). Follow-ups: 07-14 (#3, #12) and 07-15 (#4). **Figure #13 is fully ready to submit** — CV + user-approved cover letter both in `output/`, form has no knock-outs; on user "submitted" run the standard post-submit trio. Full resume-point in `data/apply-session-2026-07-06.md` (the live apply handoff). New: voice lessons in `voice-dna.md` §4.5; LinkedIn now in profile.yml.
 
 **Major correction this session: BMO start = Sep 2025, not Sep 2024** (typo originated in main.tex, propagated everywhere). Sources fixed; _profile.md rules 11/11b/11c/12 added (main.tex = content truth, HTML template = format, one-line contact "Toronto, Canada" only, one-line backed competencies, no gutted roles). **YoE outside internships/academia is now <1 yr → bracket 0-1** — reports 001/008/023/028/030 still contain stale "~2 yrs" math; re-check screen risk before applying to those (Surge #23 likely fails its 2-6 yr floor now). OpenAI #3 + agent-pt PDF went out with the old date (kept as record; unremarkable typo if asked). 7 remaining queue PDFs still stale — regenerate per-application (done so far: OpenAI #4, METR, Figure).
 
