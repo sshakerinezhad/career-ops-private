@@ -69,3 +69,5 @@
      - Never edit a system file to customize my setup -- put it here. -->
 
 (none yet -- add yours above)
+
+- **CV one-page fit workflow (added 2026-07-08):** before running `generate-pdf.mjs` on a tailored CV, check fit with `node .tmp-measure.mjs output/{cv}.html` — letter budget is 940.8px of `.page` height. Over budget → cut whole low-relevance items in relevance order (never thin roles to stubs; see `_profile.md` rules 11-12), then tighten CSS margins only as a last resort. The current layout reference is any `cv-candidate-*-2026-07-07.html` in `output/`. Helpers `.tmp-read-form.mjs` (Ashby/Greenhouse), `.tmp-lever-form.mjs` (Lever), `.tmp-measure.mjs` (page fit) live in the repo root — keep them until the apply queue is drained.
