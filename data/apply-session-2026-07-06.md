@@ -1,6 +1,8 @@
 # Apply Session Handoff — 2026-07-06 (updated 2026-07-07)
 
-Resume point: OpenAI #3 SUBMITTED 2026-07-07 (all post-submit steps done). Next up: queue row #4, OpenAI RE Frontier Evals & Environments — reuses ~90% of the #3 answer sheet (same Ashby org; dedups by email into same candidate record, normal, both land). Additional Info final v3 below is the reusable base.
+Resume point (session ended 2026-07-07): OpenAI #4 (RE Frontier Evals & Environments) answer sheet DELIVERED, user has NOT filled/submitted yet. Full sheet is in the 2026-07-07 conversation; key facts to rebuild it if lost: form re-extracted via `.tmp-read-form.mjs` (needs `NODE_USE_ENV_PROXY=1` in remote env), posting active, PDF = `output/cv-candidate-openai-evals-re-2026-07-05.pdf` (delivered to user). Form quirks vs #3: no work-auth pair (sponsorship Q only → No), start date is FREE TEXT (use the 2-4-weeks-from-offer line), Additional Info is a String field (may render single-line — condensed one-liner variant was provided), has "Where can we learn more about you?" (links go there) and a REQUIRED YoE dropdown — recommended 2-4, USER HAS NOT RATIFIED, confirm before submit. Durable form-answer policies now live in modes/_profile.md ("Application Form Answer Policies") — they survive this file's deletion. On user "submitted": tracker #4 → Applied, `node followup-seed.mjs 4 --json`, persist answers via application-answers.mjs, then next queue row = #12 METR (Lever, hCaptcha on checkboxes, fully hands-on for user).
+
+OpenAI #3: SUBMITTED 2026-07-07, all post-submit steps done (tracker Applied, follow-up pinned 2026-07-14, answers in report 003).
 
 ## State
 

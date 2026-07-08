@@ -92,6 +92,15 @@ These OVERRIDE default scoring optimism. Apply in every evaluation:
 **When offered below target:**
 > "I'm comparing with US opportunities in the [higher range]. I'm drawn to [company] because of [research agenda/team]. Can we explore [target]?"
 
+## Application Form Answer Policies (user decisions, 2026-07-07 — apply to every US application)
+
+- **Work-auth checkbox pair:** "Authorized to work?" = **Yes** · "Require sponsorship?" = **No** — ALWAYS paired with the TN clarifier in a free-text field: "Canadian citizen, TN-eligible (no sponsorship needed; TN is issued at the border, no employer petition)." Confirmed on OpenAI Agent PT 2026-07-07.
+- **Start date:** free-text = "2-4 weeks from an offer (TN processing at the border is fast; ready to relocate to San Francisco)". Date pickers (can't express "from offer") = pick ~4 weeks out; the free-text nuance goes in Additional Info.
+- **US office 3 days/week questions:** Yes.
+- **YoE dropdowns ("outside internships/academia"):** honest math = BMO Sep 2024–present + Merlyn Aug 2025–present concurrent; co-ops excluded. Recommended bracket 2-4; user has NOT yet ratified — confirm before each submit until they do.
+- **Long-answer format (user preference, replaces the 2026-07-06 single-paragraph style):** short paragraphs, bullets for the Merlyn work, concrete numbers kept (21%→42%, 60%/48%), no manufactured connective tissue between unrelated results, no company-specific flattery. Approved base text: "Additional Information — FINAL v3" in `data/apply-session-2026-07-06.md` (copy into a durable home before deleting that handoff). Claims must match `article-digest.md` — especially LessWrong (BEHAVIOR model-organism view) vs the π0.5 paper (LIBERO-PRO recipe work).
+- **"How did you hear about us?" optionals:** leave blank unless an honest option exists.
+
 ## Your Location Policy
 
 - **US relocation: preferred and actively welcomed.** Canadian citizen → TN visa: fast, cheap, no lottery. On application forms answer "authorized to work via TN classification — no H-1B sponsorship required." Do NOT check "requires sponsorship" boxes without nuance; use free-text where possible to say "Canadian citizen, TN-eligible."
