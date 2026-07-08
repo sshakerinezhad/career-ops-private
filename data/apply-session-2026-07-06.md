@@ -5,7 +5,7 @@
 **RESUME POINT (updated 2026-07-08, session 4):**
 1. **OpenAI #4: DONE.** User confirmed submitted (recorded 2026-07-08; applied from another device ~07-07/08). **YoE picked = 2-4, NOT the recommended 0-1** — user ratified it; user also mentioned "other issues discussed" in that other-device session that never reached this repo (unrecoverable). Tracker Applied, follow-up pinned 2026-07-15, answers persisted in report 004.
 2. **METR #12: DONE.** Submitted 2026-07-07 (work-auth=Other, sharing=middle option). Tracker Applied, follow-up pinned 2026-07-14 (same day as OpenAI #3's — batch them), answers persisted in report 012.
-3. **Figure #13: READY TO FILL.** Posting verified active 2026-07-08. CV: `output/cv-candidate-figure-helix-2026-07-08.pdf` (summary link removed; user should eyeball before upload). **Cover letter DONE, user-approved:** `output/figure-helix-ai-engineer-cover.pdf` (2026-07-08; draft archived in report 013). Form is trivial (Greenhouse): First/Last name, Email, Phone, Resume, optional Cover Letter/LinkedIn/Website — NO work-auth, NO custom questions, NO knock-outs. Website = sshakerinezhad.github.io; LinkedIn now in profile.yml. Next step: user fills + submits, then set-status 13 Applied + followup-seed + persist answers.
+3. **Figure #13: DONE.** Submitted 2026-07-08 (Greenhouse; CV `output/cv-candidate-figure-helix-2026-07-08.pdf` + cover letter `output/figure-helix-ai-engineer-cover.pdf`). Tracker Applied, follow-up pinned 2026-07-15 (batch with OpenAI #4's), answers persisted in report 013. **Next queue row: Haize #22 — needs CV generated first** (then Cohere #9, Skild #14, Gray Swan #21, Mechanize #15, Surge #23 re-check, Reflection #19, Prime Intellect #20).
 4. **LinkedIn: RESOLVED** — `linkedin.com/in/shayan-shakeri-nezhad` added to `config/profile.yml` (2026-07-08).
 5. Then queue: Haize #22 (needs CV), Cohere #9, Skild #14, Gray Swan #21, Mechanize #15, Surge #23 (re-check: "2-6 yrs" floor NOT cleared under corrected dates), Reflection #19, Prime Intellect #20. Regenerate each CV from main.tex content in the 2026-07-07 HTML format (fit workflow in _custom.md).
 6. **Voice note:** cover-letter/outreach register + user line-edit lessons captured in `voice-dna.md` §4.5 (2026-07-08) — read it before drafting any user-facing prose.
@@ -31,7 +31,7 @@ OpenAI #3: SUBMITTED 2026-07-07, all post-submit steps done (tracker Applied, fo
 | 3 | OpenAI — Agent Post-Training, Frontier Evals & Environments | 4.8 | Ashby | ✅ `output/cv-candidate-openai-agent-pt-2026-07-05.pdf` | ✅ SUBMITTED 2026-07-07 (tracker Applied, follow-up pinned 07-14, answers persisted) |
 | 4 | OpenAI — RE Frontier Evals & Environments | 4.6 | Ashby | ✅ exists | Next after #3. FLAG: Ashby dedups by email per company; 2nd OpenAI app merges into same candidate record (normal, both land) |
 | 12 | METR — MTS Eval Execution | 4.6 | Lever | ✅ exists | Lever hCaptcha fires on checkbox clicks — user must click those live |
-| 13 | Figure — Helix AI Engineer | 4.6 | Greenhouse | ✅ exists | |
+| 13 | Figure — Helix AI Engineer | 4.6 | Greenhouse | ✅ `output/cv-candidate-figure-helix-2026-07-08.pdf` | ✅ SUBMITTED 2026-07-08 (tracker Applied, follow-up pinned 07-15, answers persisted) |
 | 22 | Haize — Applied Researcher | 4.5 | Greenhouse | ❌ generate | |
 | 9 | Cohere — Senior RE Model Eval | 4.4 | Ashby | ✅ exists | |
 | 14 | Skild — RE Post-training | 4.4 | Greenhouse | ✅ exists | |
