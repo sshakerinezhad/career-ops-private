@@ -32,7 +32,7 @@ OpenAI #3: SUBMITTED 2026-07-07, all post-submit steps done (tracker Applied, fo
 | 4 | OpenAI — RE Frontier Evals & Environments | 4.6 | Ashby | ✅ exists | Next after #3. FLAG: Ashby dedups by email per company; 2nd OpenAI app merges into same candidate record (normal, both land) |
 | 12 | METR — MTS Eval Execution | 4.6 | Lever | ✅ exists | Lever hCaptcha fires on checkbox clicks — user must click those live |
 | 13 | Figure — Helix AI Engineer | 4.6 | Greenhouse | ✅ `output/cv-candidate-figure-helix-2026-07-08.pdf` | ✅ SUBMITTED 2026-07-08 (tracker Applied, follow-up pinned 07-15, answers persisted) |
-| 22 | Haize — Applied Researcher | 4.5 | Greenhouse | ❌ generate | |
+| 22 | Haize — Applied Researcher | 4.5 | Greenhouse | ✅ `output/cv-candidate-haize-2026-07-08.pdf` | Liveness re-verified + form read 2026-07-08: no knock-outs, no work-auth, resume required, cover letter optional |
 | 9 | Cohere — Senior RE Model Eval | 4.4 | Ashby | ✅ exists | |
 | 14 | Skild — RE Post-training | 4.4 | Greenhouse | ✅ exists | |
 | 21 | Gray Swan — MLE | 4.4 | Ashby | ❌ generate | |
