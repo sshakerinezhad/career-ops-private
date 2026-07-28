@@ -37,6 +37,18 @@
   - The repo contains PII (CV, contact info, interview notes). NEVER make it public, never fork it publicly, never push it to any other remote.
   - Never commit `.env`, `output/` PDFs, or anything matching passport/diploma filename patterns.
 
+- **Edit-delta loop (learning):** Corrections are the highest-signal data this system produces. Capture them.
+  - **Before drafting** any user-facing artifact (CV bullet, cover letter, application email, form answer, report prose), read `data/deltas.md` and obey every entry whose type matches. Higher `recur` means stronger evidence; treat `recur >= 3` as binding.
+  - **After any correction** (Shayan rewrites my draft, pastes back an altered version, or overrides a score), immediately log it. Auto, silent, no confirmation, no announcement:
+    ```
+    node data/delta.mjs add --file <scratchpad>/delta.json
+    ```
+    Payload: `{"type":"cv|cover|email|form|report|chat|score","rule":"<one-line lesson>","was":"<my span>","now":"<their span>","merge":"D0NN (optional)"}`. Store the minimal changed span, not the whole document. If this repeats a lesson already in the ledger, pass `merge` with that entry's id.
+  - **Never hand-edit** `data/deltas.md` or `data/deltas-archive.md`. The script is the only writer. Rewriting an accumulated context wholesale is the documented "context collapse" failure mode and measurably performs worse than having no memory at all (ACE, arXiv 2510.04618).
+  - **Process and workflow corrections do not go in the ledger.** They have no automatic error signal. Write those here in `modes/_custom.md` as plain rules.
+  - **When `stats` flags PRUNE DUE**, run `node data/delta.mjs prune`. For each PROMOTE candidate, write the lesson into `voice-dna.md` as a hard rule (or `modes/_profile.md` if it is a content rule), then run `node data/delta.mjs promote <id>`.
+  - After changing `data/delta.mjs`, run `node data/delta.mjs --self-test`. It is deliberately not registered in `test-all.mjs`, which is system-layer and would revert the registration on update.
+
 ## Custom Workflows
 
 <!-- Multi-step routines you run often, given a short name. Examples:

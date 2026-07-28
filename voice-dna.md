@@ -2,6 +2,8 @@
 
 Source of truth for my writing voice. Apply with judgment. Spirit over letter. Always.
 
+This file is the statute: general rules. `data/deltas.md` is the case law: specific corrections with receipts, each carrying a recurrence count and a measured edit cost. Read both before drafting. When a ledger entry recurs 3+ times it graduates into this file as a hard rule.
+
 ---
 
 ## 1. WRITING RULES
