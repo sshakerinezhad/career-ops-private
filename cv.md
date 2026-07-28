@@ -17,6 +17,8 @@ AI Research Engineer at BMO's AI Centre of Excellence and Co-Founder of Merlyn L
 
 - Uncovered systematic bias to downplay investment risk in a GenAI tool serving $200B+ AUM wealth management
 - Built a deterministic agent eval pipeline using hundreds of synthesized inputs to detect misaligned outputs at scale
+- Designing evals for LLM agents that retrieve and reason over commercial banking and insurance policy
+- Prototyping bank-wide infrastructure that spins up role-defined agents from a skills-and-scope spec
 - Building a graph-based agentic system answering complex multi-hop relational queries across bank client data
 - Side project: repairing and reprogramming BMO's legacy branded greeter robot
 

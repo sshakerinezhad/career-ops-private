@@ -80,6 +80,6 @@
      - Never auto-fill or submit an application without showing me first.
      - Never edit a system file to customize my setup -- put it here. -->
 
-(none yet -- add yours above)
+- **Never write a NEW factual claim about my work into `cv.md`, `main.tex`, `modes/_profile.md`, or `article-digest.md` without showing me the line first (added 2026-07-28).** When I describe new work in conversation, draft the resulting bullet(s) in your reply, mark what is inferred vs. what I actually said, give me a blunt read on whether each is strong enough to ship, and wait. Flagging an assumption *after* the edit is not enough — a guess that lands in `cv.md` propagates into every tailored PDF and form answer. Mechanical edits (reordering, cutting for one-page fit, tracker/status updates) do not need pre-approval.
 
 - **CV one-page fit workflow (added 2026-07-08):** before running `generate-pdf.mjs` on a tailored CV, check fit with `node .tmp-measure.mjs output/{cv}.html` — letter budget is 940.8px of `.page` height. Over budget → cut whole low-relevance items in relevance order (never thin roles to stubs; see `_profile.md` rules 11-12), then tighten CSS margins only as a last resort. The current layout reference is any `cv-candidate-*-2026-07-07.html` in `output/`. Helpers `.tmp-read-form.mjs` (Ashby/Greenhouse), `.tmp-lever-form.mjs` (Lever), `.tmp-measure.mjs` (page fit) live in the repo root — keep them until the apply queue is drained.
