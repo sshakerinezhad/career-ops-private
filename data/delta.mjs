@@ -20,6 +20,25 @@
  *   node data/delta.mjs --self-test
  */
 
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+export const LEDGER = join(HERE, 'deltas.md');
+export const ARCHIVE = join(HERE, 'deltas-archive.md');
+
+export const TEXT_TYPES = ['cv', 'cover', 'email', 'form', 'report', 'chat'];
+export const NUMERIC_TYPES = ['score'];
+
+export const LEDGER_HEADER = [
+  '# Edit Deltas',
+  '',
+  'Append-only ledger of corrections. Written ONLY by `node data/delta.mjs`.',
+  'Never hand-edit. `voice-dna.md` is the statute; this file is the case law.',
+  '',
+].join('\n');
+
 let passed = 0;
 let failed = 0;
 
@@ -94,6 +113,69 @@ export function jaccard(a, b) {
   return union === 0 ? 0 : inter / union;
 }
 
+const HEADER_RE =
+  /^(D\d{3}) · (\S+) · (\d{4}-\d{2}-\d{2}) · (cost|err) (-?[\d.]+) · recur (\d+)$/;
+
+/** Read one `- **field:** value` line out of an entry body. */
+function field(body, name) {
+  const re = new RegExp(`^- \\*\\*${name}:\\*\\* ?(.*)$`, 'm');
+  const m = body.match(re);
+  return m ? m[1].trim() : '';
+}
+
+/** Parse a ledger file into entries. Blocks that do not match are skipped. */
+export function parseLedger(raw) {
+  const blocks = String(raw).split(/^### /m).slice(1);
+  const entries = [];
+  for (const block of blocks) {
+    const nl = block.indexOf('\n');
+    const headerLine = (nl === -1 ? block : block.slice(0, nl)).trim();
+    const m = headerLine.match(HEADER_RE);
+    if (!m) continue;
+    const body = nl === -1 ? '' : block.slice(nl + 1);
+    entries.push({
+      id: m[1],
+      type: m[2],
+      date: m[3],
+      metric: m[4],
+      value: Number(m[5]),
+      recur: Number(m[6]),
+      rule: field(body, 'rule'),
+      was: field(body, 'was'),
+      now: field(body, 'now'),
+    });
+  }
+  return entries;
+}
+
+/** Collapse to a single line so the header/field grammar stays regex-parseable. */
+function oneLine(s) {
+  return String(s).replace(/\s+/g, ' ').trim();
+}
+
+export function formatEntry(e) {
+  return [
+    `### ${e.id} · ${e.type} · ${e.date} · ${e.metric} ${e.value.toFixed(2)} · recur ${e.recur}`,
+    `- **rule:** ${oneLine(e.rule)}`,
+    `- **was:** ${oneLine(e.was)}`,
+    `- **now:** ${oneLine(e.now)}`,
+    '',
+  ].join('\n');
+}
+
+export function serializeLedger(entries, header) {
+  return `${header}\n${entries.map(formatEntry).join('\n')}`;
+}
+
+export function nextId(entries) {
+  const max = entries.reduce((acc, e) => Math.max(acc, Number(e.id.slice(1))), 0);
+  return `D${String(max + 1).padStart(3, '0')}`;
+}
+
+export function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+
 function runSelfTest() {
   eq('tokenize splits on non-word chars', tokenize("I'm excited, truly!"), ["i'm", 'excited', 'truly']);
   eq('tokenize empty string', tokenize(''), []);
@@ -114,6 +196,41 @@ function runSelfTest() {
   eq('trigrams basic', [...trigrams('abcd')], ['abc', 'bcd']);
   eq('jaccard identical', jaccard(trigrams('lead with their problem'), trigrams('lead with their problem')), 1);
   eq('jaccard disjoint', jaccard(new Set(['abc']), new Set(['xyz'])), 0);
+
+  const sample = [
+    '# Edit Deltas',
+    '',
+    '### D001 · cover · 2026-07-27 · cost 0.31 · recur 1',
+    '- **rule:** Lead with their problem.',
+    '- **was:** I am excited to apply.',
+    '- **now:** Your evals team ships fast.',
+    '',
+    '### D002 · score · 2026-07-28 · err 1.10 · recur 2',
+    '- **rule:** Cap fintech infra at 3.5.',
+    '- **was:** 4.2',
+    '- **now:** 3.1',
+    '',
+  ].join('\n');
+
+  const parsed = parseLedger(sample);
+  eq('parseLedger finds both entries', parsed.length, 2);
+  eq('parseLedger id', parsed[0].id, 'D001');
+  eq('parseLedger type', parsed[0].type, 'cover');
+  eq('parseLedger metric name', parsed[0].metric, 'cost');
+  eq('parseLedger value', parsed[0].value, 0.31);
+  eq('parseLedger recur', parsed[1].recur, 2);
+  eq('parseLedger rule text', parsed[0].rule, 'Lead with their problem.');
+  eq('parseLedger was text', parsed[1].was, '4.2');
+  eq('parseLedger ignores prose header', parseLedger('# Edit Deltas\n\nsome prose\n').length, 0);
+
+  eq('nextId from existing', nextId(parsed), 'D003');
+  eq('nextId from empty', nextId([]), 'D001');
+
+  // Round-trip: serialize then reparse must be lossless.
+  const round = parseLedger(serializeLedger(parsed, '# Edit Deltas\n'));
+  eq('round-trip preserves count', round.length, 2);
+  eq('round-trip preserves value', round[0].value, 0.31);
+  eq('round-trip preserves rule', round[1].rule, 'Cap fintech infra at 3.5.');
 
   console.log(`\n${passed} passed, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);
