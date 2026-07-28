@@ -334,6 +334,114 @@ export function cmdStats() {
   if (s.pruneDue) console.log(`\nPRUNE DUE — ${s.total} live entries. Run \`node data/delta.mjs prune\`.`);
 }
 
+/** A recur-1 entry older than this never recurred; it was noise, not a rule. */
+export const STALE_DAYS = 30;
+/** Hard bound on live entries per type, so context cost cannot grow forever. */
+export const TYPE_CAP = 12;
+
+export function daysBetween(a, b) {
+  return Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
+}
+
+/**
+ * Split entries into what stays live and what gets archived.
+ * Pure and deterministic — no model call, no embedding, no rewrite.
+ */
+export function partitionPrune(entries, todayStr) {
+  const keep = [];
+  const archive = [];
+
+  for (const e of entries) {
+    const stale = e.recur === 1 && daysBetween(e.date, todayStr) > STALE_DAYS;
+    if (stale) archive.push(e);
+    else keep.push(e);
+  }
+
+  const byType = new Map();
+  for (const e of keep) {
+    if (!byType.has(e.type)) byType.set(e.type, []);
+    byType.get(e.type).push(e);
+  }
+
+  const survivors = [];
+  for (const rows of byType.values()) {
+    if (rows.length <= TYPE_CAP) {
+      survivors.push(...rows);
+      continue;
+    }
+    // Rank by recur desc, then by id asc (older first) as a stable tiebreak.
+    const ranked = [...rows].sort(
+      (a, b) => b.recur - a.recur || a.id.localeCompare(b.id),
+    );
+    survivors.push(...ranked.slice(0, TYPE_CAP));
+    archive.push(...ranked.slice(TYPE_CAP));
+  }
+
+  survivors.sort((a, b) => a.id.localeCompare(b.id));
+  archive.sort((a, b) => a.id.localeCompare(b.id));
+  return { keep: survivors, archive };
+}
+
+function appendArchive(entries, reason) {
+  if (entries.length === 0) return;
+  const header = existsSync(ARCHIVE)
+    ? readFileSync(ARCHIVE, 'utf-8')
+    : '# Edit Deltas — Archive\n\nPruned and promoted entries, retained verbatim. Never deleted.\n';
+  const block = `\n<!-- ${today()} · ${reason} -->\n\n${entries.map(formatEntry).join('\n')}`;
+  writeFileSync(ARCHIVE, `${header.replace(/\s+$/, '')}\n${block}`, 'utf-8');
+}
+
+export function cmdPrune() {
+  const entries = readLedger();
+  const { keep, archive } = partitionPrune(entries, today());
+  if (archive.length === 0) {
+    console.log(`Nothing to prune. ${entries.length} live entries.`);
+  } else {
+    appendArchive(archive, 'pruned');
+    writeLedger(keep);
+    console.log(`Archived ${archive.length}: ${archive.map((e) => e.id).join(', ')}`);
+    console.log(`${keep.length} live entries remain.`);
+  }
+  const promote = keep.filter((e) => e.recur >= PROMOTE_AT);
+  if (promote.length) {
+    console.log(`\nPROMOTE these to hard rules in voice-dna.md, then run \`promote <id>\`:`);
+    for (const e of promote) console.log(`  ${e.id} (recur ${e.recur}) ${e.rule}`);
+  }
+}
+
+export function cmdPromote(id) {
+  if (!id) {
+    console.error('Usage: node data/delta.mjs promote D014');
+    process.exit(1);
+  }
+  const entries = readLedger();
+  const target = entries.find((e) => e.id === id);
+  if (!target) {
+    console.error(`No live entry ${id}.`);
+    process.exit(1);
+  }
+  appendArchive([target], 'promoted to voice-dna.md');
+  writeLedger(entries.filter((e) => e.id !== id));
+  console.log(`Promoted ${id}. Confirm it now reads as a hard rule in voice-dna.md.`);
+}
+
+function main() {
+  const [cmd, ...rest] = process.argv.slice(2);
+  switch (cmd) {
+    case 'add': return cmdAdd(process.argv);
+    case 'stats': return cmdStats();
+    case 'prune': return cmdPrune();
+    case 'promote': return cmdPromote(rest[0]);
+    default:
+      console.error('Usage: node data/delta.mjs <add|stats|prune|promote> [args]');
+      console.error('  add --file p.json | --json \'{...}\'   {type,rule,was,now,merge?}');
+      console.error('  stats                                  per-type trend + flags');
+      console.error('  prune                                  archive stale/overflow entries');
+      console.error('  promote D014                           archive after graduating to voice-dna.md');
+      process.exit(1);
+  }
+}
+
 function runSelfTest() {
   eq('tokenize splits on non-word chars', tokenize("I'm excited, truly!"), ["i'm", 'excited', 'truly']);
   eq('tokenize empty string', tokenize(''), []);
@@ -484,8 +592,37 @@ function runSelfTest() {
   }));
   eq('stats prune due above threshold', computeStats(many).pruneDue, true);
 
+  const mk = (id, type, date, recur) => ({
+    id, type, date, metric: 'cost', value: 0.3, recur, rule: `rule ${id}`, was: 'a', now: 'b',
+  });
+
+  eq('daysBetween counts days', daysBetween('2026-01-01', '2026-01-31'), 30);
+
+  const p1 = partitionPrune(
+    [
+      mk('D001', 'cover', '2026-01-01', 1), // stale, recur 1 -> archive
+      mk('D002', 'cover', '2026-01-01', 3), // stale but recur 3 -> keep
+      mk('D003', 'cover', '2026-07-20', 1), // recent -> keep
+    ],
+    '2026-07-27',
+  );
+  eq('prune archives stale singletons', p1.archive.map((e) => e.id), ['D001']);
+  eq('prune keeps high-recur entries', p1.keep.map((e) => e.id), ['D002', 'D003']);
+
+  // Overflow: 14 recent entries in one type, cap is 12 -> 2 lowest-recur archived.
+  const overflow = Array.from({ length: 14 }, (_, i) =>
+    mk(`D${String(i + 1).padStart(3, '0')}`, 'chat', '2026-07-26', i < 2 ? 1 : 5));
+  const p2 = partitionPrune(overflow, '2026-07-27');
+  eq('prune enforces per-type cap', p2.keep.length, 12);
+  eq('prune archives lowest recur first', p2.archive.map((e) => e.id), ['D001', 'D002']);
+
+  // Below cap and all recent: nothing moves.
+  const p3 = partitionPrune([mk('D001', 'cv', '2026-07-26', 1)], '2026-07-27');
+  eq('prune is a no-op when healthy', p3.archive.length, 0);
+
   console.log(`\n${passed} passed, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);
 }
 
 if (process.argv.includes('--self-test')) runSelfTest();
+else main();
