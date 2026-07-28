@@ -176,6 +176,111 @@ export function today() {
   return new Date().toISOString().slice(0, 10);
 }
 
+/**
+ * Character-trigram Jaccard above this counts as "the same rule again".
+ * Deliberately conservative: a false merge silently loses a distinct lesson,
+ * while a missed merge only costs one extra row that `prune` will handle.
+ * The caller can always pass an explicit `merge` id, which wins outright.
+ */
+export const MERGE_THRESHOLD = 0.6;
+
+export function findMergeTarget(entries, type, rule, explicitId) {
+  if (explicitId) {
+    return entries.find((e) => e.id === explicitId) || null;
+  }
+  const g = trigrams(rule);
+  let best = null;
+  let bestScore = 0;
+  for (const e of entries) {
+    if (e.type !== type) continue;
+    const score = jaccard(g, trigrams(e.rule));
+    if (score > bestScore) {
+      bestScore = score;
+      best = e;
+    }
+  }
+  return bestScore >= MERGE_THRESHOLD ? best : null;
+}
+
+/**
+ * Fold one correction into the ledger. Pure: returns a new array, writes nothing.
+ *
+ * Text types score normalized word-level edit distance (0 = shipped untouched).
+ * `score` scores signed error (now - was), so systematic over-scoring shows as
+ * a persistent negative mean.
+ */
+export function applyDelta(entries, payload) {
+  const { type, rule, was, now, merge } = payload;
+  const isText = TEXT_TYPES.includes(type);
+  const isNumeric = NUMERIC_TYPES.includes(type);
+  if (!isText && !isNumeric) {
+    throw new Error(
+      `Unknown type "${type}". Text: ${TEXT_TYPES.join('|')}. Numeric: ${NUMERIC_TYPES.join('|')}. ` +
+        'Process/workflow corrections have no automatic error signal — put those in modes/_custom.md.',
+    );
+  }
+  if (!rule || !String(rule).trim()) throw new Error('rule is required');
+
+  const value = isText ? editCost(was, now) : Number(now) - Number(was);
+  if (Number.isNaN(value)) throw new Error(`type "${type}" needs numeric was/now`);
+
+  const target = findMergeTarget(entries, type, rule, merge);
+  const out = entries.map((e) => ({ ...e }));
+
+  if (target) {
+    const t = out.find((e) => e.id === target.id);
+    t.value = (t.value * t.recur + value) / (t.recur + 1);
+    t.recur += 1;
+    return { entries: out, entry: t, merged: true };
+  }
+
+  const entry = {
+    id: nextId(out),
+    type,
+    date: today(),
+    metric: isText ? 'cost' : 'err',
+    value,
+    recur: 1,
+    rule: String(rule),
+    was: String(was),
+    now: String(now),
+  };
+  out.push(entry);
+  return { entries: out, entry, merged: false };
+}
+
+function readLedger() {
+  if (!existsSync(LEDGER)) return [];
+  return parseLedger(readFileSync(LEDGER, 'utf-8'));
+}
+
+function writeLedger(entries) {
+  writeFileSync(LEDGER, serializeLedger(entries, LEDGER_HEADER), 'utf-8');
+}
+
+/** Read the JSON payload from --file <path>, --json <string>, or stdin. */
+function readPayload(argv) {
+  const fileIdx = argv.indexOf('--file');
+  if (fileIdx !== -1 && argv[fileIdx + 1]) {
+    return JSON.parse(readFileSync(argv[fileIdx + 1], 'utf-8'));
+  }
+  const jsonIdx = argv.indexOf('--json');
+  if (jsonIdx !== -1 && argv[jsonIdx + 1]) {
+    return JSON.parse(argv[jsonIdx + 1]);
+  }
+  return JSON.parse(readFileSync(0, 'utf-8'));
+}
+
+export function cmdAdd(argv) {
+  const payload = readPayload(argv);
+  const { entries, entry, merged } = applyDelta(readLedger(), payload);
+  writeLedger(entries);
+  const label = entry.metric === 'cost' ? 'cost' : 'err';
+  console.log(
+    `${merged ? 'merged' : 'logged'} ${entry.id} ${entry.type} ${label} ${entry.value.toFixed(2)} recur ${entry.recur}`,
+  );
+}
+
 function runSelfTest() {
   eq('tokenize splits on non-word chars', tokenize("I'm excited, truly!"), ["i'm", 'excited', 'truly']);
   eq('tokenize empty string', tokenize(''), []);
@@ -231,6 +336,73 @@ function runSelfTest() {
   eq('round-trip preserves count', round.length, 2);
   eq('round-trip preserves value', round[0].value, 0.31);
   eq('round-trip preserves rule', round[1].rule, 'Cap fintech infra at 3.5.');
+
+  // A fresh delta appends.
+  const r1 = applyDelta([], {
+    type: 'cover',
+    rule: 'Lead with their problem, not my enthusiasm.',
+    was: 'the cat sat down',
+    now: 'the dog sat down',
+  });
+  eq('applyDelta appends first entry', r1.entries.length, 1);
+  eq('applyDelta not a merge', r1.merged, false);
+  eq('applyDelta assigns first id', r1.entries[0].id, 'D001');
+  eq('applyDelta computes cost', r1.entries[0].value, 0.25);
+  eq('applyDelta recur starts at 1', r1.entries[0].recur, 1);
+  eq('applyDelta picks cost metric for text', r1.entries[0].metric, 'cost');
+
+  // Same rule again merges instead of appending, and averages the metric.
+  const r2 = applyDelta(r1.entries, {
+    type: 'cover',
+    rule: 'Lead with their problem, not my enthusiasm.',
+    was: 'alpha beta gamma delta',
+    now: 'one two three four',
+  });
+  eq('applyDelta merges duplicate rule', r2.entries.length, 1);
+  eq('applyDelta flags merge', r2.merged, true);
+  eq('applyDelta increments recur', r2.entries[0].recur, 2);
+  eq('applyDelta averages metric', Number(r2.entries[0].value.toFixed(3)), 0.625);
+
+  // A different rule in the same type appends.
+  const r3 = applyDelta(r2.entries, {
+    type: 'cover',
+    rule: 'Never mention salary in the opening paragraph.',
+    was: 'x y', now: 'x z',
+  });
+  eq('applyDelta appends distinct rule', r3.entries.length, 2);
+  eq('applyDelta assigns next id', r3.entries[1].id, 'D002');
+
+  // Same rule text under a different type must NOT merge.
+  const r4 = applyDelta(r3.entries, {
+    type: 'email',
+    rule: 'Lead with their problem, not my enthusiasm.',
+    was: 'x y', now: 'x z',
+  });
+  eq('applyDelta does not merge across types', r4.entries.length, 3);
+
+  // Explicit merge target wins over similarity.
+  const r5 = applyDelta(r4.entries, {
+    type: 'cover',
+    rule: 'A totally unrelated sentence about pineapples.',
+    was: 'x y', now: 'x z',
+    merge: 'D002',
+  });
+  eq('explicit merge respects id', r5.entries.length, 3);
+  eq('explicit merge increments target', r5.entries[1].recur, 2);
+
+  // Numeric type uses signed error, not edit distance.
+  const r6 = applyDelta([], {
+    type: 'score', rule: 'Cap fintech infra at 3.5.', was: '4.2', now: '3.1',
+  });
+  eq('score uses err metric', r6.entries[0].metric, 'err');
+  eq('score computes signed error', Number(r6.entries[0].value.toFixed(2)), -1.1);
+
+  // Unknown type is rejected.
+  let threw = false;
+  try {
+    applyDelta([], { type: 'process', rule: 'r', was: 'a', now: 'b' });
+  } catch { threw = true; }
+  eq('unknown type rejected', threw, true);
 
   console.log(`\n${passed} passed, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);
