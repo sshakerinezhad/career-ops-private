@@ -281,6 +281,59 @@ export function cmdAdd(argv) {
   );
 }
 
+/** Live-entry count above which `prune` should be run. */
+export const PRUNE_THRESHOLD = 40;
+/** recur count at which an entry has earned promotion to a hard rule. */
+export const PROMOTE_AT = 3;
+
+function mean(nums) {
+  return nums.length === 0 ? 0 : nums.reduce((a, b) => a + b, 0) / nums.length;
+}
+
+export function computeStats(entries) {
+  const types = [...new Set(entries.map((e) => e.type))].sort();
+  const byType = types.map((type) => {
+    const rows = entries
+      .filter((e) => e.type === type)
+      .sort((a, b) => a.id.localeCompare(b.id));
+    // Absolute value for signed metrics so over- and under-shoot don't cancel.
+    const vals = rows.map((e) => (e.metric === 'err' ? Math.abs(e.value) : e.value));
+    const w = Math.max(1, Math.min(3, Math.floor(vals.length / 2)));
+    const firstMean = mean(vals.slice(0, w));
+    const lastMean = mean(vals.slice(-w));
+    return { type, n: rows.length, firstMean, lastMean, trend: lastMean - firstMean };
+  });
+  return {
+    byType,
+    promote: entries.filter((e) => e.recur >= PROMOTE_AT),
+    pruneDue: entries.length > PRUNE_THRESHOLD,
+    total: entries.length,
+  };
+}
+
+export function cmdStats() {
+  const entries = readLedger();
+  const s = computeStats(entries);
+  if (s.total === 0) {
+    console.log('Ledger empty. Nothing learned yet.');
+    return;
+  }
+  console.log(`${s.total} live entries\n`);
+  console.log('type      n   first   last   trend');
+  for (const t of s.byType) {
+    console.log(
+      `${t.type.padEnd(9)} ${String(t.n).padStart(2)}   ` +
+        `${t.firstMean.toFixed(2)}    ${t.lastMean.toFixed(2)}   ` +
+        `${t.trend >= 0 ? '+' : ''}${t.trend.toFixed(2)}`,
+    );
+  }
+  if (s.promote.length) {
+    console.log(`\nPROMOTE (recur >= ${PROMOTE_AT}) — graduate to voice-dna.md, then \`promote <id>\`:`);
+    for (const e of s.promote) console.log(`  ${e.id} (recur ${e.recur}) ${e.rule}`);
+  }
+  if (s.pruneDue) console.log(`\nPRUNE DUE — ${s.total} live entries. Run \`node data/delta.mjs prune\`.`);
+}
+
 function runSelfTest() {
   eq('tokenize splits on non-word chars', tokenize("I'm excited, truly!"), ["i'm", 'excited', 'truly']);
   eq('tokenize empty string', tokenize(''), []);
@@ -403,6 +456,33 @@ function runSelfTest() {
     applyDelta([], { type: 'process', rule: 'r', was: 'a', now: 'b' });
   } catch { threw = true; }
   eq('unknown type rejected', threw, true);
+
+  const statEntries = [
+    { id: 'D001', type: 'cover', date: '2026-01-01', metric: 'cost', value: 0.8, recur: 1, rule: 'a', was: '', now: '' },
+    { id: 'D002', type: 'cover', date: '2026-01-02', metric: 'cost', value: 0.6, recur: 4, rule: 'b', was: '', now: '' },
+    { id: 'D003', type: 'cover', date: '2026-01-03', metric: 'cost', value: 0.2, recur: 1, rule: 'c', was: '', now: '' },
+    { id: 'D004', type: 'cover', date: '2026-01-04', metric: 'cost', value: 0.2, recur: 1, rule: 'd', was: '', now: '' },
+    { id: 'D005', type: 'score', date: '2026-01-05', metric: 'err', value: -1.1, recur: 1, rule: 'e', was: '', now: '' },
+  ];
+  const st = computeStats(statEntries);
+  eq('stats total', st.total, 5);
+  eq('stats groups by type', st.byType.length, 2);
+  const cover = st.byType.find((t) => t.type === 'cover');
+  eq('stats counts per type', cover.n, 4);
+  // Window is min(3, floor(n/2)) = 2 for n=4: first two vs last two.
+  eq('stats first-window mean', Number(cover.firstMean.toFixed(2)), 0.7);
+  eq('stats last-window mean', Number(cover.lastMean.toFixed(2)), 0.2);
+  eq('stats trend is last minus first', Number(cover.trend.toFixed(2)), -0.5);
+  const score = st.byType.find((t) => t.type === 'score');
+  eq('score stats use absolute error', Number(score.lastMean.toFixed(2)), 1.1);
+  eq('stats promote list flags recur>=3', st.promote.map((e) => e.id), ['D002']);
+  eq('stats prune not due below threshold', st.pruneDue, false);
+
+  const many = Array.from({ length: 41 }, (_, i) => ({
+    id: `D${String(i + 1).padStart(3, '0')}`, type: 'chat', date: '2026-01-01',
+    metric: 'cost', value: 0.1, recur: 1, rule: `r${i}`, was: '', now: '',
+  }));
+  eq('stats prune due above threshold', computeStats(many).pruneDue, true);
 
   console.log(`\n${passed} passed, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);
