@@ -13,7 +13,7 @@ AI Research Engineer at BMO's AI Centre of Excellence and Co-Founder of Merlyn L
 
 ## Experience
 
-### AI Research Engineer — BMO AI Centre of Excellence, Toronto (Sep 2024 – Present)
+### AI Research Engineer — BMO AI Centre of Excellence, Toronto (Sep 2025 – Present)
 
 - Uncovered systematic bias to downplay investment risk in a GenAI tool serving $200B+ AUM wealth management
 - Built a deterministic agent eval pipeline using hundreds of synthesized inputs to detect misaligned outputs at scale

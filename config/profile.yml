@@ -64,9 +64,9 @@ narrative:
     - name: "RLinf open-source contribution"
       url: "https://github.com/RLinf/RLinf"
       hero_metric: "Flow-matching VLA integration enabling RL on BEHAVIOR-1K in OmniGibson"
-    - name: "LIBERO-PRO baseline critique"
-      url: "https://arxiv.org/abs/2510.03827"
-      hero_metric: "Conservative finetuning doubled position-swap success (21% → 42%)"
+    - name: "Recalibrating VLA Baselines (paper, unpublished — never claim a venue)"
+      url: "local: data/papers/recalibrating-vla-baselines.pdf — full claim digest in article-digest.md §3. Benchmark it recalibrates (NOT our paper): https://arxiv.org/abs/2510.03827"
+      hero_metric: "Conservative finetuning doubled π0.5 LIBERO-PRO position-swap success (21% → 42%); published checkpoint's brittleness is recipe-induced, not architectural"
 
 compensation:
   # US-first search. High-comp priority is explicit and unapologetic.

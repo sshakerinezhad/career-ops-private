@@ -27,6 +27,8 @@
 | Robotics SWE | ROS2, 7-DOF control pipeline, YOLO+LiDAR grasp planning, hand-built AlohaMini, PCB/hardware roots | cv.md (UofT project, Epineuron, Merlyn Labs) |
 | Enterprise / Finance ML | Production GenAI at BMO, bias/risk detection in regulated wealth management | cv.md (BMO) |
 
+Exact claims per artifact (with hero metrics and do-not-claim notes): `article-digest.md`.
+
 ## Your Exit Narrative
 
 Dual-track researcher: enterprise AI rigor by day (BMO AI CoE), frontier robotics research by night (Merlyn Labs, co-founded). The two converge on one theme — **finding where AI systems fail and building evaluations that surface it**: bias in a $200B AUM GenAI tool, proprioceptive collapse in VLAs, overfitting in published benchmarks. Seeking a frontier role where that convergence is the job.
@@ -39,7 +41,8 @@ Dual-track researcher: enterprise AI rigor by day (BMO AI CoE), frontier robotic
 
 - **sshakerinezhad.github.io** — personal portfolio, Win95-style React site (shows frontend craft + personality; share where culture-fit/creativity valued)
 - **merlyn-labs.com** — Merlyn Labs: independent research collective (3 members, co-founded with friends, self-funded, Toronto). BEHAVIOR technical report at /behavior-report. Positioning: "research collective" / "independent research lab" — honest framing, results are externally verifiable (BEHAVIOR-1K leaderboard, RLinf GitHub, LessWrong).
-- **LessWrong** — VLA failure-mode analysis (share for alignment/evals roles)
+- **LessWrong** — VLA failure-mode analysis (share for alignment/evals roles). This is a **model-organism view of the BEHAVIOR-1K findings** — it is NOT the LIBERO-PRO/π0.5 recipe work (that's the paper below; conflating the two was a real drafting error, caught 2026-07-07)
+- **Paper: "Recalibrating VLA Baselines"** — `data/papers/recalibrating-vla-baselines.pdf`, unpublished (submitted, likely rejected — never claim "published" or a venue). π0.5's LIBERO-PRO position-swap collapse is recipe-induced: conservative FFT doubles success 21% → 42%. Full claim digest: `article-digest.md` §3
 - **GitHub** — github.com/sshakerinezhad; RLinf contribution (share for robotics/RL roles)
 - When to share: always for research roles; report for robotics, LessWrong for alignment
 - **Interview one-liner for "what is Merlyn Labs?":** "Self-organized research collective — three of us doing robotics research nights and weekends. We placed 8th in Stanford's BEHAVIOR-1K Challenge, published our methods, and contribute to open-source RL infra." Never imply funding, headcount, or company status beyond this.
@@ -68,6 +71,10 @@ These OVERRIDE default scoring optimism. Apply in every evaluation:
 8. **Education phrasing:** "M.Eng in AI & Robotics, University of Toronto, expected April 2027". Never "M.Eng candidate" (candidate = PhD flavor). Degree is course-based; M.Eng label itself signals that honestly to insiders — don't add "course-based" on the CV, and never imply a thesis/research masters. If asked in interview: "course-based M.Eng; my research happens at Merlyn Labs."
 9. **Visa phrasing:** "Canadian citizen · TN-eligible (no sponsorship required)". NEVER "US-authorized" or any claim of current US work authorization — he is eligible, not yet authorized. Overstating visa status is a hard credibility risk.
 10. **No em dashes (—) or double dashes (--) in prose.** AI-slop tell. Use colons, commas, or periods. Especially banned: the "claim — poetic restatement" pattern ("... difficult to game — reward signals engineered to resist reward hacking"). If the restatement adds nothing, delete it; if it adds something, make it its own sentence. Date ranges keep the en dash (2024–2025); structural separators use comma or "·".
+11. **`main.tex` (repo root) is the factual source of truth for CONTENT ONLY (dates, titles, bullet text, metrics); `cv.md` mirrors it. FORMAT stays the generated HTML-template design** (Professional Summary / Core Competencies / Work Experience layout, user confirmed 2026-07-07). Do NOT revert to main.tex's own LaTeX layout for delivered CVs. Cross-check every generated CV's dates against main.tex before delivery. Known correction: BMO start date is **Sep 2025** (a Sep 2024 error shipped in main.tex/cv.md and all 9 PDFs generated 2026-07-05; sources corrected 2026-07-07, PDFs need regeneration).
+11b. **Header contact info fits on EXACTLY ONE line** (user feedback 2026-07-07: the 07-05 PDFs wrapped to two). Drop items (portfolio URL first) before letting it wrap. **Location item is exactly "Toronto, Canada" — no TN-eligible / visa / citizenship text in the header, on ANY CV** (user directive 2026-07-07). Visa status lives in form answers and free-text fields only (rule 9 phrasing still applies there).
+11c. **Core Competencies is EXACTLY ONE line of high-signal, CV-backed competencies.** No buzzword chips, no keyword salad, and never unbacked terms (the 07-05 "Post-training / RLHF & RLAIF" chip is the canonical violation: RLHF/RLAIF appears nowhere in main.tex). If a competency wouldn't survive an interviewer's "tell me about that" follow-up, it doesn't go on the line.
+12. **No gutted one-liner roles (user feedback 2026-07-07: "the lamest line possible").** Tailoring means reordering and keyword emphasis starting from main.tex's full bullets, NEVER rewriting a role into one compressed generic line. Every role kept on the page retains at least its 2 strongest concrete bullets with metrics intact (Epineuron example: FDA Breakthrough-designated PeriPulse in multinational clinical trials; 900% battery-life improvement via oscilloscope/power-analyzer work; IEC 60601-1/ISO 13485 validation protocols; COMSOL nerve-field modeling that set electrode diameter). If space forces a choice, CUT a whole lower-relevance role/project and keep the survivors strong, rather than thinning everything into weak stubs.
 
 ## Your Comp Targets
 
@@ -88,6 +95,15 @@ These OVERRIDE default scoring optimism. Apply in every evaluation:
 
 **When offered below target:**
 > "I'm comparing with US opportunities in the [higher range]. I'm drawn to [company] because of [research agenda/team]. Can we explore [target]?"
+
+## Application Form Answer Policies (user decisions, 2026-07-07 — apply to every US application)
+
+- **Work-auth checkbox pair:** "Authorized to work?" = **Yes** · "Require sponsorship?" = **No** — ALWAYS paired with the TN clarifier in a free-text field: "Canadian citizen, TN-eligible (no sponsorship needed; TN is issued at the border, no employer petition)." Confirmed on OpenAI Agent PT 2026-07-07.
+- **Start date:** free-text = "2-4 weeks from an offer (TN processing at the border is fast; ready to relocate to San Francisco)". Date pickers (can't express "from offer") = pick ~4 weeks out; the free-text nuance goes in Additional Info.
+- **US office 3 days/week questions:** Yes.
+- **YoE dropdowns ("outside internships/academia"):** honest math = BMO Sep 2025–present + Merlyn Aug 2025–present, CONCURRENT (they don't stack); co-ops excluded. As of mid-2026 that is under 1 year of wall-clock professional experience: strict-honest bracket = 0-1. (A Sep 2024 BMO typo inflated this to "2-4" in early sessions — corrected 2026-07-07. Any report or answer sheet citing "~2 yrs at BMO" predates the fix.) Confirm the bracket with the user before each submit.
+- **Long-answer format (user preference, replaces the 2026-07-06 single-paragraph style):** short paragraphs, bullets for the Merlyn work, concrete numbers kept (21%→42%, 60%/48%), no manufactured connective tissue between unrelated results, no company-specific flattery. Approved base text: "Additional Information — FINAL v3" in `data/apply-session-2026-07-06.md` (copy into a durable home before deleting that handoff). Claims must match `article-digest.md` — especially LessWrong (BEHAVIOR model-organism view) vs the π0.5 paper (LIBERO-PRO recipe work).
+- **"How did you hear about us?" optionals:** leave blank unless an honest option exists.
 
 ## Your Location Policy
 

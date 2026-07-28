@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+import { pathToFileURL } from 'url';
+const browser = await chromium.launch();
+const page = await browser.newPage();
+await page.emulateMedia({ media: 'print' });
+await page.setViewportSize({ width: 701, height: 2000 });
+await page.goto(pathToFileURL(process.argv[2]).href);
+const h = await page.evaluate(() => document.querySelector('.page').getBoundingClientRect().height);
+console.log('content height px:', Math.round(h), '| budget:', (11-1.2)*96);
+await browser.close();
