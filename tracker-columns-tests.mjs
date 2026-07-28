@@ -18,13 +18,22 @@
  */
 
 import { execFileSync } from 'child_process';
-import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, rmSync, utimesSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync, mkdtempSync, mkdirSync, rmSync, utimesSync } from 'fs';
 import { join, dirname } from 'path';
 import { tmpdir } from 'os';
 import { fileURLToPath } from 'url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const NODE = process.execPath;
+
+// web/ lives deliberately OUTSIDE the auto-updater's world (its own
+// release-please component; see validate-system-paths-coverage.mjs
+// EXCLUDE_PREFIXES), so installs updated via `update-system.mjs apply` have
+// the core WITHOUT the web/ tree. The web-reader tests below exercise the
+// real alias chain on fresh clones and CI, and skip cleanly on core-only
+// installs instead of crashing the whole suite with ERR_MODULE_NOT_FOUND.
+const HAS_WEB = existsSync(join(ROOT, 'web', 'src', 'lib', 'tracker-table.mjs'));
+function skipWeb(m) { console.log(`SKIP ${m} — web/ not present (core-only install; web/ is excluded from the auto-updater by design)`); }
 
 let passed = 0;
 let failed = 0;
@@ -72,6 +81,17 @@ function makeSandbox(trackerContent, additions = {}) {
     writeFileSync(join(additionsDir, name), content);
   }
   return { dir, tracker, additions: additionsDir, lock };
+}
+
+// Pin scan.mjs's extra dedupe sources inside the sandbox. The module-level
+// paths are relative to process.cwd(), so an in-process call would otherwise
+// read the developer's real data/scan-history.tsv and data/pipeline.md — CI
+// only escapes that because both files are gitignored.
+function sandboxSources(sb) {
+  return {
+    scanHistoryPath: join(sb.dir, 'scan-history.tsv'),
+    pipelinePath: join(sb.dir, 'pipeline.md'),
+  };
 }
 
 // Return the data rows of a tracker (pipe lines that aren't header/separator).
@@ -192,7 +212,7 @@ const TSV_NO_LOCATION = '2\t2026-02-02\tGlobex\tManager\tApplied\tN/A\t✅\t—\
 {
   const { loadSeenCompanyRoles } = await import('./scan.mjs');
   const sb = makeSandbox(HEADER_10);
-  const seen = loadSeenCompanyRoles(sb.tracker);
+  const seen = loadSeenCompanyRoles(sb.tracker, undefined, sandboxSources(sb));
   if (seen.has('acme::engineer')) pass('scan.mjs: seen-set keys company::role on 10-col tracker');
   else fail(`scan.mjs: seen-set on 10-col tracker — got [${[...seen].join(', ')}]`);
   if (![...seen].some(k => k.includes('remote') || k.includes('4.0/5'))) {
@@ -203,12 +223,48 @@ const TSV_NO_LOCATION = '2\t2026-02-02\tGlobex\tManager\tApplied\tN/A\t✅\t—\
   rmSync(sb.dir, { recursive: true, force: true });
 }
 
+// ── Test 6b: normalize-statuses maps Status/Score/Notes by header (#1955) ───
+// normalize-statuses.mjs read Status at parts[6], Score at parts[5] and Notes
+// at parts[9]. On a 10-column tracker every one of those lands a column early:
+// the Score cell was normalized as if it were a status — a `—` score (the
+// tracker's own "no evaluation" sentinel) mapped to Discarded and OVERWROTE
+// the Score column — while the real, non-canonical status was left untouched
+// and reported as an unknown status instead.
+{
+  const TEN_COL_MESSY = `# Applications Tracker
+
+| # | Date | Company | Role | Location | Score | Status | PDF | Report | Notes |
+|---|------|---------|------|----------|-------|--------|-----|--------|-------|
+| 1 | 2026-01-01 | Acme | Engineer | Remote | — | Aplicado 2026-01-02 | ✅ | — | backfilled, no eval |
+| 2 | 2026-01-03 | Globex | Manager | Berlin | 4.5/5 | DUPLICADO de #1 | ❌ | — | keep me |
+`;
+  const sb = makeSandbox(TEN_COL_MESSY);
+  const res = runScript('normalize-statuses.mjs', [], sb);
+  const rows = dataRows(sb.tracker);
+  const rowOf = (company) => rows.find(l => l.includes(company)) || '';
+  const cellsOf = (company) => rowOf(company).split('|').map(s => s.trim());
+  // cells: ['', num, date, company, role, location, score, status, pdf, report, notes, '']
+  const acme = cellsOf('Acme');
+  if (res.code === 0 && acme[7] === 'Applied' && acme[6] === '—') {
+    pass('normalize-statuses: Status normalized in place on 10-col tracker, Score not clobbered');
+  } else {
+    fail(`normalize-statuses on 10-col tracker (code ${res.code}) row: ${rowOf('Acme')}\n${res.stdout}`);
+  }
+  const globex = cellsOf('Globex');
+  if (globex[7] === 'Discarded' && globex[6] === '4.5/5'
+      && globex[10].includes('DUPLICADO de #1') && globex[10].includes('keep me')) {
+    pass('normalize-statuses: DUPLICADO provenance lands in the Notes column on 10-col tracker');
+  } else {
+    fail(`normalize-statuses DUPLICADO row on 10-col tracker: ${rowOf('Globex')}\n${res.stdout}`);
+  }
+  rmSync(sb.dir, { recursive: true, force: true });
+}
+
 // ── Test 7: schema contract — every consumer maps an UNKNOWN extra column ───
 // The header-name contract (#1596): a column no consumer recognizes must be
 // skipped by ALL of them, never silently shifted into a known field. This is
 // the guard that makes the next column insertion a one-place change instead of
-// a repo-wide incident. normalize-statuses.mjs is excluded until PR #1114
-// (which retrofits it) lands — add it here when that merges.
+// a repo-wide incident.
 {
   const HEADER_UNKNOWN = `# Applications Tracker
 
@@ -233,11 +289,23 @@ const TSV_NO_LOCATION = '2\t2026-02-02\tGlobex\tManager\tApplied\tN/A\t✅\t—\
   }
 
   const { loadSeenCompanyRoles } = await import('./scan.mjs');
-  const seen = loadSeenCompanyRoles(sb.tracker);
+  const seen = loadSeenCompanyRoles(sb.tracker, undefined, sandboxSources(sb));
   if (seen.has('acme::engineer') && seen.size === 1) {
     pass('contract: scan.mjs seen-set skips an unknown extra column');
   } else {
     fail(`contract: scan.mjs seen-set on unknown-column tracker — [${[...seen].join(', ')}]`);
+  }
+
+  // The seed status is already canonical, so a header-aware run is a strict
+  // no-op: the file must come back byte-identical and nothing may be reported
+  // as an unknown status.
+  const before = readFileSync(sb.tracker, 'utf-8');
+  const norm = runScript('normalize-statuses.mjs', [], sb);
+  const after = readFileSync(sb.tracker, 'utf-8');
+  if (norm.code === 0 && after === before && !/unknown statuses/.test(norm.stdout)) {
+    pass('contract: normalize-statuses skips an unknown extra column');
+  } else {
+    fail(`contract: normalize-statuses on unknown-column tracker (code ${norm.code})\n${norm.stdout}`);
   }
 
   rmSync(sb.dir, { recursive: true, force: true });
@@ -249,7 +317,9 @@ const TSV_NO_LOCATION = '2\t2026-02-02\tGlobex\tManager\tApplied\tN/A\t✅\t—\
 // HEADER_ALIASES — instead of mirroring it. Passing ROOT here exercises the
 // REAL alias file, so an alias added/renamed there is either honored by the
 // web reader too or fails this test; a second drifting table can't come back.
-{
+if (!HAS_WEB) {
+  skipWeb('web reader: shared alias table tests');
+} else {
   const { parseApplications, loadHeaderAliases } = await import('./web/src/lib/tracker-table.mjs');
   const { HEADER_ALIASES } = await import('./tracker-parse.mjs');
   const WEB_10COL = `# Applications Tracker
@@ -488,7 +558,9 @@ const HEADER_VIA = `# Applications Tracker
 // mtime-keyed: a missing/corrupt file is NEVER cached — recovery is picked up
 // without a server restart — and a rewritten file (system update changing the
 // alias table) is re-read on the next call.
-{
+if (!HAS_WEB) {
+  skipWeb('web reader: alias cache refresh tests');
+} else {
   const { loadHeaderAliases } = await import('./web/src/lib/tracker-table.mjs');
   const dir = mkdtempSync(join(tmpdir(), 'co-alias-'));
   const aliasFile = join(dir, 'tracker-aliases.json');
@@ -531,6 +603,29 @@ const HEADER_VIA = `# Applications Tracker
   }
 
   rmSync(dir, { recursive: true, force: true });
+}
+
+// ── Test 17: pipe rows preserve empty interior cells ──────────────────────
+{
+  const EMPTY_PDF = '| 42 | 2026-01-01 | Foo | Bar Engineer | 4.0/5 | Evaluated |  | [42](reports/042-foo-2026-01-01.md) | some note |';
+  const EMPTY_NOTES = '| 43 | 2026-01-02 | Baz | Platform Engineer | 4.1/5 | Evaluated | ✅ | [43](reports/043-baz-2026-01-02.md) |  | Singapore';
+  const sb = makeSandbox(HEADER_10, { '42-foo.tsv': EMPTY_PDF, '43-baz.tsv': EMPTY_NOTES });
+  const res = runScript('merge-tracker.mjs', [], sb);
+  const foo = dataRows(sb.tracker).find(l => l.includes('Foo'));
+  const baz = dataRows(sb.tracker).find(l => l.includes('Baz'));
+  const fooCells = foo ? foo.split('|').map(s => s.trim()) : [];
+  const bazCells = baz ? baz.split('|').map(s => s.trim()) : [];
+  if (res.code === 0 && fooCells[8] === '' && fooCells[9] === '[42](reports/042-foo-2026-01-01.md)' && fooCells[10] === 'some note') {
+    pass('merge: empty PDF cell does not shift Report or Notes');
+  } else {
+    fail(`merge: empty PDF cell shifted columns (code ${res.code}) row: ${foo}\n${res.stdout}`);
+  }
+  if (res.code === 0 && bazCells[5] === 'Singapore' && bazCells[10] === '') {
+    pass('merge: empty Notes cell does not shift a later Location');
+  } else {
+    fail(`merge: empty Notes cell shifted Location (code ${res.code}) row: ${baz}\n${res.stdout}`);
+  }
+  rmSync(sb.dir, { recursive: true, force: true });
 }
 
 console.log(`\n${passed} passed, ${failed} failed`);
