@@ -27,3 +27,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Cover letters: state TN eligibility in one flat sentence, no border/petition explainer. The _profile.md 'always pair with the TN clarifier' policy applies to FORM free-text fields, not letters. Shayan stripped the parenthetical twice.
 - **was:** I'm a Canadian citizen and TN-eligible, so I don't need sponsorship (TN is issued at the border, no employer petition).
 - **now:** I'm a Canadian citizen and TN-eligible, so I don't need sponsorship.
+
+### D006 · cover · 2026-07-29 · cost 0.11 · recur 1
+- **rule:** Don't upgrade Shayan's hedged verbs on side projects. He picks understatement deliberately ('toying with' for a project with a built harness and running experiments) and reverted the upgrade. Only push back on a hedge when it makes a FACT wrong, not when it's modesty.
+- **was:** On the side I've been building agent evals using Settlers of Catan and Twilight Imperium as test beds.
+- **now:** On the side I've been toying with agent evals using Settlers of Catan and Twilight Imperium as test beds.
