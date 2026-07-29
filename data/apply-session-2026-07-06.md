@@ -4,7 +4,7 @@
 
 **RESUME POINT (updated 2026-07-28, session 5 — START HERE, overrides everything below):**
 
-**Submitted: OpenAI #3, OpenAI #4, METR #12, Figure #13.** METR is at CodeSignal stage. Cohere #9 dead (posting pulled).
+**Submitted: OpenAI #3, OpenAI #4, METR #12, Figure #13.** METR is at `Responded` — it sent an automated CodeSignal screen (1st step, no human contact), which is NOT an interview. Cohere #9 dead (posting pulled).
 
 1. **START NEXT SESSION WITH: Haize #22** (Applied Researcher, 4.5, Greenhouse, liveness-verified 2026-07-28). Needs a CV built from scratch — none exists. It's an evals shop, so the ordering flips vs Figure: lead with the BMO policy-eval bullet, the deterministic eval pipeline, the $200B AUM bias finding, and the Catan/TI agent-eval project. Robotics moves down but stays.
 2. **CV build workflow that works (validated 2026-07-28):** `node extract-latex-content.mjs main.tex --out <scratch>/manifest.json` to inventory all 24 items → hand-write the HTML from the `output/cv-candidate-figure-helix-2026-07-28.html` layout (that file is the CURRENT format reference; the 2026-07-07 HTML intermediates no longer exist) → `node .tmp-measure.mjs <html>` against the 940.8px budget → `node generate-pdf.mjs <html> <pdf> --format=letter --max-pages=1 --strict-pages --report=NNN`. Playwright works locally. HTML intermediates stay untracked; PDFs are committed.
