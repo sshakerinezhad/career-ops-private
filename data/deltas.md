@@ -32,3 +32,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Don't upgrade Shayan's hedged verbs on side projects. He picks understatement deliberately ('toying with' for a project with a built harness and running experiments) and reverted the upgrade. Only push back on a hedge when it makes a FACT wrong, not when it's modesty.
 - **was:** On the side I've been building agent evals using Settlers of Catan and Twilight Imperium as test beds.
 - **now:** On the side I've been toying with agent evals using Settlers of Catan and Twilight Imperium as test beds.
+
+### D007 · cv · 2026-07-29 · cost 1.00 · recur 1
+- **rule:** CV one-page cuts: rank by (domain relevance x signal strength), not domain relevance alone. A strong off-domain bullet (production scale, real problem found, measurable impact) beats a weak on-domain one. Never drop the $200B+ AUM risk-bias finding or the eval-pipeline bullet just because the role is robotics.
+- **was:** Robotics/VLA roles (Figure #13, Skild #14): drop both new BMO bullets as low-relevance.
+- **now:** Keep strong BMO bullets on robotics applications; cut the weakest items overall instead, whatever section they sit in.

@@ -44,7 +44,7 @@ AI Research Engineer at BMO's AI Centre of Excellence and Co-Founder of Merlyn L
 - Identified proprioceptive collapse as critical VLA failure mode; 60% masking improved task success by up to 48%
 - Found chunked execution outperformed temporal ensembling by 3x, revealing VLA architectures lack temporal awareness
 - Doubled manipulation success on long-tail subtasks by oversampling skill transitions via boundary resampling
-- Trained on 10,000+ demonstrations across 22 tasks; published a [technical report](https://merlyn-labs.com/behavior-report) and further analysis on [LessWrong](https://www.lesswrong.com/posts/4p2HBMxCkh7pZ3xCa)
+- Trained on 10,000+ demonstrations covering 22 of 50 scored task types; published a [technical report](https://merlyn-labs.com/behavior-report) and further analysis on [LessWrong](https://www.lesswrong.com/posts/4p2HBMxCkh7pZ3xCa)
 
 ### BardSong — AI-Powered D&D Storytelling Tool (Jun 2025 – Present)
 
