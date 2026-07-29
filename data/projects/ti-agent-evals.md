@@ -57,3 +57,13 @@ Why this beats full TI: open action space stops being an implementation nightmar
 - OpenAI Frontier Evals: environments portfolio piece
 - Anthropic (parked): exactly the "proof" that unparks it
 - LessWrong post #2 → publication cadence signal
+
+## Status update — 2026-07-28 (user-reported)
+
+Underway, past the paper-plan stage:
+- **Catan harness built.** Basic engine + agent loop running; LLM experiments have started.
+- **Cost is the live constraint** — inference spend is the bottleneck on experiment volume. User is looking into grants/credits.
+- **TI tooling being built concurrently.** Materially harder than Catan (larger action space, 50-page rulebook).
+- User's framing of the thesis: integrating negotiation into these environments is the interesting and demanding part, and the combination of open action space + negotiation is sparse but important territory.
+
+Consequences: Good Start Labs #10 / #11 were put ON HOLD pending this project shipping (see tracker notes) — still not shipped, but no longer speculative. Usable in applications NOW as work in progress; do not describe it as finished or published.

@@ -5,7 +5,7 @@ Compact, citable proof points from Shayan's research output. Each entry lists wh
 ## 1. BEHAVIOR-1K technical report (Merlyn Labs)
 
 - **URL:** https://merlyn-labs.com/behavior-report
-- **What it is:** Team technical report on Stanford's BEHAVIOR-1K Challenge (8th place). Trained on 10,000+ demonstrations across 22 tasks.
+- **What it is:** Team technical report on Stanford's BEHAVIOR-1K Challenge (8th place). Trained on 10,000+ demonstrations across 50 household tasks. (Corrected 2026-07-28: this said 22 tasks, which was wrong. Shayan authored "50 household tasks" twice after the conflict was flagged.)
 - **Claims it backs:**
   - Proprioceptive collapse: masking 60% of proprioception improved task success by up to 48%
   - Action-chunking trade-offs: chunked execution beat temporal ensembling (~3x)
