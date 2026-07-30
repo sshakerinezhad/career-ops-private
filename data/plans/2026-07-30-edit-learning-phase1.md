@@ -43,14 +43,17 @@
 **Interfaces:**
 - Consumes: nothing (pure module, no imports from the project)
 - Produces:
-  - `export const BANNED_WORDS: string[]`
+  - `export const SLOP_WORDS: string[]` — banned with no legitimate sense in this user's writing. Scored.
+  - `export const CONTEXTUAL_WORDS: string[]` — on voice-dna's banned list but carrying real technical meaning in ML/engineering prose. Reported at **zero weight** with surrounding context so a human judges.
   - `export const BANNED_PHRASES: string[]`
   - `export const DEAD_TRANSITIONS: string[]`
   - `export const PARALLELISM_PATTERNS: RegExp[]`
-  - `export const WEIGHTS: {word: 0.10, phrase: 0.15, transition: 0.15, emdash: 0.25, parallelism: 0.25, pronoun: 0.25}`
-  - `export function lint(text: string, opts?: {type?: string}): {violations: Array<{rule: string, kind: string, match: string, index: number}>, score: number}`
+  - `export const WEIGHTS: {word: 0.10, contextual: 0, phrase: 0.15, transition: 0.15, emdash: 0.25, parallelism: 0.25, pronoun: 0.25}`
+  - `export function lint(text: string, opts?: {type?: string}): {violations: Array<{rule, kind, match, index, context?}>, score: number}`
   - Score is `Math.max(0, 1 - Σ weights)`, rounded to 3 decimals. Clean text scores `1`.
   - When `opts.type === 'cv'`, first-person pronouns are a violation (kind `pronoun`), per `_profile.md` CV rule 7.
+
+**Why two tiers (user directive, 2026-07-30):** "those are banned because they're slop telltales. but you know those words have always existed (assuming theyre not being used as buzzwords). we want signal and to be real. if its justified we use the word." A deterministic linter cannot judge whether a use is justified, so it must not pretend to. Contextual hits are surfaced with their surrounding text and left to a human. The clinching case: `breakthrough` is banned by §3A, and `cv.md` correctly says "FDA Breakthrough-designated device."
 
 - [ ] **Step 1: Write the failing test**
 
@@ -83,9 +86,16 @@ function runSelfTest() {
   eq('clean text has no violations', lint('I built an eval suite.').violations.length, 0);
 
   const w = lint('We leverage a robust and scalable paradigm.');
-  eq('banned words detected', w.violations.filter((v) => v.kind === 'word').map((v) => v.match).sort(),
-    ['leverage', 'paradigm', 'robust', 'scalable']);
-  eq('banned words lower the score', w.score, 0.6);
+  eq('slop words scored', w.violations.filter((v) => v.kind === 'word').map((v) => v.match).sort(),
+    ['leverage', 'paradigm']);
+  eq('contextual words reported', w.violations.filter((v) => v.kind === 'contextual').map((v) => v.match).sort(),
+    ['robust', 'scalable']);
+  eq('only slop words lower the score', w.score, 0.8);
+  eq('contextual hits carry surrounding text',
+    lint('I built evaluation harnesses for agents.').violations[0].context,
+    'I built evaluation harnesses for agents.');
+  eq('his own shipped vocabulary still scores 1',
+    lint('I built evaluation harnesses and test setups.').score, 1);
 
   eq('em dash detected', lint('I build evals — mostly for agents.').violations.map((v) => v.kind), ['emdash']);
 
@@ -104,18 +114,20 @@ function runSelfTest() {
     lint('I built the pipeline.', { type: 'cover' }).violations.length, 0);
 
   eq('score floors at zero',
-    lint("This isn't X. This is Y — furthermore, we leverage a robust scalable paradigm.").score, 0);
+    lint("This isn't X. This is Y — furthermore, we delve into synergy to revolutionize the tapestry.").score, 0);
 
   eq('word match is case-insensitive', lint('Leverage it.').violations.length, 1);
   eq('word match respects boundaries', lint('Robustness is fine.').violations.length, 0);
 
-  // Drift guard: every word in voice-dna.md section 3A must be in BANNED_WORDS.
+  // Drift guard: every word in voice-dna.md section 3A must be triaged into exactly
+  // one tier. A word in neither has silently fallen off the statute.
   const voice = readFileSync(join(HERE, '..', 'voice-dna.md'), 'utf8');
   const block = voice.split('### 3A.')[1].split('###')[0];
   const listLine = block.split('\n').find((l) => l.includes('delve,'));
   const fromStatute = listLine.split(',').map((s) => s.trim().toLowerCase()).filter(Boolean);
-  const missing = fromStatute.filter((word) => !BANNED_WORDS.includes(word));
-  eq('linter covers every voice-dna 3A word', missing, []);
+  const known = new Set([...SLOP_WORDS, ...CONTEXTUAL_WORDS]);
+  eq('linter triages every voice-dna 3A word', fromStatute.filter((w2) => !known.has(w2)), []);
+  eq('no word is in both tiers', SLOP_WORDS.filter((w2) => CONTEXTUAL_WORDS.includes(w2)), []);
 
   console.log(`\n${passed} passed, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);
@@ -134,21 +146,35 @@ Expected: FAIL — `ReferenceError: lint is not defined`
 Insert above the self-test block (after the imports):
 
 ```js
-export const BANNED_WORDS = [
-  'delve', 'realm', 'harness', 'unlock', 'tapestry', 'paradigm', 'cutting-edge',
+/** Banned with no legitimate sense in this user's writing. These cost score. */
+export const SLOP_WORDS = [
+  'delve', 'realm', 'unlock', 'tapestry', 'paradigm', 'cutting-edge',
   'revolutionize', 'intricate', 'intricacies', 'showcasing', 'crucial', 'pivotal',
   'surpass', 'meticulously', 'vibrant', 'unparalleled', 'leverage', 'synergy',
   'innovative', 'game-changer', 'testament', 'commendable', 'meticulous', 'boast',
   'groundbreaking', 'foster', 'showcase', 'enhance', 'holistic', 'garner',
   'accentuate', 'pioneering', 'trailblazing', 'unleash', 'versatile',
-  'transformative', 'redefine', 'seamless', 'optimize', 'scalable', 'robust',
-  'breakthrough', 'empower', 'streamline', 'frictionless', 'elevate', 'adaptive',
-  'effortless', 'data-driven', 'insightful', 'proactive', 'mission-critical',
-  'visionary', 'disruptive', 'reimagine', 'unprecedented', 'intuitive',
-  'leading-edge', 'synergize', 'democratize', 'accelerate', 'state-of-the-art',
-  'dynamic', 'immersive', 'predictive', 'transparent', 'proprietary', 'integrated',
-  'plug-and-play', 'turnkey', 'future-proof', 'paradigm-shifting', 'supercharge',
-  'enduring', 'interplay', 'valuable', 'captivate',
+  'transformative', 'redefine', 'seamless', 'empower', 'streamline',
+  'frictionless', 'elevate', 'effortless', 'data-driven', 'insightful',
+  'proactive', 'mission-critical', 'visionary', 'disruptive', 'reimagine',
+  'unprecedented', 'intuitive', 'leading-edge', 'synergize', 'democratize',
+  'immersive', 'plug-and-play', 'turnkey', 'future-proof', 'paradigm-shifting',
+  'supercharge', 'enduring', 'interplay', 'valuable', 'captivate',
+];
+
+/**
+ * On voice-dna's banned list, but each carries a real technical sense in ML and
+ * engineering prose. Reported with surrounding context at ZERO weight: a
+ * deterministic linter cannot tell a buzzword from a load-bearing term, so it
+ * surfaces the call instead of making it.
+ *
+ * The decisive example: 'breakthrough' is banned by section 3A, and cv.md
+ * correctly reads "FDA Breakthrough-designated device".
+ */
+export const CONTEXTUAL_WORDS = [
+  'harness', 'robust', 'scalable', 'optimize', 'transparent', 'integrated',
+  'dynamic', 'adaptive', 'predictive', 'proprietary', 'accelerate',
+  'breakthrough', 'state-of-the-art',
 ];
 
 export const BANNED_PHRASES = [
@@ -173,7 +199,7 @@ export const PARALLELISM_PATTERNS = [
 ];
 
 export const WEIGHTS = {
-  word: 0.10, phrase: 0.15, transition: 0.15,
+  word: 0.10, contextual: 0, phrase: 0.15, transition: 0.15,
   emdash: 0.25, parallelism: 0.25, pronoun: 0.25,
 };
 
@@ -183,12 +209,25 @@ function escapeRe(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/** ~40 characters either side, so a contextual hit can be judged in place. */
+function around(text, index, len) {
+  return text.slice(Math.max(0, index - 40), Math.min(text.length, index + len + 40)).trim();
+}
+
+/**
+ * Matches the term plus common inflections (s/es/ed/ing/d) so "harnesses" is
+ * caught by "harness". Deliberately does NOT match derivations that change
+ * meaning: "robustness" is not a hit for "robust".
+ */
 function findAll(text, needle, kind) {
   const out = [];
-  const re = new RegExp(`(?<![\\p{L}\\p{N}-])${escapeRe(needle)}(?![\\p{L}\\p{N}-])`, 'giu');
+  const re = new RegExp(
+    `(?<![\\p{L}\\p{N}-])${escapeRe(needle)}(?:es|ed|ing|s|d)?(?![\\p{L}\\p{N}-])`, 'giu');
   let m;
   while ((m = re.exec(text)) !== null) {
-    out.push({ rule: needle, kind, match: m[0].toLowerCase(), index: m.index });
+    const hit = { rule: needle, kind, match: m[0].toLowerCase(), index: m.index };
+    if (kind === 'contextual') hit.context = around(text, m.index, m[0].length);
+    out.push(hit);
   }
   return out;
 }
@@ -201,7 +240,8 @@ export function lint(text, opts = {}) {
   const s = String(text);
   const violations = [];
 
-  for (const word of BANNED_WORDS) violations.push(...findAll(s, word, 'word'));
+  for (const word of SLOP_WORDS) violations.push(...findAll(s, word, 'word'));
+  for (const word of CONTEXTUAL_WORDS) violations.push(...findAll(s, word, 'contextual'));
   for (const phrase of BANNED_PHRASES) violations.push(...findAll(s, phrase, 'phrase'));
   for (const t of DEAD_TRANSITIONS) violations.push(...findAll(s, t, 'transition'));
 
@@ -241,9 +281,9 @@ export function lint(text, opts = {}) {
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `node data/lint.mjs --self-test`
-Expected: PASS, `14 passed, 0 failed`
+Expected: PASS, `18 passed, 0 failed`
 
-If the drift guard fails, the fix is to add the missing words to `BANNED_WORDS` — never to weaken the test. `harness` is deliberately on the banned list even though the project uses it as a noun of art; the linter reports it and a human decides.
+If the drift guard fails, the fix is to triage the missing word into `SLOP_WORDS` or `CONTEXTUAL_WORDS` — never to weaken the test.
 
 - [ ] **Step 5: Commit**
 
