@@ -32,7 +32,13 @@
 
 - **Git sync (multi-device):** This repo syncs to a PRIVATE remote (`origin` = github.com/sshakerinezhad/career-ops-private) with personal data committed. `upstream` = santifer/career-ops (updates come via `update-system.mjs`, which ignores remotes). Rules:
   - Start of session: `git pull` before touching tracker/reports.
-  - End of any session that changed tracker, reports, interview-prep, or profile files: `git add -A && git commit && git push`.
+  - End of any session that changed tracker, reports, interview-prep, or profile files: commit and push. **One git verb per tool call, never chained** — the auto-mode classifier judges the whole command string as one unit and denies any chain containing a real commit/push out of a repo holding CVs and personal data. Exact shapes:
+    ```
+    git add <explicit paths>
+    git commit -m "single-line message"
+    git push origin main
+    ```
+    Banned in this repo: `git add -A`, `&&` chains, `$(cat <<'EOF' … EOF)` heredoc commit bodies, `cd "<path>" &&` prefixes, and trailing `2>&1 | tail -N` on any git mutation. For a multi-paragraph commit body, write it to a scratchpad file and use `git commit -F <file>`. This is a command-shape rule, not a permissions gap: the user deliberately keeps git OUT of the allowlist so the classifier keeps evaluating every push.
   - After `node update-system.mjs apply`: commit + push the updated system files so other devices get them.
   - The repo contains PII (CV, contact info, interview notes). NEVER make it public, never fork it publicly, never push it to any other remote.
   - Never commit `.env` or anything matching passport/diploma filename patterns. `output/` PDFs ARE committed on purpose (see Mobile setup below); HTML intermediates stay untracked.
