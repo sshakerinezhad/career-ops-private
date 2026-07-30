@@ -23,12 +23,12 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **was:** We also wrote a paper on why the published pi-0.5 checkpoint collapses on LIBERO-PRO position-swap evaluation, dropping from 96% on standard LIBERO to 21%.
 - **now:** specifically on position-swap evaluations (where we believe pi-0.5 overfit to ignore instructions of which object to pick and just reach for the same place)
 
-### D005 · cover · 2026-07-29 · cost 0.43 · recur 1
+### D005 · cover · 2026-07-29 · cost 0.53 · recur 2
 - **rule:** Cover letters: state TN eligibility in one flat sentence, no border/petition explainer. The _profile.md 'always pair with the TN clarifier' policy applies to FORM free-text fields, not letters. Shayan stripped the parenthetical twice.
 - **was:** I'm a Canadian citizen and TN-eligible, so I don't need sponsorship (TN is issued at the border, no employer petition).
 - **now:** I'm a Canadian citizen and TN-eligible, so I don't need sponsorship.
 
-### D006 · cover · 2026-07-29 · cost 0.11 · recur 1
+### D006 · cover · 2026-07-29 · cost 0.21 · recur 2
 - **rule:** Don't upgrade Shayan's hedged verbs on side projects. He picks understatement deliberately ('toying with' for a project with a built harness and running experiments) and reverted the upgrade. Only push back on a hedge when it makes a FACT wrong, not when it's modesty.
 - **was:** On the side I've been building agent evals using Settlers of Catan and Twilight Imperium as test beds.
 - **now:** On the side I've been toying with agent evals using Settlers of Catan and Twilight Imperium as test beds.
@@ -37,3 +37,18 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** CV one-page cuts: rank by (domain relevance x signal strength), not domain relevance alone. A strong off-domain bullet (production scale, real problem found, measurable impact) beats a weak on-domain one. Never drop the $200B+ AUM risk-bias finding or the eval-pipeline bullet just because the role is robotics.
 - **was:** Robotics/VLA roles (Figure #13, Skild #14): drop both new BMO bullets as low-relevance.
 - **now:** Keep strong BMO bullets on robotics applications; cut the weakest items overall instead, whatever section they sit in.
+
+### D008 · cover · 2026-07-30 · cost 0.95 · recur 1
+- **rule:** Cover letter opener: state the identity flat first ('I am an engineer.'), then the current focus. Frame the eval work as finding how AND why systems fail, not where they fail.
+- **was:** I work on evals for LLM agents: finding where deployed systems fail, then building the harness that makes the failure reproducible.
+- **now:** I am an engineer. Most recently I've been working on evals for LLM agents; finding how (and why) deployed systems fail.
+
+### D009 · cover · 2026-07-30 · cost 0.93 · recur 1
+- **rule:** No editorial aphorisms or one-line maxims in cover letters. Shayan deletes them. State what the work does and stop; let the reader draw the principle.
+- **was:** most of the effort goes into making them hard to game rather than accurate. A judge you can satisfy without doing the task is worse than no judge.
+- **now:** We built VLM judges that turn rollouts into dense hard to game reward metrics
+
+### D010 · cover · 2026-07-30 · cost 0.66 · recur 1
+- **rule:** Describing the game-eval project: lead with the experimental setup (large action space + multi-agent negotiation), then the questions it answers. Setup before question, not question before condition.
+- **was:** Negotiation is the part I care about: whether an agent can hold a long-term strategy across a whole game, and when it reaches for deception, blackmail, or betrayal to get there. The action space in these games is big enough to ask what happens to both as it grows.
+- **now:** The interesting bit is taking a large action space and introducing multi-agent negotiation. Then seeing whether an agent can hold a long-term strategy across a whole game, and when it reaches for deception, blackmail, or betrayal to get there.

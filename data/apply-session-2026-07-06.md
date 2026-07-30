@@ -2,7 +2,19 @@
 
 **DATE CORRECTION (2026-07-07, session 3): BMO start is Sep 2025, NOT Sep 2024.** The typo originated in `main.tex` and propagated to cv.md, all 9 PDFs (2026-07-05), and YoE math in reports 001/008/023/028/030. Sources fixed (main.tex, cv.md, _profile.md rules 11-12 added). `main.tex` is now the canonical original resume; tailored CVs start from it, light-touch only (no gutted one-liner roles). Corrected PDF for #4: `output/cv-candidate-openai-evals-re-2026-07-07.pdf` — HTML-template format (user-confirmed keeper), regenerated via `generate-pdf.mjs --format=letter`, content from main.tex per _profile.md rules 11/11b/11c/12 (one-line contact, one-line high-signal competencies, full bullets; cuts for page fit: BardSong project + BEHAVIOR boundary-resampling bullet). Its `.html` intermediate in `output/` is the layout reference for regenerating the rest. Old evals-re PDF deleted. **The other 8 PDFs still carry Sep 2024, the two-line contact, buzzword competencies, and gutted bullets — regenerate from main.tex content in this format before EACH remaining application.** The submitted #3 PDF (cv-candidate-openai-agent-pt-2026-07-05.pdf, kept as record) went out with Sep 2024; user aware. YoE dropdown honest math is now under 1 year → bracket 0-1 (see _profile.md policy), NOT 2-4 as previously drafted.
 
-**RESUME POINT (updated 2026-07-28, session 5 — START HERE, overrides everything below):**
+**RESUME POINT (updated 2026-07-30, session 6 — START HERE, overrides everything below):**
+
+**Submitted: OpenAI #3, OpenAI #4, METR #12, Figure #13, Haize #22.** Haize went out 2026-07-30 with a resume + text-only cover letter; tracker Applied, follow-up pinned 2026-08-06, answers persisted in report 022.
+
+1. **START NEXT SESSION WITH FOLLOW-UPS. Still 0 sent, now 4 overdue** (OpenAI #3 pinned 07-14, OpenAI #4 pinned 07-21, METR #12 pinned 07-14, and #13/#22 coming due 08-04/08-06). Drafts for the OpenAI combined message and METR were written 2026-07-30 and NOT sent. Ashby merged both OpenAI apps → ONE combined message. METR draft deliberately omits the "I misread L3, can I retake" ask; hold that for the rejection reply. This has now been deferred three times.
+2. **CONTACT-ROW BUG, twice-shipped.** The CV contact row wrapped to 2 lines on the Figure CV (submitted 07-28) and again on the first Haize build. `.tmp-measure.mjs` now checks line count and **exits 1** on violation — never generate a PDF from an HTML that fails it. Fix order: drop lab/portfolio URL → tighten `.contact-row` gap (14px → 8px buys ~48px) → only then drop a real item. Keep `flex-wrap: wrap`. Rule written into `modes/_custom.md`.
+3. **Cover letters are body text only** (user directive 07-30): no name header, no contact row, no addressee block. `output/cover-haize-applied-researcher.html` is the format reference.
+4. **New in `cv.md` + `main.tex` (user-approved 07-30):** "Developing RL environments to train specialized agents for BMO's wealth management division", 3rd in the BMO block. BMO is now 7 bullets; tailoring must cut to fit.
+5. **Current CV format reference is `output/cv-candidate-haize-applied-researcher.html`** (one-line header with gap:8px, 918/940.8px), NOT the Figure HTML — that one carries the wrapped header.
+6. **Catan/TI is in cover letters but still NOT on the CV.** Proposed Projects entry drafted 07-30, user hasn't ruled on it. Before it ships, confirm the harness actually scores deception/promise-keeping today.
+7. Remaining queue: Skild #14, Gray Swan #21, Mechanize #15, Surge #23, Reflection #19, Prime Intellect #20. Liveness last swept 2026-07-28 (re-check). Good Start Labs #10/#11 still parked pending Catan/TI shipping.
+
+**PRIOR RESUME POINT (session 5, 2026-07-28):**
 
 **Submitted: OpenAI #3, OpenAI #4, METR #12, Figure #13.** METR is at `Responded` — it sent an automated CodeSignal screen (1st step, no human contact), which is NOT an interview. Cohere #9 dead (posting pulled).
 
