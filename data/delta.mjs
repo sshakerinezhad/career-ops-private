@@ -22,7 +22,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const LEDGER = join(HERE, 'deltas.md');
@@ -624,5 +624,14 @@ function runSelfTest() {
   process.exit(failed > 0 ? 1 : 0);
 }
 
-if (process.argv.includes('--self-test')) runSelfTest();
-else main();
+// Only act as a CLI when this file IS the entry point. Without this guard,
+// importing delta.mjs for its pure helpers (editCost, tokenize, trigrams) runs
+// main() and exits with a usage message -- or, under --self-test, silently runs
+// THIS file's tests instead of the importer's and exits before they execute.
+const isEntryPoint = process.argv[1]
+  && pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isEntryPoint) {
+  if (process.argv.includes('--self-test')) runSelfTest();
+  else main();
+}
