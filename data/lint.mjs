@@ -13,7 +13,7 @@
  */
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
@@ -227,4 +227,10 @@ function runSelfTest() {
   process.exit(failed > 0 ? 1 : 0);
 }
 
-if (process.argv.includes('--self-test')) runSelfTest();
+// Only self-test when this file IS the entry point. Without the guard, importing
+// it from another module that was itself launched with --self-test runs THESE
+// tests and exits before the importer's ever execute.
+const isEntryPoint = process.argv[1]
+  && pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isEntryPoint && process.argv.includes('--self-test')) runSelfTest();
