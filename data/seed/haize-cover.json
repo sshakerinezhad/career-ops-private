@@ -1,0 +1,11 @@
+{
+  "id": "2026-07-30-haize-cover",
+  "type": "cover",
+  "context": {
+    "company": "Haize Labs",
+    "role": "Applied Researcher",
+    "archetype": "Alignment / Evals Research Engineer",
+    "report": "022"
+  },
+  "text": "I work on evals for LLM agents: finding where deployed systems fail, then building the harness that makes the failure reproducible.\n\nAt BMO's AI Centre of Excellence I found a GenAI tool serving over $200B in AUM was systematically downplaying investment risk. I built a deterministic eval pipeline over a few hundred synthesized inputs to catch that at scale instead of anecdotally, and I'm now designing evals for agents that retrieve and reason over commercial banking and insurance policy.\n\nThe reward-function half of your posting is what I do at Merlyn Labs, the 3-person research collective I co-founded. We build VLM judges that turn rollouts into dense, context-dependent RL rewards, and most of the effort goes into making them hard to game rather than accurate. A judge you can satisfy without doing the task is worse than no judge. I also open-sourced a flow-matching VLA integration for RLinf so the BEHAVIOR-1K suite can be used for RL training in OmniGibson. Same category as Prime-RL or Verl, different repo, and I'd ramp fast on whichever you're using.\n\nOn the side I've been toying with agent evals in negotiation games, using Settlers of Catan and Twilight Imperium as test beds. The variable I care about is what happens to honesty and performance as the action space grows.\n\nI'm a Canadian citizen and TN-eligible, so I don't need sponsorship. Ready to be in NYC or SF.\n\nShayan"
+}

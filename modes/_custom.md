@@ -59,7 +59,17 @@
   - **Never hand-edit** `data/deltas.md` or `data/deltas-archive.md`. The script is the only writer. Rewriting an accumulated context wholesale is the documented "context collapse" failure mode and measurably performs worse than having no memory at all (ACE, arXiv 2510.04618).
   - **Process and workflow corrections do not go in the ledger.** They have no automatic error signal. Write those here in `modes/_custom.md` as plain rules.
   - **When `stats` flags PRUNE DUE**, run `node data/delta.mjs prune`. For each PROMOTE candidate, write the lesson into `voice-dna.md` as a hard rule (or `modes/_profile.md` if it is a content rule), then run `node data/delta.mjs promote <id>`.
-  - After changing `data/delta.mjs`, run `node data/delta.mjs --self-test`. It is deliberately not registered in `test-all.mjs`, which is system-layer and would revert the registration on update.
+  - After changing `data/delta.mjs`, run `node data/delta.mjs --self-test`. It is deliberately not registered in `test-all.mjs`, which is system-layer and would revert the registration on update. The same applies to `data/lint.mjs`, `data/survival.mjs`, and `data/learn.mjs` — run each with `--self-test` after touching it.
+
+- **Corpus logging is not optional (added 2026-07-30).** Every user-facing artifact (cover letter, CV, form free-text, outreach, application email) gets a corpus record at draft time and a finalized record once Shayan ships or rewrites it:
+  ```
+  node data/learn.mjs draft --file <rec.json>            # {id,type,context,text}
+  node data/learn.mjs final --id <id> --file <fin.json>  # {final,spans:[{was,now,kind}]}
+  ```
+  Span `kind` is `style` (I phrased it wrong), `content` (he added information I could not have known), or `factual` (I got a fact wrong). **Only `style` counts against the system** — charging it for content edits would teach it to write vaguer drafts that are harder to correct.
+  **Run `node data/learn.mjs audit` at session end, alongside the git ritual. It exits non-zero if an artifact went unlogged or an edit went untagged.** This exists because on 2026-07-30 two of seven corrections went unlogged and surfaced only because Shayan asked. Documented rules decay; exit codes do not.
+  Read the curve with `node data/learn.mjs stats`. It refuses to name a trend below n=10, and warns when survival rises while draft length falls — that pattern is the brevity trap (shorter drafts get edited less by construction) and counts as a regression, not progress.
+  The linter (`data/lint.mjs`) splits voice-dna's banned list into **slop words** (scored) and **contextual words** (reported with surrounding text, zero weight) because terms like `harness`, `align`, and `breakthrough` are real vocabulary in this domain — `cv.md` says "FDA Breakthrough-designated device". A deterministic linter cannot tell a buzzword from a load-bearing term, so it surfaces the call instead of making it.
 
 ## Custom Workflows
 
