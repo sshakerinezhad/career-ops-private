@@ -52,3 +52,13 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Describing the game-eval project: lead with the experimental setup (large action space + multi-agent negotiation), then the questions it answers. Setup before question, not question before condition.
 - **was:** Negotiation is the part I care about: whether an agent can hold a long-term strategy across a whole game, and when it reaches for deception, blackmail, or betrayal to get there. The action space in these games is big enough to ask what happens to both as it grows.
 - **now:** The interesting bit is taking a large action space and introducing multi-agent negotiation. Then seeing whether an agent can hold a long-term strategy across a whole game, and when it reaches for deception, blackmail, or betrayal to get there.
+
+### D011 · cover · 2026-07-30 · cost 0.73 · recur 1
+- **rule:** BMO story: lead with what he BUILT (evaluation harnesses, test setups) and let the finding arrive as their output. Call it an 'agentic tool', not a 'GenAI tool'. The point is that the behaviour was subtle and invisible until scaled over hundreds of test cases, not that a bias existed.
+- **was:** At BMO's AI Centre of Excellence I found a GenAI tool serving over $200B in AUM was systematically downplaying investment risk. I built a deterministic eval pipeline over a few hundred synthesized inputs to catch that at scale instead of anecdotally.
+- **now:** At BMO's AI Centre of Excellence I built evaluation harnesses and test setups that caught an agentic tool (serving over $200B in AUM) subtly downplaying investment risk. Behaviour that was invisible until I scaled up to hundreds of test cases to identify systematic misalignment.
+
+### D012 · cover · 2026-07-30 · cost 0.45 · recur 1
+- **rule:** Never bridge a paragraph by mirroring the job posting back ('the X half of your posting is what I do'). Open with a plain statement of the work and let the reader map it. Merlyn is introduced as side research, not as a headline credential.
+- **was:** The reward-function half of your posting is what I do at Merlyn Labs, the 3-person research collective I co-founded.
+- **now:** On the side I do research at Merlyn Labs, the 3-person research collective I co-founded.
