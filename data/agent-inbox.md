@@ -4,11 +4,14 @@
 
 **Nothing submitted. One evaluation added: Google DeepMind ASAT #31 (Research Engineer, AGI Safety and Alignment, 4.3/5, Apply).** Full detail + resume point in `data/apply-session-2026-07-06.md`, which stays the live apply handoff.
 
+**OpenAI #3, OpenAI #4 and METR #12 all came back REJECTED** (reported 2026-08-01, dates not captured). Tracker updated. Follow-up debt closed the bad way; cadence now 0 overdue. **Apply record: 5 submitted, 3 rejected, 2 open, 0 human interviews** — and the 3 rejections were his 3 highest-scored roles (4.8/4.6/4.6), all cold ATS applies with no human contact. Score isn't the filter, the résumé screen is.
+
 **Open in priority order:**
-1. **Follow-ups: 0 sent, 3 overdue** (OpenAI #3, OpenAI #4, METR #12 — all pinned mid-July). Deferred four sessions running. Drafts exist from 07-30 and were never sent. Start here, before any new application.
-2. **GDM ASAT #31** — CV not built, cover note is the deciding artifact and paragraph 2 must come from Shayan. Report 031 has the tailoring plan, interview plan, and a draft with that paragraph left open on purpose.
-3. **Local commit `d17b7cc` is unpushed** — `git push origin main` was denied by the auto-mode classifier. Ask Shayan to run `! git push origin main`.
+1. **METR retake ask is drafted and UNSENT** — held back deliberately for the rejection reply, now live. Corpus id `metr-12-retake-ask-2026-08-01`. Ask Shayan whether it's going out.
+2. **GDM ASAT #31** — CV not built, cover note is the deciding artifact and paragraph 2 must come from Shayan. Report 031 has the tailoring plan and interview plan. Given the 3 cold-apply rejections, `/career-ops contacto` for ASAT may beat another cold submit; Shayan hasn't ruled. The hiring post asks people not to email the team individually, so respect that in any contact route.
+3. **3 local commits unpushed** (`d17b7cc`, `1a2ad92`, `35c63c6`) — the classifier denies `git push` from this repo by design. Ask Shayan to run `! git push origin main`.
 4. **career-ops v1.23.0 → v1.24.0 offered, unanswered.** Includes an a16z speedrun talent-network provider (~200 startups, one feed) that fits the wide-net directive.
+5. **Don't re-send the dead follow-up drafts.** `fu-openai-3-4-2026-08-01` and `fu-metr-12-2026-08-01` are moot and stay unfinalized in the corpus on purpose — faking a `final` would inflate the survival metric with artifacts that never shipped.
 
 ## Session handoff (updated 2026-07-08, end of session 3)
 
