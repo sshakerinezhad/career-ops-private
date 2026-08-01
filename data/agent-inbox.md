@@ -1,5 +1,15 @@
 # Agent Inbox — queued for next session
 
+## Session handoff (2026-08-01, end of session 7)
+
+**Nothing submitted. One evaluation added: Google DeepMind ASAT #31 (Research Engineer, AGI Safety and Alignment, 4.3/5, Apply).** Full detail + resume point in `data/apply-session-2026-07-06.md`, which stays the live apply handoff.
+
+**Open in priority order:**
+1. **Follow-ups: 0 sent, 3 overdue** (OpenAI #3, OpenAI #4, METR #12 — all pinned mid-July). Deferred four sessions running. Drafts exist from 07-30 and were never sent. Start here, before any new application.
+2. **GDM ASAT #31** — CV not built, cover note is the deciding artifact and paragraph 2 must come from Shayan. Report 031 has the tailoring plan, interview plan, and a draft with that paragraph left open on purpose.
+3. **Local commit `d17b7cc` is unpushed** — `git push origin main` was denied by the auto-mode classifier. Ask Shayan to run `! git push origin main`.
+4. **career-ops v1.23.0 → v1.24.0 offered, unanswered.** Includes an a16z speedrun talent-network provider (~200 startups, one feed) that fits the wide-net directive.
+
 ## Session handoff (updated 2026-07-08, end of session 3)
 
 **Applications in:** OpenAI #3 (2026-07-07) · METR #12 (2026-07-07). Both follow-ups pinned 2026-07-14. **OpenAI #4 status UNKNOWN — ask first thing** (details + full resume-point in `data/apply-session-2026-07-06.md`, which is the live apply handoff; next up after #4 resolution: Figure #13, fully prepped).
