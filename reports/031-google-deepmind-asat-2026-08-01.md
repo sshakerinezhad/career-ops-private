@@ -7,7 +7,7 @@
 **Score:** 4.3/5
 **Legitimacy:** High Confidence
 **Work Auth:** ➖ Not needed
-**PDF:** not generated — run `/career-ops pdf google-deepmind-asat` to create on demand
+**PDF:** `output/cv-candidate-gdm-asat-re-2026-08-01.pdf` (generated 2026-08-01, 916/940.8px, 1 page)
 
 ---
 
