@@ -674,3 +674,9 @@ tracked_companies:
   - name: Hacker News Who Is Hiring
     provider: hackernews
     enabled: true
+
+  - name: a16z speedrun talent network
+    provider: a16z-speedrun-talent
+    max_pages: 3
+    q: machine learning
+    enabled: true
