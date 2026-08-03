@@ -62,3 +62,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Never bridge a paragraph by mirroring the job posting back ('the X half of your posting is what I do'). Open with a plain statement of the work and let the reader map it. Merlyn is introduced as side research, not as a headline credential.
 - **was:** The reward-function half of your posting is what I do at Merlyn Labs, the 3-person research collective I co-founded.
 - **now:** On the side I do research at Merlyn Labs, the 3-person research collective I co-founded.
+
+### D013 · email · 2026-08-03 · cost 0.96 · recur 1
+- **rule:** Ask/recovery emails: one plain ownership line ('That's on me'), no blow-by-blow justification, never restate scores or level names. Offer a fallback the reader can grant (work tests) instead of a binary ask, and close short ('no hard feelings') without asking to be kept in mind.
+- **was:** I cleared L1 and L2, then misread the L3 spec (the time-scoped tag operations), rebuilt it once I caught the mistake, and ran out of clock. The 500/1000 reflects the misread more than the ability, and I'd like a clean run at it.
+- **now:** I'll be straightforward: my performance on the screen didn't reflect what I can do. I locked onto a wrong design early spent too long there to recover. That's on me.
