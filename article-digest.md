@@ -20,7 +20,7 @@ Compact, citable proof points from Shayan's research output. Each entry lists wh
 ## 3. "Recalibrating VLA Baselines: Conservative Finetuning Closes the Generalization Gap on LIBERO" (paper)
 
 - **File:** `data/papers/recalibrating-vla-baselines.pdf`
-- **Status:** unpublished (submitted, likely rejected — never claim "published" or name a venue; "we wrote a paper" / "proposed an alternative baseline" is the honest framing)
+- **Status:** unpublished. Submitted to CoRL 2026, REJECTED (user reported 2026-09-02). Never claim "published", "accepted", "under review", or name a venue; "we wrote a paper" / "proposed an alternative baseline" is the honest framing. Not on arXiv as of 2026-09-02 (user has not said otherwise) — do not link a preprint unless one is added here.
 - **What it is:** Systematic study of why the published π0.5 checkpoint collapses on LIBERO-PRO position-swap evaluation (96% on standard LIBERO → 21% on position-swap).
 - **Claims it backs:**
   - A conservative full-finetuning recipe (batch 64, LR 1e-5) doubles position-swap success to 42% (vs published 21%), stable 8k-27k steps, while matching standard LIBERO — no architectural change
