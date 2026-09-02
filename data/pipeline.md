@@ -566,6 +566,45 @@
 - [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-WA-Redmond/Senior-Quantum-Applied-Research-Scientist--Calibration-and-Decoding_JR2019517 | NVIDIA | Senior Quantum Applied Research Scientist, Calibration and Decoding | 3 Locations
 - [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-WA-Redmond/Senior-Quantum-Applied-Research-Scientist--Physics-Modeling_JR2019518 | NVIDIA | Senior Quantum Applied Research Scientist, Physics Modeling | 3 Locations
 
+- [ ] https://job-boards.greenhouse.io/goodfire/jobs/5019847008 | Goodfire | Machine Learning Engineer | San Francisco, CA & New York, NY (unverified) | websearch 2026-09-02
+- [ ] https://job-boards.greenhouse.io/goodfire/jobs/4746990008 | Goodfire | Research Scientist | San Francisco, CA (unverified) | websearch 2026-09-02
+- [ ] https://job-boards.greenhouse.io/goodfire/jobs/5382137008 | Goodfire | Research Scientist (London) | London, England (unverified) | websearch 2026-09-02
+- [ ] https://www.mechanize.work/apply/research-engineer-alignment/ | Mechanize | Research Engineer, Alignment | San Francisco (in person) (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/73a9f1c6-3c62-4c49-b65d-e5f6a3549d95 | Mercor | Machine Learning Engineer, Frontier Data Products | San Francisco / New York City (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/4302efe7-9396-4bdd-9a3b-ecd045ba3d3c | Mercor | Member of Technical Staff, Agentic Systems | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/35e1923b-3c1c-4bb4-94d6-ef3a529ef871 | Mercor | Member of Technical Staff, Enterprise Evals Platform | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/97b8c17e-e438-4b61-bab1-9ae18e2c3f34 | Mercor | Research Engineer - Environments, Data and Post-Training | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/40cc6334-3a6c-42f8-a4ec-d490486d00e8 | Mercor | Research Engineer – Benchmarking | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/44cf5f07-342d-4f64-9062-3617beb88b31 | Mercor | Research Engineer, Real Environments | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/bebd78ce-5f12-46e9-a285-674e33838211 | Mercor | Research Scientist, APEX Benchmarks | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/4f4fc8c3-4056-47bb-9e00-1db6e5dd958f | Mercor | Software Engineer, Agents | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/7cee578f-799c-46ad-8951-cb0b724d619a | Mercor | Software Engineer, Machine Learning | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mercor/a217f1a6-c63c-4dfb-81c3-ecc0c5d44f98 | Mercor | Software Engineer, Robotics Data | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mistral.ai/f090ef1d-372e-40dc-bf46-ce0bf2850204 | Mistral AI | AI Scientist - Agentic Engineering | Paris / Amsterdam / Linz / Munich / London / Berlin (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mistral.ai/c70522d8-73cb-46ed-9f9a-5cb807420485 | Mistral AI | AI Scientist, Robotics | Paris (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mistral.ai/2ec2dacd-1117-479b-a4c1-efa9df530798 | Mistral AI | Applied AI, Forward Deployed Machine Learning Engineer | Palo Alto / San Francisco (unverified) | websearch 2026-09-02 | possible repost: same title seen before
+- [ ] https://jobs.ashbyhq.com/mistral.ai/fe76010a-6384-4eae-ba08-1a6aa530ecbb | Mistral AI | Applied AI, Forward Deployed Machine Learning Engineer | Montréal (unverified) | websearch 2026-09-02 | possible repost: same title seen before
+- [ ] https://jobs.ashbyhq.com/mistral.ai/af7c3cf8-f4f4-4a16-80e9-fdfb0c14104d | Mistral AI | Research Engineer, Code Agents Infra | Palo Alto (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/mistral.ai/b087ffe4-3f55-4072-9ff8-9f5f17b4121d | Mistral AI | Research Engineer, Machine Learning | Palo Alto / San Francisco (unverified) | websearch 2026-09-02 | possible repost: same title seen before
+- [ ] https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266 | Mistral AI | Research Engineer, Machine Learning | Paris / Zurich / Warsaw / London (unverified) | websearch 2026-09-02 | possible repost: same title seen before
+- [ ] https://jobs.ashbyhq.com/mistral.ai/25944723-62e2-498e-8149-a588907c39d6 | Mistral AI | Research Engineer, Robotics | Paris (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/perplexity/8fe61c73-0daf-4432-a47d-44714c1ef764 | Perplexity | Member of Technical Staff (AI Researcher) | San Francisco / Palo Alto (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/perplexity/50a2def5-adeb-4f13-99c1-88c32482b772 | Perplexity | Member of Technical Staff (AI Software Engineer, Agents) | San Francisco (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/perplexity/7755eb0a-0f51-4286-b75e-591e44c741bc | Perplexity | Member of Technical Staff (Answer Quality & Evals) | San Francisco / Palo Alto (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/perplexity/4615ca06-bea7-47e3-9e57-f5cee52b75e6 | Perplexity | Member of Technical Staff (Data Scientist, Evals) | San Francisco / Palo Alto (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/perplexity/7f2b3619-5ffa-467b-be6f-7a6b7d487892 | Perplexity | Member of Technical Staff (Software Engineer, Agent Capabilities) | San Francisco / New York City (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/periodic-labs/d3be5ecc-c4d3-4c9e-9a4d-519ab6147474 | Periodic Labs | Research Engineer - Midtraining | Menlo Park, CA (unverified) | websearch 2026-09-02 | possible repost: same title seen before
+- [ ] https://jobs.ashbyhq.com/periodic-labs/a16ee7dd-021d-4f37-823d-7a8b520c6d8a | Periodic Labs | Research Engineer, Lab Automation | Menlo Park, CA (unverified) | websearch 2026-09-02 | possible repost: same title seen before
+- [ ] https://jobs.ashbyhq.com/runway-ml/0b7b8839-037f-4ccf-886b-6d247923601c | Runway | Member of Technical Staff, Applied Research Scientist | Remote (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/runway-ml/98e4b160-3bbe-4acd-b106-ad75ccc49675 | Runway | Member of Technical Staff, Research Engineer | Remote (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/runway-ml/0f1c42db-8bbf-4e69-a17c-b6f45244605d | Runway | Member of Technical Staff, Robotics Engineer | New York, NY (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/runway-ml/f74afbd9-b4e8-4b87-835a-5e22dcc556ae | Runway | Research Engineer, Data Foundations | Remote (unverified) | websearch 2026-09-02
+- [ ] https://job-boards.greenhouse.io/skildai-careers/jobs/5028697008 | Skild AI | Physics Simulation Scientist | San Mateo (unverified) | websearch 2026-09-02
+- [ ] https://job-boards.greenhouse.io/skildai-careers/jobs/4091609008 | Skild AI | Simulation Engineer | San Mateo (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/skydio/cc83824e-a1cd-4bc7-9206-7264da9fbd61 | Skydio | Autonomy Engineer - Deep Learning | San Mateo, California, United States (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/skydio/a6421d3e-fdd0-48d6-8d8f-3fd605cdf09f | Skydio | Senior Autonomy Engineer - Deep Learning | San Mateo, California, United States (unverified) | websearch 2026-09-02
+- [ ] https://jobs.ashbyhq.com/skydio/7a8f3e6c-d576-41af-a81e-bf4fe20da12a | Skydio | Software Engineer - Simulation & Robotics Engineer | San Mateo, California, United States (unverified) | websearch 2026-09-02
+
 ## Deprioritized — weak archetype signal (auto-triage, kept for reference)
 
 - [ ] https://job-boards.greenhouse.io/anthropic/jobs/5183044008 | Anthropic | Anthropic Fellows Program, AI Safety | London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA
