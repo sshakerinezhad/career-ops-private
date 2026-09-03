@@ -67,3 +67,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Founding/infra roles: lead BMO with ground-up ownership of the graph agentic system (now a multi-agent data-layer harness) and frame BMO + Epineuron as production ownership, not prototypes. Don't bury ownership under the bias finding or use 'Helped develop' as the Epineuron opener.
 - **was:** Building a graph-based agentic system answering complex multi-hop relational queries across bank client data.
 - **now:** Built a graph-based agentic system from the ground up to answer multi-hop relational queries across bank client data; since grown into a multi-agent data-layer harness.
+
+### D014 · cv · 2026-09-03 · cost 0.50 · recur 1
+- **rule:** Shayan's phrasing for the BMO outcome bullet: 'One prompt found, sorted, and screened nearly 30,000 clients for defined-benefit plans ... in 3 hours, previously requiring days of manual work.' Use his verbs (found, sorted, screened), 'nearly', and 'previously ... days of manual work'; not 'One text request' or 'down from a work week'.
+- **was:** One text request: screened 30,000 clients for defined-benefit plans autonomously in 3 hours, down from a work week.
+- **now:** One prompt found, sorted, and screened nearly 30,000 clients for defined benefits-plans autonomously in 3 hours, previously requiring days of manual work.
