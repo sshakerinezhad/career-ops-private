@@ -58,7 +58,7 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **was:** At BMO's AI Centre of Excellence I found a GenAI tool serving over $200B in AUM was systematically downplaying investment risk. I built a deterministic eval pipeline over a few hundred synthesized inputs to catch that at scale instead of anecdotally.
 - **now:** At BMO's AI Centre of Excellence I built evaluation harnesses and test setups that caught an agentic tool (serving over $200B in AUM) subtly downplaying investment risk. Behaviour that was invisible until I scaled up to hundreds of test cases to identify systematic misalignment.
 
-### D012 · cover · 2026-07-30 · cost 0.45 · recur 1
+### D012 · cover · 2026-07-30 · cost 0.69 · recur 2
 - **rule:** Never bridge a paragraph by mirroring the job posting back ('the X half of your posting is what I do'). Open with a plain statement of the work and let the reader map it. Merlyn is introduced as side research, not as a headline credential.
 - **was:** The reward-function half of your posting is what I do at Merlyn Labs, the 3-person research collective I co-founded.
 - **now:** On the side I do research at Merlyn Labs, the 3-person research collective I co-founded.
