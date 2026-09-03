@@ -63,7 +63,7 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **was:** The reward-function half of your posting is what I do at Merlyn Labs, the 3-person research collective I co-founded.
 - **now:** On the side I do research at Merlyn Labs, the 3-person research collective I co-founded.
 
-### D013 · cv · 2026-09-03 · cost 0.55 · recur 1
+### D013 · cv · 2026-09-03 · cost 0.72 · recur 2
 - **rule:** Founding/infra roles: lead BMO with ground-up ownership of the graph agentic system (now a multi-agent data-layer harness) and frame BMO + Epineuron as production ownership, not prototypes. Don't bury ownership under the bias finding or use 'Helped develop' as the Epineuron opener.
 - **was:** Building a graph-based agentic system answering complex multi-hop relational queries across bank client data.
 - **now:** Built a graph-based agentic system from the ground up to answer multi-hop relational queries across bank client data; since grown into a multi-agent data-layer harness.
