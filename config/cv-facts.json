@@ -2,11 +2,15 @@
   "_notes": "Verified exceptions for verify-cv-facts.mjs. Each metric here must be traceable to a statement Shayan made directly; add the date and where it is used.",
   "allow_metrics": [
     "30,000 clients",
-    "3 hours"
+    "3 hours",
+    "5 day",
+    "3 hour"
   ],
   "_allow_metrics_provenance": {
     "30,000 clients": "Shayan, chat 2026-09-03: BMO Wealth multi-agent data layer screened ~30,000 clients for defined-benefit plans. Used in the Mubit CV. Not yet in cv.md.",
-    "3 hours": "Shayan, chat 2026-09-03: the screen ran autonomously in about 3 hours vs a manual work week. Used in the Mubit CV. Not yet in cv.md."
+    "3 hours": "Shayan, chat 2026-09-03: the screen ran autonomously in about 3 hours vs a manual work week. Used in the Mubit CV. Not yet in cv.md.",
+    "5 day": "Shayan, chat 2026-09-03: the manual defined-benefit screen took about a work week (4-5 days). Used in the Mubit CV.",
+    "3 hour": "Same as '3 hours' (singular form used in the Mubit CV bullet)."
   },
   "allow_facts": [],
   "forbidden_phrases": [],
