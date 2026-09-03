@@ -72,3 +72,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Shayan's phrasing for the BMO outcome bullet: 'One prompt found, sorted, and screened nearly 30,000 clients for defined-benefit plans ... in 3 hours, previously requiring days of manual work.' Use his verbs (found, sorted, screened), 'nearly', and 'previously ... days of manual work'; not 'One text request' or 'down from a work week'.
 - **was:** One text request: screened 30,000 clients for defined-benefit plans autonomously in 3 hours, down from a work week.
 - **now:** One prompt found, sorted, and screened nearly 30,000 clients for defined benefits-plans autonomously in 3 hours, previously requiring days of manual work.
+
+### D015 · cv · 2026-09-03 · cost 0.64 · recur 1
+- **rule:** Summary: describe Merlyn Labs as 'researching VLAs and designing games for agent evaluations', not the RLinf open-source line. Always keep the Interests & Hobbies line at the bottom of the CV (Literature, Dungeons & Dragons, Volleyball, Twilight Imperium, Piano).
+- **was:** Co-founder of Merlyn Labs; open-sourced a flow-matching VLA integration for RLinf.
+- **now:** Co-founder of Merlyn Labs, researching VLAs and designing games for agent evaluations.
