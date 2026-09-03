@@ -1,0 +1,14 @@
+{
+  "_notes": "Verified exceptions for verify-cv-facts.mjs. Each metric here must be traceable to a statement Shayan made directly; add the date and where it is used.",
+  "allow_metrics": [
+    "30,000 clients",
+    "3 hours"
+  ],
+  "_allow_metrics_provenance": {
+    "30,000 clients": "Shayan, chat 2026-09-03: BMO Wealth multi-agent data layer screened ~30,000 clients for defined-benefit plans. Used in the Mubit CV. Not yet in cv.md.",
+    "3 hours": "Shayan, chat 2026-09-03: the screen ran autonomously in about 3 hours vs a manual work week. Used in the Mubit CV. Not yet in cv.md."
+  },
+  "allow_facts": [],
+  "forbidden_phrases": [],
+  "warn_phrases": []
+}
