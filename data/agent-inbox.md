@@ -1,5 +1,28 @@
 # Agent Inbox — queued for next session
 
+## Session handoff (2026-09-03, end of session 9 — remote/web session, branch `claude/resume-ashby-application-oeye2e` fast-forwarded into main)
+
+**CRITICAL NEXT TASK: Mercor HM screen prep. Wed 2026-09-09 13:00-13:20 ET, Google Meet, interviewer James Moore (updated invite; Shayan's reply still names Charlie Ruan).** No `interview-prep/mercor-*.md` exists. Tracker #32 (Interview, Research Engineer, Post Training, backfilled, no report) — use the report-less path in `modes/interview-prep.md`, then `interview/plan` for the time-block. Full Mercor context (Aksh Garg, Ally Sollis, Litmus take-home submitted 08-27, six sibling reqs to ask about in-process) is in the 09-02 handoff below; do not re-derive it.
+
+### Done this session
+- **Mubit Founding Engineer (London, on-site, Ashby 77a5ea32) SUBMITTED by Shayan 2026-09-03.** Tracker #61 Applied, score N/A (no evaluation run, resume-only ask). CV `output/cv-candidate-mubit-founding-eng-2026-09-03.pdf`, A4, one page, 8 iterations. Follow-up seeded 09-10. Form: right-to-work ticked "I require sponsorship" (Yes would be a lie, No disqualifies) and the CV summary carries "Canadian citizen, no sponsorship needed; eligible for the Youth Mobility Scheme and High Potential Individual visa" (both verified on gov.uk 09-03: YMS Canadians 18-35, 2y+1y; HPI McMaster on the 2022 list covering Nov 2022-Oct 2023 awards, once only). Salary field: "Open to a salary and equity split that reflects the scope of the role and what you expect from a founding engineer. Happy to talk numbers early." No number given, by his choice. Mubit: founded Nov 2025, ~$2.1M seed (Hoxton, Heavybit), first eng hire.
+- **New facts Shayan stated in chat, used in the Mubit CV, NOT yet in cv.md/main.tex** (he has not said yes to writing them in; show the lines first, per the Off-Limits rule):
+  - "Built, scaled, and own BMO Wealth's multi-agent data layer: an orchestration harness with graph, analysis, and search tools." (the graph DB of client data is one tool; no "agent marketplace" wording)
+  - "Used to discover, sort, and scan nearly 30,000 clients for defined-benefit plans, turning a 5-day manual job into a 3-hour autonomous task." (his exact words; proprietary detail stays out)
+  - "Owned a proprietary subcutaneous neurostimulator from first idea to production device" at Epineuron (he can't share detail; kept separate from PeriPulse, unclear if same device)
+  - The 30,000 / 3 hours / 5 day metrics live as provenance-tagged exceptions in `config/cv-facts.json` (new file) so the fact gate passes.
+- **Ledger:** D013 (cv, recur 4: one-line bullets that FILL the line, built/own/scaled beats, BMO Wealth naming), D014 (cv, recur 2: his outcome-bullet phrasing), D015 (cv: Merlyn summary phrasing + Interests & Hobbies row at the bottom), D012 (now recur 2, extended to form answers: one plain sentence, no rationale, no quoting the posting back). D013 is at recur 4 → graduate into voice-dna.md on the next prune.
+- **Rendering note for this remote box:** the raw template renders ~25% taller than the shipped July CVs (their PDFs show ~11pt line pitch vs 15-16pt). The Mubit HTML got a `<style id="one-page-fit">` override (li line-height 1.4, margin 1px, section 12px, header 12px, summary 1.45). Reuse it or the page will not fit. A4 measurement: viewport 679px, budget 1007px (the letter helper `.tmp-measure.mjs` assumes 701/940). Contact row at A4 width fits only 4 items; LinkedIn was dropped.
+- Corpus: Mubit CV and salary answer finalized. `mubit-founding-eng-salary-answer-2026-09-03` (numbered drafts) left unfinalized on purpose, superseded. The 5 older unfinalized drafts from 08-01 are unchanged.
+
+### Still open
+- **BMO offer deadline was today 2026-09-03 4:00 PM EST.** Shayan did not say what he did. Ask.
+- TMX Group "6428 AI Intern" offer letter (08-25): still no instruction.
+- Other-machine CV sources still unmerged here (see 09-02 handoff). Today's cv-facts.json, deltas, corpus rows will need to survive that merge too.
+- Remote branches: `claude/continue-previous-gjuvlg` and `claude/continue-previous-wx470w` (07-08) share no history with main (pre-rewrite), contents superseded; delete only if Shayan says so. Four Dependabot branches open (js-yaml 5.4.1, playwright 1.62.1, actions/stale 11, charmbracelet ansi).
+- career-ops update 1.24.0 → 1.32.0 offered again, unanswered.
+- `modes/_brief.md` was auto-copied by doctor and committed by the stop hook with placeholders unfilled.
+
 ## Session handoff (2026-09-02, end of session 8 — remote/web session, branch `claude/status-check-projects-sv1tym` merged to main)
 
 **Nothing submitted. 28 evaluations added (reports 033-060), Mercor backfilled as #32 (Interview). Two sweeps run. All pushed to main.**
