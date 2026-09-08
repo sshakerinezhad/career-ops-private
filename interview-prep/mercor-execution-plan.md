@@ -2,7 +2,7 @@
 
 Companion to `mercor-research-engineer-post-training.md` (the intel doc). This file is the to-do list. Every task has a time, exact steps, a written output, and a done-check. Study material lives at the cited source; each study unit says what to read, what to learn from it, a plain-language version, and self-check questions with an answer key.
 
-Total work: about 8 hours across 6 days. Nothing here is optional except where marked.
+Total work in the compressed schedule: about 4 hours. §1 says what to cut and in what order.
 
 ---
 
@@ -22,10 +22,28 @@ Everything below exists to make those three lines easy for him to write. Anythin
 
 ---
 
-## 1. Schedule
+## 1. Schedule (compressed: Mon 09-07 night to Wed 09-09 13:00 ET)
 
-| When | Minutes | Task | Output you must have at the end |
+Real clock as of Monday night: about 30 min tonight, a few hours Tuesday around classes and work, Wednesday morning around classes and work. Total: about 4 hours. Everything below is ordered by value; do the tasks in order and stop when the time is gone.
+
+| When | Minutes | Task | Output |
 |---|---|---|---|
+| **Mon night** | 15 | T1 Decisions D1, D2, D3 only (§4.1). D1 is the start-date sentence; write it. | Three sentences written |
+| Mon night | 15 | T2 Pitch: read §2.1 twice, then record it on your phone, timed. Two takes. Under 90 s. | Recording exists |
+| **Tue, block 1** | 45 | T3 Take-home recall (§4.2) | Worksheet items 1, 2, 5, 6, 7 written; said aloud once |
+| Tue, block 2 | 60 | T4 Unit A: read the 397B post only (skip the README), then Self-check A from memory | Self-check A done; misses re-read |
+| Tue, block 3 | 30 | T5 Unit B, short form: read the four plain versions in §3.2 (B1, B2, B3, B4) and B5; read DeepSeekMath §4.1 only if there is time. Answer the B self-checks from the plain versions. | B self-checks answered |
+| Tue, block 4 | 15 | T8 Numbers card (§5), cover-and-recite, two passes | 100% on second pass |
+| Tue, any gap | 10 | Unit C plain version only (§3.3), once. T9: pick your 3 questions from §2.9 (defaults are fine). | Questions written on paper |
+| **Wed morning** | 30 | T10 Practice, short form: run the §6 invocation with questions 1, 2, 3, 4, 6 only. Out loud, timed. Fix any 🔴 once. | Session summary saved |
+| Wed morning | 10 | T11 Meet test: join the link from the laptop and desk you will use; camera, headset, background. Dial-in on paper. | Done |
+| Wed 11:30 on | see §7 | Day-of run sheet | Done |
+
+Cut list if Tuesday shrinks, in this order: Unit C, DeepSeekMath reading, T8 second pass, T10 (replace with reading §2 aloud once, timed). Never cut T1, T2, T3, T4.
+
+Stories (§4.3) are not scheduled. You have three stories in §2.4, §2.5 and the pitch; that covers a 20-minute screen. Fill §4.3 only if a Tuesday block finishes early.
+
+---|---|---|---|
 | Thu 09-03, tonight | 45 | T1 Decisions worksheet (§4.1) · T2 Pitch recording | Worksheet filled; a phone recording of the pitch under 90 s |
 | Fri 09-04 | 60 | T3 Take-home recall worksheet (§4.2) | Worksheet filled, 5-line problem summary written |
 | Sat 09-05 | 120 | T4 Study Unit A: the 397B write-up + recipe (§3.1) | Self-check A passed from memory; 6-sentence summary written |
