@@ -2,7 +2,7 @@
 
 ## Session handoff (2026-09-03, end of session 9 — remote/web session, branch `claude/resume-ashby-application-oeye2e` fast-forwarded into main)
 
-## Session handoff (2026-09-09, end of session 10 — remote/web session, branch `claude/mercor-interview-prep-svvx9u`, 14 commits ahead of main, all pushed, NOT merged)
+## Session handoff (2026-09-09, end of session 10 — remote/web session, branch `claude/mercor-interview-prep-svvx9u`, fast-forwarded into main at 1284a0d)
 
 **Mercor screen is Wed 2026-09-09 13:00–13:20 ET, James Moore, Google Meet. Session ended ~2 h before the call.** Next session's first job: **ask how it went, get every question in his words, run `interview/debrief`** (creates `interview-prep/sessions/` + `question-bank.md`), then update tracker #32 via `set-status.mjs --row 32`.
 
@@ -24,7 +24,7 @@
 - BMO offer (deadline was 09-03) and TMX letter: never answered.
 - career-ops update 1.24.0 → 1.32.0: offered, unanswered. `npm install` was run here (no lockfile; `npm ci` fails).
 - `node data/learn.mjs audit`: same pre-existing unfinalized drafts; the Mercor CV record is finalized.
-- Branch → main: 14 commits, clean merge of origin/main already included. He can `git checkout main && git merge --ff-only claude/mercor-interview-prep-svvx9u && git push` on the laptop, or open a PR.
+- Branch is merged into main (fast-forward, 2026-09-09). Laptop: `git pull origin main`.
 
 
 ### Done this session
