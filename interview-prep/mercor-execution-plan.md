@@ -32,7 +32,8 @@ Real clock as of Monday night: about 30 min tonight, a few hours Tuesday around 
 | Mon night | 15 | T2 Pitch: read §2.1 twice, then record it on your phone, timed. Two takes. Under 90 s. | Recording exists |
 | **Tue, block 1** | 45 | T3 Take-home recall (§4.2) | Worksheet items 1, 2, 5, 6, 7 written; said aloud once |
 | Tue, block 2 | 60 | T4 Unit A: read the 397B post only (skip the README), then Self-check A from memory | Self-check A done; misses re-read |
-| Tue, block 3 | 30 | T5 Unit B, short form: read the four plain versions in §3.2 (B1, B2, B3, B4) and B5; read DeepSeekMath §4.1 only if there is time. Answer the B self-checks from the plain versions. | B self-checks answered |
+| Tue, block 3 | 30 | T5b Deep-dive cards (§9): fill every [you] line, say Cards 1, 2, 6 aloud. Takes priority over T5. | Cards filled |
+| Tue, block 3b | 30 | T5 Unit B, short form: read the four plain versions in §3.2 (B1, B2, B3, B4) and B5; read DeepSeekMath §4.1 only if there is time. Answer the B self-checks from the plain versions. | B self-checks answered |
 | Tue, block 4 | 15 | T8 Numbers card (§5), cover-and-recite, two passes | 100% on second pass |
 | Tue, any gap | 10 | Unit C plain version only (§3.3), once. T9: pick your 3 questions from §2.9 (defaults are fine). | Questions written on paper |
 | **Wed morning** | 30 | T10 Practice, short form: run the §6 invocation with questions 1, 2, 3, 4, 6 only. Out loud, timed. Fix any 🔴 once. | Session summary saved |
@@ -64,7 +65,7 @@ Rehearse from this section, not from the intel doc. Every fact traces to `cv.md`
 
 > Two threads. By day I'm an AI research engineer at BMO's AI Centre of Excellence. My main result there: I found a systematic bias toward downplaying investment risk in a GenAI tool serving over $200B in wealth-management assets, then built a deterministic eval pipeline over hundreds of synthesized inputs so that class of failure gets caught at scale. Since then I've been building evals for agents that reason over banking and insurance policy, RL environments for wealth-management agents, and a graph-based agent for multi-hop queries over client data.
 >
-> By night I co-founded Merlyn Labs, three of us doing robotics research. We placed 8th in Stanford's BEHAVIOR-1K Challenge, where I found that masking 60% of proprioception improved task success by up to 48%. We also wrote up why the published π0.5 checkpoint collapses on LIBERO-PRO position-swap: it's the finetuning recipe, not the architecture, and a conservative recipe doubles success from 21% to 42%. I open-sourced a flow-matching VLA integration for RLinf so people can run RL on BEHAVIOR-1K.
+> By night I co-founded Merlyn Labs, three of us doing robotics research. We placed 8th in Stanford's BEHAVIOR-1K Challenge, where I found that masking 60% of proprioception improved task success by up to 48%. We also wrote up why the published π0.5 checkpoint collapses on LIBERO-PRO position-swap: it's the finetuning recipe, not the architecture, and a conservative recipe doubles success from 21% to 42%. I open-sourced a flow-matching VLA integration for RLinf so people can run RL on BEHAVIOR-1K. And as a side exploration I'm building agent evals on Settlers of Catan and Twilight Imperium: open action space plus negotiation. The Catan harness runs; LLM experiments have started.
 >
 > The thread through all of it is finding where a model actually fails and building the eval or the training fix that closes it. That's what your post-training and benchmarks work is, so here I am.
 
@@ -347,6 +348,59 @@ Done-check: session summary saved; no 🔴 remaining; every answer under 90 seco
 | 13:20–13:50 | Immediately: write down every question he asked, in his words, and what you answered. Then run `/career-ops interview/debrief` in this repo and paste them. That creates the question bank for the next round. |
 
 ---
+
+## 9. Technical deep-dive cards (added Tue 09-08)
+
+Aksh's own words for this round are "a technical conversation about your background & skillset." Expect "tell me more about X" on anything you name in the pitch. Each card below is the 60 to 90 second version of one artifact. Facts already in the repo are filled in; blanks marked [you] are mechanism details only you know. Fill them in writing on Tuesday, in one line each. Do not add anything that is not true today.
+
+Card format: what it is → how it works (three sentences) → the hardest problem → what you would change → the number → where you stop.
+
+**Card 1: BMO deterministic agent eval pipeline** (cv.md line 19)
+- What: a pipeline that runs hundreds of synthesized inputs through the GenAI tool and flags misaligned outputs; it surfaced the systematic risk-downplaying bias.
+- How: [you] how the inputs were synthesized (templated? sampled from real distributions? adversarial?); [you] what "deterministic" means here (fixed seeds, temperature 0, same prompt set?); [you] how an output gets scored (rules, a judge model, human review of a sample?).
+- Hardest: [you].
+- Would change: [you].
+- Number: hundreds of inputs; $200B+ AUM tool.
+- Stop line: D2.
+
+**Card 2: BMO graph-based agentic system** (cv.md line 23; Mubit CV line approved by you 09-03: "an orchestration harness with graph, analysis, and search tools", "discover, sort, and scan nearly 30,000 clients for defined-benefit plans, turning a 5-day manual job into a 3-hour autonomous task")
+- What: an agent harness over client data with a graph tool, an analysis tool, and a search tool; answers multi-hop relational questions.
+- How: [you] what the graph holds (entities and edges, in general terms); [you] how the agent chooses tools; [you] how you check an answer is right.
+- Hardest: [you].
+- Would change: [you].
+- Number: ~30,000 clients scanned; 5 days manual to 3 hours autonomous. (Say these only if D2 allows; they are in the Mubit CV, not yet in cv.md.)
+- Stop line: D2.
+
+**Card 3: BMO RL environments for wealth-management agents** (cv.md line 21, "developing")
+- What: environments to train specialized agents; in progress.
+- How: [you] what an episode is; [you] where the reward comes from (rules? rubric? judge?); [you] what "specialized" means.
+- This is the card that maps straight onto Mercor's product. If it is early, say "early" and describe the design, not results.
+- Stop line: D2.
+
+**Card 4: BMO agent provisioning infrastructure** (cv.md line 22)
+- What: internal infrastructure that stands up an LLM agent from a written role and scope definition.
+- How: [you] what the definition contains; [you] what gets generated (prompts, tools, guardrails?); [you] how you test a provisioned agent before it ships.
+- Stop line: D2.
+
+**Card 5: RLinf flow-matching VLA integration** (cv.md line 31; article-digest §4)
+- What: an integration you contributed to the open-source RLinf framework so a flow-matching VLA can be trained with RL on BEHAVIOR-1K in OmniGibson. You did not build RLinf.
+- How: [you] what the integration touched (policy wrapper? action sampling for flow-matching? env interface?); [you] what broke first; [you] how you verified it trains.
+- Hardest: [you].
+- Number: none on file; do not invent one.
+
+**Card 6: Catan and Twilight Imperium agent evals** (data/projects/ti-agent-evals.md; your framing 07-30)
+- What: a side exploration using Settlers of Catan and Twilight Imperium as test beds for agent evals: large action space, then multi-agent negotiation on top. Catan harness built: basic engine plus agent loop running, LLM experiments started. TI tooling being built concurrently and is materially harder (larger action space, 50-page rulebook). Inference cost is the live constraint on experiment volume.
+- Why it matters to them: it is a homemade RL-style environment with an agent loop and a verifier problem, which is what their Environments and Deeptune teams build. Say it as "side exploration," never as a result.
+- How: [you] how the engine exposes state and legal actions to the agent (text? JSON? tool calls?); [you] how a turn is scored or a game is judged; [you] what you have observed so far in the first LLM runs, in one honest sentence.
+- Hardest: [you] (negotiation? action-space size? cost?).
+- Would change: [you].
+- Number: none; it is unfinished. Do not say "published" or "results."
+
+**Card 7: BEHAVIOR-1K** and **Card 8: LIBERO-PRO** are already scripted (§2.4, §4.3) and numbered (§5). Add only the mechanism line for each: [you] one sentence on how you found proprioceptive collapse (what you measured that made it visible); [you] one sentence on how you set up the LIBERO-PRO position-swap eval.
+
+**Order of likely probing, given his email and your pitch:** Card 1 or 2 (BMO, because it is your day job and it is agents), then Card 6 (because it is environments), then the gap answer (§2.3), then Card 5. Cards 3 and 4 only if he pulls on them.
+
+**Tuesday task (30 min, replaces T5's DeepSeekMath reading if time is short):** fill every [you] above in one line each, on paper. Then say Cards 1, 2 and 6 out loud, timed, under 90 seconds each.
 
 ## 8. 15-Minute Pre-Interview Review
 
