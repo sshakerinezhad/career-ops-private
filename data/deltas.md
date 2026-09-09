@@ -77,3 +77,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Summary: describe Merlyn Labs as 'researching VLAs and designing games for agent evaluations', not the RLinf open-source line. Always keep the Interests & Hobbies line at the bottom of the CV (Literature, Dungeons & Dragons, Volleyball, Twilight Imperium, Piano).
 - **was:** Co-founder of Merlyn Labs; open-sourced a flow-matching VLA integration for RLinf.
 - **now:** Co-founder of Merlyn Labs, researching VLAs and designing games for agent evaluations.
+
+### D016 · email · 2026-09-09 · cost 0.96 · recur 1
+- **rule:** Ask/recovery emails: one plain ownership line ('That's on me'), no blow-by-blow justification, never restate scores or level names. Offer a fallback the reader can grant (work tests) instead of a binary ask, and close short ('no hard feelings') without asking to be kept in mind.
+- **was:** I cleared L1 and L2, then misread the L3 spec (the time-scoped tag operations), rebuilt it once I caught the mistake, and ran out of clock. The 500/1000 reflects the misread more than the ability, and I'd like a clean run at it.
+- **now:** I'll be straightforward: my performance on the screen didn't reflect what I can do. I locked onto a wrong design early spent too long there to recover. That's on me.
