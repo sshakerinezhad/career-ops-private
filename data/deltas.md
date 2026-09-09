@@ -58,12 +58,22 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **was:** At BMO's AI Centre of Excellence I found a GenAI tool serving over $200B in AUM was systematically downplaying investment risk. I built a deterministic eval pipeline over a few hundred synthesized inputs to catch that at scale instead of anecdotally.
 - **now:** At BMO's AI Centre of Excellence I built evaluation harnesses and test setups that caught an agentic tool (serving over $200B in AUM) subtly downplaying investment risk. Behaviour that was invisible until I scaled up to hundreds of test cases to identify systematic misalignment.
 
-### D012 · cover · 2026-07-30 · cost 0.45 · recur 1
+### D012 · cover · 2026-07-30 · cost 0.69 · recur 2
 - **rule:** Never bridge a paragraph by mirroring the job posting back ('the X half of your posting is what I do'). Open with a plain statement of the work and let the reader map it. Merlyn is introduced as side research, not as a headline credential.
 - **was:** The reward-function half of your posting is what I do at Merlyn Labs, the 3-person research collective I co-founded.
 - **now:** On the side I do research at Merlyn Labs, the 3-person research collective I co-founded.
 
-### D013 · email · 2026-08-03 · cost 0.96 · recur 1
-- **rule:** Ask/recovery emails: one plain ownership line ('That's on me'), no blow-by-blow justification, never restate scores or level names. Offer a fallback the reader can grant (work tests) instead of a binary ask, and close short ('no hard feelings') without asking to be kept in mind.
-- **was:** I cleared L1 and L2, then misread the L3 spec (the time-scoped tag operations), rebuilt it once I caught the mistake, and ran out of clock. The 500/1000 reflects the misread more than the ability, and I'd like a clean run at it.
-- **now:** I'll be straightforward: my performance on the screen didn't reflect what I can do. I locked onto a wrong design early spent too long there to recover. That's on me.
+### D013 · cv · 2026-09-03 · cost 0.75 · recur 4
+- **rule:** Founding/infra roles: lead BMO with ground-up ownership of the graph agentic system (now a multi-agent data-layer harness) and frame BMO + Epineuron as production ownership, not prototypes. Don't bury ownership under the bias finding or use 'Helped develop' as the Epineuron opener.
+- **was:** Building a graph-based agentic system answering complex multi-hop relational queries across bank client data.
+- **now:** Built a graph-based agentic system from the ground up to answer multi-hop relational queries across bank client data; since grown into a multi-agent data-layer harness.
+
+### D014 · cv · 2026-09-03 · cost 0.60 · recur 2
+- **rule:** Shayan's phrasing for the BMO outcome bullet: 'One prompt found, sorted, and screened nearly 30,000 clients for defined-benefit plans ... in 3 hours, previously requiring days of manual work.' Use his verbs (found, sorted, screened), 'nearly', and 'previously ... days of manual work'; not 'One text request' or 'down from a work week'.
+- **was:** One text request: screened 30,000 clients for defined-benefit plans autonomously in 3 hours, down from a work week.
+- **now:** One prompt found, sorted, and screened nearly 30,000 clients for defined benefits-plans autonomously in 3 hours, previously requiring days of manual work.
+
+### D015 · cv · 2026-09-03 · cost 0.64 · recur 1
+- **rule:** Summary: describe Merlyn Labs as 'researching VLAs and designing games for agent evaluations', not the RLinf open-source line. Always keep the Interests & Hobbies line at the bottom of the CV (Literature, Dungeons & Dragons, Volleyball, Twilight Imperium, Piano).
+- **was:** Co-founder of Merlyn Labs; open-sourced a flow-matching VLA integration for RLinf.
+- **now:** Co-founder of Merlyn Labs, researching VLAs and designing games for agent evaluations.

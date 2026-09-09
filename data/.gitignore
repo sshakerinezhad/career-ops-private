@@ -8,3 +8,6 @@
 !apply-session-*.md
 !projects/
 !projects/**
+
+# scan-ats-full.mjs resume checkpoint (transient; ats-companies/ is already ignored upstream)
+cache/ats-full-checkpoint.json
