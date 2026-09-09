@@ -2,7 +2,30 @@
 
 ## Session handoff (2026-09-03, end of session 9 — remote/web session, branch `claude/resume-ashby-application-oeye2e` fast-forwarded into main)
 
-**MERCOR PREP (session 10, branch `claude/mercor-interview-prep-svvx9u`, rebuilt 09-08 to one lean file):** `interview-prep/mercor-research-engineer-post-training.md` (+ `output/mercor-screen-2026-09-09.pdf`). Sections: the call, verbatim scripts, depth cards with [blanks] Shayan fills, their work (397B SkyRL post is the hook), RL post-training at conversation depth, numbers, questions, don'ts, Tue/Wed run sheet. Full research is in git history at c173f31. Open on Shayan: start-date sentence (M.Eng to Apr 2027 vs SF 5 days), BMO stop line, Litmus recall (problem not in repo). After the call: `interview/debrief`. A Mercor-tailored CV was requested 09-08 (Ashby reminder asked for a resume); build from merged sources once the laptop push lands on origin/main.
+## Session handoff (2026-09-09, end of session 10 — remote/web session, branch `claude/mercor-interview-prep-svvx9u`, 14 commits ahead of main, all pushed, NOT merged)
+
+**Mercor screen is Wed 2026-09-09 13:00–13:20 ET, James Moore, Google Meet. Session ended ~2 h before the call.** Next session's first job: **ask how it went, get every question in his words, run `interview/debrief`** (creates `interview-prep/sessions/` + `question-bank.md`), then update tracker #32 via `set-status.mjs --row 32`.
+
+### Files this session (all on the branch)
+- `interview-prep/mercor-research-engineer-post-training.md` + `output/mercor-screen-2026-09-09.pdf`: the lean prep doc (rebuilt twice on his feedback: bullet answer plans, not scripts). §2 answer plans, §3 depth cards (blanks he fills), §4 their work (397B SkyRL post 09-01 is the hook), §5 RL at conversation depth, §6 numbers, §7 questions, §8 don'ts, §9 run sheet. Full company research is in git history at c173f31 only.
+- `interview-prep/post-training-primer.md` + PDF: every training method at plain/technical/math level (pretraining → SFT → distillation → rejection sampling → REINFORCE → PPO/RLHF → DPO → GRPO → DAPO → aggregation → async corrections → RLVR → LoRA → self-play → reward hacking). Durable; reuse for any post-training role.
+- `output/cv-shayan-shakeri-mercor-2026-09-08.pdf`: one-page Letter CV built for the Ashby reminder's "share an updated resume." Corpus id `mercor-32-cv-2026-09-08`, finalized with his spans. Payload only lives in the session scratchpad (gone); rebuild from cv.md + the facts below if needed. **Whether he actually sent it to Ally is unknown; ask.**
+- `jds/mercor-re-post-training.md`: closest public sibling JD (97b8c17e), used for jd-skill-gap.
+
+### CV facts used that are NOT in cv.md (he approved them in chat; ask before writing into cv.md)
+- BMO: "Built, scaled, and own BMO Wealth's multi-agent data layer: an orchestration harness with graph, analysis, and search tools" (D013) and the 30,000-clients / 3-hours / days line (D014; metrics in cv-facts.json).
+- New project, his exact four lines (2026-09-08): **Catan Agent Environment (Merlyn Labs), 2026–present, in progress**: "Built an environment to train and evaluate LLM agents playing Settlers of Catan with an expanded negotiation space" / "Found OTS Catanatron engine agents scored future moves with hidden state, so redesigned a native engine" / "Agents see the full game transcript then choose either one of the legal actions or to negotiate with other bots" / "Integrating a multi-model leaderboard, then post-training on the best performing bots". Context: view object = full transcript + legal actions + negotiate; every action and reasoning trace saved for later training; bots play full games and have won some; compute is the constraint; TI tooling in progress, much harder. Not an audit of Catanatron; a build that hit a problem.
+- Format decisions he made for this CV: **no Core Competencies strip** (engineer-read CV; departs from _profile.md rule 11c, not yet a standing rule; ask if it should be), projects rendered as bullets (post-processed; template only has a description paragraph), summary in his Mubit voice, no neurostimulator line, no VLM-judges bullet.
+- His stated preferences this session, worth a delta entry: prep docs = bullets (point, beats, why, options), never verbatim scripts; "think about what goes in and why," tell projects in order (what, motivation, what we did, why we switched, how it works, next).
+
+### Still open
+- D1 start-date sentence (M.Eng to Apr 2027 vs SF 5 days) and BMO stop line: he was told to write them before the call; not recorded anywhere.
+- Litmus take-home content: still not in the repo. Capture in the debrief.
+- BMO offer (deadline was 09-03) and TMX letter: never answered.
+- career-ops update 1.24.0 → 1.32.0: offered, unanswered. `npm install` was run here (no lockfile; `npm ci` fails).
+- `node data/learn.mjs audit`: same pre-existing unfinalized drafts; the Mercor CV record is finalized.
+- Branch → main: 14 commits, clean merge of origin/main already included. He can `git checkout main && git merge --ff-only claude/mercor-interview-prep-svvx9u && git push` on the laptop, or open a PR.
+
 
 ### Done this session
 - **Mubit Founding Engineer (London, on-site, Ashby 77a5ea32) SUBMITTED by Shayan 2026-09-03.** Tracker #61 Applied, score N/A (no evaluation run, resume-only ask). CV `output/cv-candidate-mubit-founding-eng-2026-09-03.pdf`, A4, one page, 8 iterations. Follow-up seeded 09-10. Form: right-to-work ticked "I require sponsorship" (Yes would be a lie, No disqualifies) and the CV summary carries "Canadian citizen, no sponsorship needed; eligible for the Youth Mobility Scheme and High Potential Individual visa" (both verified on gov.uk 09-03: YMS Canadians 18-35, 2y+1y; HPI McMaster on the 2022 list covering Nov 2022-Oct 2023 awards, once only). Salary field: "Open to a salary and equity split that reflects the scope of the role and what you expect from a founding engineer. Happy to talk numbers early." No number given, by his choice. Mubit: founded Nov 2025, ~$2.1M seed (Hoxton, Heavybit), first eng hire.
