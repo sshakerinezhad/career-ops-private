@@ -11,38 +11,62 @@ Research Engineer, Post Training. Tracker #32. Full research (team table, siblin
 - **Open:** "Hi James, good to meet you." Then "happy to start wherever you'd like." Never mention Charlie.
 - **Close:** "Thanks, this was useful. I'm keen. What's the next step on your side and roughly when?"
 
-## 2. Say this
+## 2. Answer plans
 
-Every fact below is in cv.md, article-digest.md, or your own approved wording. Add nothing.
+Not scripts. Each is: the point to land, the beats that carry it, why they matter to this listener, and options depending on where he steers. Every fact is in cv.md, article-digest.md, or your own approved wording. Add nothing. Cap: 90 seconds, then stop.
 
-**Pitch (≤90 s)**
-> Two threads. By day I'm an AI research engineer at BMO's AI Centre of Excellence. My main result there: I found a systematic bias toward downplaying investment risk in a GenAI tool serving over $200B in wealth-management assets, then built a deterministic eval pipeline over hundreds of synthesized inputs so that class of failure gets caught at scale. Since then I've built a graph-based agent harness over client data, and I'm building evals for agents that reason over banking and insurance policy and RL environments for wealth-management agents.
-> By night I co-founded Merlyn Labs, three of us doing robotics research. We placed 8th in Stanford's BEHAVIOR-1K Challenge, where I found that masking 60% of proprioception improved task success by up to 48%. We also wrote up why the published π0.5 checkpoint collapses on LIBERO-PRO position-swap: it's the finetuning recipe, not the architecture; a conservative recipe doubles success from 21% to 42%. I open-sourced a flow-matching VLA integration for RLinf so people can run RL on BEHAVIOR-1K. And as a side exploration I'm building agent evals on Settlers of Catan and Twilight Imperium: open action space plus negotiation. The Catan harness runs; LLM experiments have started.
-> The thread is finding where a model actually fails and building the eval or the training fix that closes it. That's what your post-training and benchmarks work is.
+**"Walk me through your background" (first question, near-certain)**
+- Point: I find where models fail and build the eval or training fix. Two threads that converge.
+- Beats, in order: BMO bias finding ($200B+ AUM, systematic risk-downplaying) → the deterministic eval pipeline that catches it at scale → the graph agent harness (multi-hop over client data) → RL environments and policy evals now in progress. Then Merlyn: 8th at BEHAVIOR-1K, proprioceptive collapse (60% masked → up to +48%) → LIBERO-PRO: recipe, not architecture (21 → 42) → RLinf integration → Catan/TI side exploration (open action space plus negotiation; harness runs, LLM experiments started).
+- Why: it is the scorecard line "does rigorous failure analysis and reward/eval design, with numbers." Every beat carries a number or an artifact.
+- Options: if he is on the environments side, spend the last 20 seconds on Catan and the BMO RL envs. If he is on the training side, spend it on LIBERO-PRO and RLinf. If he cuts in early, stop and follow him; the rest comes out in follow-ups.
+- Don't: the greeter robot; "published"; Merlyn as anything but three people, nights and weekends.
 
-**Why this team (45 s)**
-> Aksh described it as studying capability limits, building benchmarks that probe them, and post-training to prove lift. That's the loop I already run, at smaller scale. The concrete reason is the 397B SkyRL write-up: harness fixes alone moved the 35B model about six points before any RL, and file-diff grading was much harder to overfit than final-response grading. That's my LIBERO-PRO lesson in your domain. I want to work where the data and the verifiers are the product.
+**"Why Mercor / why this team"**
+- Point: their loop (probe capability limits → build benchmarks → post-train to prove lift) is the loop you already run, at smaller scale.
+- Beats: Aksh's three-part description → the 397B post: harness fixes gave the 35B ~6 points before any RL; file-diff grading was much harder to overfit → same lesson as LIBERO-PRO (a published number that was a recipe artifact) → want to work where data and verifiers are the product.
+- Why: proves you read their work and can say what in it mattered, which is the second scorecard line.
+- Options: if he wrote or worked on the post, ask which of the de-risking steps he owned before you say your take. If he asks "why not a lab," say the take-home-first process and a small team that owns the full stack.
 
-**The gap (40 s). Use it the moment he asks about GRPO, RLVR, or "have you trained LLMs."**
-> Straight answer: my RL post-training is on VLAs, not LLMs. I integrated a flow-matching VLA into RLinf and I'm building RL environments at BMO. I have not run GRPO or DAPO on a language model. I've read your recipe closely; what maps directly is the discipline: drive non-model error to zero before training, and don't trust a gain until an ablation isolates it. The trainer and inference plumbing is what I'd be learning here, and I'd rather say that than pretend.
+**"Tell me about the take-home"**
+- Point: what you decided, what you skipped, what you would do next. Confidence comes from naming the weak spot yourself.
+- Beats (fill from your Tuesday re-read): problem in 2 lines → decision 1 and the alternative you rejected → decision 2 → what you skipped on purpose → one more day → the weakest part.
+- Why: Aksh's email ties this round to it: "how you think and solve open-ended problems."
+- Options: if he pokes the weak spot, agree and say what you'd change; do not defend it. If he asks what the grader wanted, give your honest guess.
 
-**Hard trade-off (75 s)**
-> On LIBERO-PRO I chose a conservative full finetune over LoRA even though LoRA was cheaper and the default. Position-swap went from the published 21% to 42% while matching standard LIBERO; LoRA sat at 15 to 21% at matched hyperparameters. The failure looked like trajectory memorization, so I wanted the update spread across the network, and I needed to rule out "it's the architecture." I swept both ways: batch 16 at LR 1e-6 falls back to 26%, and a frozen video-diffusion prior made it worse, 42 to 35. The trade was compute and time for a clean causal story.
+**"Experience with RL post-training / GRPO / have you trained LLMs" (the gap)**
+- Point: VLAs yes, LLMs no. Said in the first sentence.
+- Beats: RLinf integration (flow-matching VLA, RL on BEHAVIOR-1K) → BMO RL environments in progress → have not run GRPO or DAPO on a language model → read their recipe; what transfers is the discipline: non-model error to zero before training, no gain trusted without an ablation → the trainer and inference plumbing is what you'd learn here.
+- Why: the third scorecard line, "honest about the gap, and it's learnable." Bluffing here is the one way to lose the call.
+- Options: if he goes deeper, use §5: GRPO drops the critic and uses group-normalized advantage; DAPO's four fixes; why Mercor found prompt_mean beat token_mean. Stop where your knowledge stops: "I don't know that; here's what I'd check."
 
-**End-to-end project (60 s)**
-> The BMO bias finding. A GenAI tool serving $200B+ in wealth-management assets had a systematic tendency to downplay investment risk. In wealth management that's a compliance problem. Spot checks never show "systematic," so I built a deterministic pipeline: hundreds of synthesized inputs, comparable outputs run to run, quantify the skew. That pipeline is now how misaligned outputs get detected at scale there.
+**"Hard technical trade-off"**
+- Point: chose conservative full finetune over LoRA on LIBERO-PRO; paid compute and time for a clean causal story.
+- Beats: published π0.5 collapses 96 → 21 on position-swap → hypothesis: trajectory memorization → conservative FFT (batch 64, LR 1e-5) → 42% while matching standard LIBERO → LoRA 15 to 21 at matched hparams → frozen video prior made it worse (42 → 35) → bounded: batch 16 / LR 1e-6 → 26%.
+- Why: shows ablation discipline, the thing their post says mattered most.
+- Options: if he asks what you'd do differently, have one line ready (fill Tuesday). If he asks about CoRL, "we wrote it up; rejected at CoRL; the result stands."
+- Alternate story if he wants a systems trade-off instead: the BMO eval pipeline: determinism versus coverage (fill from your card).
 
-**Verifier that's hard to game (75 s)**
-> From what I've built: VLM judges at Merlyn that score rollouts into dense, context-dependent rewards. Principles I'd defend: grade state, not narration, which is your file-diff versus final-response finding. Dense per-criterion beats one terminal score, because a terminal score is the easiest thing to shortcut. Build the eval the way an adversary would, hold out a slice the policy never sees, and watch judge-versus-human agreement on it. I haven't run this at RLVR scale, so I'd want to see how your in-sandbox verifiers and rubric criteria are calibrated.
+**"End-to-end project you drove"**
+- Point: the BMO bias finding, from suspicion to a pipeline that now runs at scale.
+- Beats: the tool and its stakes ($200B+ AUM, compliance) → why spot checks can't show "systematic" → hundreds of synthesized inputs, deterministic → quantified skew → now how misaligned outputs get detected.
+- Why: ownership signal; Blind-reported HM theme.
+- Options: the graph harness is the alternate: ground-up build, now a multi-agent data-layer; the 30,000-client screen in 3 hours (only inside your BMO stop line). Pick whichever he has not already heard.
 
-**First 90 days (45 s)**
-> Own one benchmark or environment slice end to end: failure analysis on current outputs, categorize and quantify the modes, turn the top ones into verifier or data fixes. Reproduce the public 35B recipe on your infra before touching the trainer. Then propose one experiment testing whether a data or grading change moves Pass@1 more than an algorithm change, because your ablations say data dominates.
+**"How would you design a verifier that's hard to game"**
+- Point: grade state, not narration; dense over terminal; build it as the adversary.
+- Beats: your VLM judges at Merlyn (dense, context-dependent rewards) → their file-diff finding is the same principle → per-criterion beats one score → held-out slice, judge-vs-human agreement → what you haven't done: judge calibration at RLVR scale.
+- Why: JD line "verifiers calibrated and hard to game"; their eval-systems post's first constraint.
+- Options: if he asks for failure patterns, the four in §5. If he asks about LLM judges specifically, say what you've built is VLM judges for rollouts, and ask how they calibrate rubric criteria against experts.
+
+**"First 90 days"**
+- Beats: own one benchmark or environment slice → failure analysis, categorize, quantify → top modes into verifier or data fixes → reproduce the public 35B recipe on their infra before touching the trainer → one experiment: does a data or grading change move Pass@1 more than an algorithm change.
+- Why: shows you'd start where their own post says the leverage is.
 
 **Logistics (only if asked)**
-> Yes to San Francisco, five days in person. Canadian citizen, TN-eligible, no sponsorship needed.
-> Start date: ______________________ (write it before the call; options: "2 to 4 weeks from an offer, the M.Eng is course-based and I'd finish it remotely" / "…I'd put it on hold" / a month)
-
-**Comp:** don't raise it. If asked: "Calibrating to market at this level. Your public research-eng reqs show $180K to $500K plus equity; where does this one sit?"
+- SF, five days: yes. Canadian citizen, TN-eligible, no sponsorship needed.
+- Start date: ______________________ (decide before the call: finish the M.Eng remotely / put it on hold / a month).
+- Comp: don't raise it. If asked: "calibrating to market at this level; your public research-eng reqs show $180K to $500K plus equity; where does this one sit?"
 
 ## 3. Depth cards (fill the blanks Tuesday, one line each, on paper)
 
@@ -130,7 +154,7 @@ Claim LLM post-training runs · say "published" or "under review" (say "we wrote
 8. Join the Meet link from the laptop and desk you'll use; check camera, headset, background. 5 min.
 
 **Wednesday:**
-- 11:00–11:30: §2 scripts once, §6 once. Then nothing new.
+- 11:00–11:30: §2 plans once, §6 once. Then nothing new.
 - 12:30: laptop on charger, phone silent, Meet open, paper beside keyboard: §7 questions, §6 numbers, start-date sentence, stop line. Water.
 - 12:45: read §10.
 - 12:57: join, camera on.
