@@ -1,5 +1,28 @@
 # Agent Inbox — queued for next session
 
+## Session handoff (2026-09-09, end of session 11 — local desktop session, Mercor screen day)
+
+**Mercor #32: HM screen DONE.** 13:00–13:30 ET with James Moore (MIT → Meta → Mercor ~4 months, SkyRL training side). Ran 10 min over. Topics: background, Litmus walkthrough, data weirdness/selection, RL method choice. **Next step if forward: onsite, hear back within ~1 week. Follow-up pinned 2026-09-16: email Ally Sollis (allysollis@mercor.com) on the "Interview Confirmation" thread if silent.** Thank-you already sent to Ally on that thread 2026-09-09 (she forwards; James's address is not exposed by Ashby). He may re-review Litmus.
+
+### Do first
+1. **Get the question dump.** Shayan never gave the question-by-question list; `interview-prep/sessions/2026-09-09-mercor-screen.md` is impressionistic only. Ask once, fill it in, then `interview/debrief` for the onsite prediction.
+2. **Onsite prep, if it comes:** start from `interview-prep/mercor-call-card.md` (2-page glanceable card, PDF in `output/mercor-call-card.pdf`) + `mercor-research-engineer-post-training.md` (long form) + `post-training-primer.md`. Known weak spots: 90-s cap broken in the screen; poison scheduler design (cap groups/task + quarantine) should be whiteboard-ready; add a loss-mask / trajectory-masking section to the primer (came up as a last-minute Q).
+3. **Litmus facts are now in the repo** via the call card §2. Source of truth remains `C:/Users/User/post-train/` (curriculum/__init__.py, notes.txt, tools/score_run.py, .litmus/activity.jsonl). Held-out result: +0.029 avg pass (0.874→0.903), 16/16 salts, weakest skill +0.058; flat-group waste 52%→27%. Poison: honest pass. Log shows Claude Code used (11 prompts); Shayan owns census / p(1−p) / banking / staleness; Claude contributed k∈{1,2} retarget and softmax.
+4. **APEX-Agents 1.1 (Sep 8)** is now in the card §5; keep for onsite.
+
+### Mock-interview corrections (behavioural, for any future prep)
+- Kill list he hit in mock: said "semaphore/backoff/retries" (Catan/BardSong bleed; not in Litmus code), named the wrong AI tool, "ran over" (submitted at 74 min), bonus on 0/8 (it's 1–2 only), dropped the **not** in "recipe-induced, not architectural", inflated 48% to "50/60/100%", "startup" for Merlyn, "sort out the visa".
+- He blanked on his own `_W=0` wake-term story; it's the best line in the submission ("built it, measured it, lost, turned off, left the receipt"). Re-drill before onsite.
+- Q5 correction from him: **no VLM-judges depth**; on VLAs it was simple rejection sampling via RLinf, shallow. BMO RL envs are where the real RL starts. Card reflects this; `cv.md` still carries the VLM-judges bullet — ask whether it should soften.
+- Prep-doc format he wants: glanceable, ≤2 pages, structured so branches are findable (§ per topic, tables for depth pulls). The 3-page version was rejected on sight.
+
+### Still open (carried)
+- D1 start-date sentence: settled in chat as "2–4 weeks from offer, Canadian citizen, TN at the border, no sponsorship." Not yet in `modes/_profile.md`; ask before writing.
+- Corpus audit: 3 unfinalized drafts (`fu-metr-12-2026-08-01`, `031-gdm-asat-cv-2026-08-01`, `mubit-founding-eng-salary-answer-2026-09-03`); first is moot by design, other two need `final` or a ruling.
+- BMO offer (deadline was 09-03) and TMX letter: never answered.
+- career-ops update 1.24.0 → 1.32.0: offered again 09-09, unanswered.
+- `git push origin main` is classifier-denied from this repo; Shayan runs it.
+
 ## Session handoff (2026-09-03, end of session 9 — remote/web session, branch `claude/resume-ashby-application-oeye2e` fast-forwarded into main)
 
 ## Session handoff (2026-09-09, end of session 10 — remote/web session, branch `claude/mercor-interview-prep-svvx9u`, fast-forwarded into main at 1284a0d)
