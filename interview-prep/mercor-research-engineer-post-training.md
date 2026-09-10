@@ -178,24 +178,76 @@ Claim LLM post-training runs · say "published" or "under review" (say "we wrote
 ## Round 1 Debrief — 2026-09-09 (screen, James Moore)
 
 **Interviewer:** James Moore (HM screen, "First Screen (Eng)")
-**Round type:** hiring-manager / technical background screen, 20 min, Google Meet
-**Outcome:** moved forward (onsite invite 2026-09-10 00:21 ET)
+**Round type:** hiring-manager technical background screen, 20 min, Google Meet
+**Outcome:** moved forward (onsite invite 2026-09-10 00:21 ET from Kristen O'Donnell)
+**input_source:** recall (Shayan, 2026-09-10, morning after; no transcript)
 
-### Questions Asked
-_Not yet captured. Shayan to list every question in James's words; then run `interview/debrief` to fill Step 2 assessment, question-bank, and `interview-prep/sessions/mercor-research-engineer-post-training-screen-2026-09-09.md`._
+### Questions Asked (in order)
+1. "I've looked at your background, but I want to hear it in your words."
+2. (James described the team's work, then:) "What is GRPO? How does it differ from other methods?"
+3. "Imagine you have some model and some thing you need it to do, call it Humanity's Last Exam. How do you go about designing an environment for it?"
+4. "One of the interesting things is masking. Say you have these APIs we call for RL: the model calls tools, the tools output results. How would you go about masking certain parts of outputs for RL?" (Shayan first said he does not know those APIs and that RL is newer in his work; James accepted that and framed the question.)
+5. Shayan's questions: James's journey to Mercor, day to day, what he finds interesting.
 
-### Gaps Identified
-_Pending the question list._
+### Assessment
+
+**Q1 Background** — ✅ Strong
+- What was said: McMaster → UofT master's → BMO AI CoE (agent evaluations for a tool serving $200B+ AUM; caught systematic bias toward downplaying investment risk; building the agentic data layer replacing bank workflows; now RL environments for financial agents) → Merlyn Labs (BEHAVIOR Challenge 8th, VLAs in OmniGibson; π0.5 baseline calibration + RL on top; Catan agents with an expanded negotiation space, trajectories saved for later retraining) → through-line: "I find out how systems break, build the tests to catch it, and create the fixes."
+- What landed: the order (education → BMO → Merlyn → through-line) and the through-line itself. The bias catch is the strongest single proof point and it came first.
+- What was missing: numbers. Only $200B got said; 30,000 clients / 3 hours, 60% masked → +48%, 21 → 42 on LIBERO-PRO all stayed in the prep doc. Also, as recounted, the degree line came out as "bachelor of science in AI"; `cv.md` says B.Eng Engineering Physics (McMaster) and M.Eng AI & Robotics (UofT, expected Apr 2027). Confirm what was actually said; the onsite panel will have the CV in front of them.
+
+**Q2 GRPO vs other methods** — 🟡 Solid, one real error
+- What was said: PPO uses several models, one being a critic that "verifies the outputs and gives the reward"; GRPO removes the critic, samples 8 or 16 outputs per prompt, averages them, and uses that to update the tokens. Then "everything has trade-offs" chat.
+- What landed: the structural difference (critic gone, group of samples as the baseline) is correct. Sample counts in the right range.
+- What was wrong: the critic does not give the reward. The critic (value model) estimates expected return for a state so the advantage is less noisy; the score comes from the reward model (RLHF) or the verifier (RLVR), and GRPO keeps that part. Saying "critic = reward" in front of a post-training team is the kind of slip that gets probed at the onsite. Primer §6 and §8 have this exactly.
+- What was imprecise: "average those and update the tokens." The mechanism is A_i = (r_i − mean(r)) / std(r) over the group, applied to every token of sample i, inside the PPO clipped-ratio objective, with the KL to the reference model added directly to the loss.
+- Trade-offs that were available and not used: G rollouts per prompt is the price of no critic; all-same-reward groups give zero gradient (DAPO dynamic sampling); token_mean vs prompt_mean aggregation, where Mercor's own 09-01 post found prompt_mean +3.9 on long agent trajectories. That last one was in §4 of this file and was the obvious thing to say to this team.
+- Correct/complete answer: primer §8 "Plain" + "How it works" paragraphs, then the Mercor aggregation point.
+
+**Q3 Design an environment for a Humanity's Last Exam-style target** — 🔴 Gap
+- What was said: assume the model is pretrained; first question is how to model reward; look at what HLE is and what the success criteria are; then build plumbing; ideal workflow is to throw the model into a simple environment with GRPO and see how the harness breaks. Shayan's own read: fumbled, no clear answer.
+- What landed: "define success criteria first" and "run it early to see how it breaks" are the right instincts, and match Mercor's de-risk-before-training philosophy.
+- What was missing: everything concrete. HLE is a verifiable benchmark: 2,500 expert-written questions, roughly 80% exact-match short answer and the rest multiple choice, graded by an LLM equality checker against a reference answer (sources below). So the reward is not the hard problem; this is RLVR with a rule-based or judge-based verifier, no learned reward model. The hard problems are:
+  1. **Prompt set.** You cannot train on the eval. You need training questions with the same shape (closed-form, verifiable, expert-level, many domains): buy or author them, or synthesize and filter. Filter by difficulty: keep prompts where the base model's pass rate over G samples is strictly between 0 and 1, because all-correct or all-wrong groups produce zero advantage under GRPO.
+  2. **Verifier.** Answer extraction from a fixed final-answer format; exact match with numeric tolerance; an LLM equality judge for free-form answers, calibrated against human labels on a held-out slice; hedged or multiple final answers scored 0.
+  3. **Harness.** Rollout loop (SkyRL-style: env.step(action) returns observations, reward, done), tool access if the target allows search or code (which makes it multi-turn and brings in loss masking, Q4), length budget, held-out eval split, contamination check against HLE itself.
+  4. **De-risk before training**, in Mercor's own order from §4: run the whole train set at RL concurrency and drive non-model errors to ~0; compare trainer vs inference logprobs; overfit a handful of prompts first.
+  5. **How it breaks:** hedging, judge leniency exploitation, length blow-up, format gaming, train/eval overlap.
+- Correct/complete answer: state the assumption "verifiable target → RLVR," then walk prompt set → verifier → harness → de-risk → failure modes. Two minutes, structured. Practise it aloud on three different targets before the onsite (HLE, an APEX-style banking task, a Catan negotiation).
+- Why 🔴: this is the team's core job and the answer stayed abstract. It is fully closable; the material is already in §4/§5 and the primer.
+
+**Q4 Masking for multi-turn tool-use RL** — 🟡 Half right, then a conceptual slip
+- What was said: (a) mask tool outputs; you want what the model did, not what the tools returned. (b) "I'd also be interested in masking parts of the model's final output," explained after James asked what he meant: the model emits an artifact (a filled defined-benefit PDF) plus prose and reasoning traces; the prose might be gaming the verifier; care about the end result, not what it says it gave you; related to hedging/scattergunning.
+- What landed: (a) is the core answer and it was fast. Tool and environment output tokens were not generated by the policy, so they carry no policy gradient signal; training on them teaches the model to predict tool output. In SkyRL terms, the observations that env.step() returns are exactly the tokens that get excluded.
+- What was wrong: (b) conflates two different knobs. The **loss mask** decides which tokens receive gradient; the **reward function** decides what gets scored. Masking the model's own reasoning or prose out of the loss does not reduce gaming; it just stops the model learning to produce those tokens well. What Shayan was reaching for is a reward-side statement: the verifier scores only the artifact or the resulting state, never the narration (Mercor's post: file-diff-graded tasks were much harder to overfit than final-response-graded ones), and a single-final-answer rule so hedging scores 0. There is also a real argument for keeping chain-of-thought out of the reward model's input so the reasoning stays honest; that is again a reward-input choice, not a loss mask.
+- Interviewer signal: James's "what do you mean by that?" was confusion, not interest. Read it as a pushback signal.
+- Correct/complete answer: "Loss mask: everything the policy did not generate (tool returns, environment observations, injected user turns) is masked out; all policy tokens, reasoning included, stay in. Reward: computed from the artifact or state, not the prose; hedging gets zero. Those are two different mechanisms and I'd keep them separate."
+- Also owed: Shayan told James he does not know "these APIs." Before the onsite, know the SkyRL environment interface cold: `BaseTextEnv.step(action: str) -> BaseTextEnvStepOutput` with `observations` (new messages), `reward` (float), `done`, `metadata` (docs.skyrl.ai, checked 2026-09-10). Write a toy env against it.
+
+**Q5 Shayan's questions** — 🟡
+- Journey / day to day / what interests you. Fine, generic. §7 of this file had sharper ones (aggregation finding, what the 480 held-out tasks look like, sibling reqs). Use those at the onsite.
+
+### Gaps to Close Before the Onsite (priority order)
+1. **Environment-design walkthrough** (Q3). Structure: assumption → prompt set → verifier → harness → de-risk → failure modes. Rehearse on three targets, timed at two minutes each.
+2. **Critic vs reward, and the GRPO mechanism** (Q2). Say the advantage formula aloud. Know what the critic estimated and why the group mean replaces it. Bring the prompt_mean vs token_mean finding unprompted.
+3. **Loss mask vs reward function** (Q4). One sentence each, never blended.
+4. **SkyRL env interface** (Q4 follow-up). Read the new-environment tutorial, write and run a toy env. Charlie Ruan is on the team; expect this to come up.
+5. **Numbers** (Q1). §6 of this file. They did not get said once in 20 minutes.
+6. **Degree line** (Q1). Match `cv.md` exactly.
 
 ### Next Round
-**Format:** in-person onsite, 181 Fremont St, San Francisco. ~7 hours, starts ~10AM PT, Mon-Fri. Source: Kristen O'Donnell email 2026-09-10 (thread `1a0898cae8ce4775`), subject "Shayan Shakeri - Mercor Onsite". Schedule "typically books ~two weeks out, but we can often move sooner."
+**Format:** in-person onsite, 181 Fremont St, San Francisco. ~7 hours, starts ~10AM PT, Mon–Fri. Source: Kristen O'Donnell email 2026-09-10 (thread `1a0898cae8ce4775`), subject "Shayan Shakeri - Mercor Onsite". Schedule "typically books ~two weeks out, but we can often move sooner."
 **Interviewers:** unknown. Kristen: "Once we lock a date, I'll follow up shortly with scheduling details and next steps."
 **Scheduling:** Ashby self-serve date picker: https://you.ashbyhq.com/meeting/28b02ec3-e35f-4eb7-b3ba-2fefa6bd414a/ (Shayan submits; nothing booked by the agent). Full-day blocks requested.
 **Open question from Kristen:** "Do you have any upcoming deadlines (offers, interviews, travel) we should know about?" Nothing in the tracker qualifies as a live deadline (BMO offer deadline 09-03 outcome unrecorded; TMX letter unanswered; Mubit #61 Applied, no reply). Shayan decides what to disclose.
-**Priority prep:** to be set after the screen questions are captured (`interview/plan` with the onsite date).
+**Likely sessions, all [inferred] from a 7-hour research-engineering onsite and what the screen probed:** a coding round (Python, data/harness work); an environment- or verifier-design session (Q3 again, deeper); a systems conversation around the async training loop (vLLM inference, Megatron training, trainer-vs-inference logprob drift); a Litmus take-home walkthrough; a behavioral/values round; a founder or HM conversation with the start-date question (D1).
+**Priority prep:** items 1–4 above, then run `interview/plan` once the date is locked.
 
 ### Process Intel
-**Comp discussed:** unknown (screen not yet debriefed)
-**Timeline:** onsite ~2 weeks out from 09-10 → likely week of 09-21 or 09-28
+**Comp discussed:** no (per Shayan's recount)
+**Timeline:** onsite invite arrived ~11 hours after the screen; onsite ~2 weeks out → likely week of 09-21 or 09-28
 **Other candidates:** "some candidates finish early depending on fit" (onsite is adaptive)
-**Next steps:** Shayan picks dates in Ashby → Kristen sends scheduling details. Travel Toronto→SF is on Shayan (email does not mention travel coverage; ask her).
+**Next steps:** Shayan picks dates in Ashby → Kristen sends scheduling details. Travel Toronto→SF is not mentioned in the email; ask her whether Mercor books or reimburses it.
+**Still uncaptured:** Litmus take-home content (08-27). Capture before the onsite; it will be discussed.
+
+Sources checked 2026-09-10 for the HLE facts: [arXiv 2501.14249](https://arxiv.org/pdf/2501.14249), [Scale leaderboard](https://labs.scale.com/leaderboard/humanitys_last_exam), [Epoch AI](https://epoch.ai/benchmarks/hle), [Artificial Analysis](https://artificialanalysis.ai/evaluations/humanitys-last-exam). SkyRL interface: [docs.skyrl.ai new-environment tutorial](https://docs.skyrl.ai/docs/tutorials/new_env).
