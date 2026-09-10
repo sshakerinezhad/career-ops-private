@@ -174,3 +174,28 @@ Claim LLM post-training runs · say "published" or "under review" (say "we wrote
 **Start date:** ______________________
 
 **Questions:** harness vs training loop · file-diff as design rule · how this req splits from the siblings, and the week.
+
+## Round 1 Debrief — 2026-09-09 (screen, James Moore)
+
+**Interviewer:** James Moore (HM screen, "First Screen (Eng)")
+**Round type:** hiring-manager / technical background screen, 20 min, Google Meet
+**Outcome:** moved forward (onsite invite 2026-09-10 00:21 ET)
+
+### Questions Asked
+_Not yet captured. Shayan to list every question in James's words; then run `interview/debrief` to fill Step 2 assessment, question-bank, and `interview-prep/sessions/mercor-research-engineer-post-training-screen-2026-09-09.md`._
+
+### Gaps Identified
+_Pending the question list._
+
+### Next Round
+**Format:** in-person onsite, 181 Fremont St, San Francisco. ~7 hours, starts ~10AM PT, Mon-Fri. Source: Kristen O'Donnell email 2026-09-10 (thread `1a0898cae8ce4775`), subject "Shayan Shakeri - Mercor Onsite". Schedule "typically books ~two weeks out, but we can often move sooner."
+**Interviewers:** unknown. Kristen: "Once we lock a date, I'll follow up shortly with scheduling details and next steps."
+**Scheduling:** Ashby self-serve date picker: https://you.ashbyhq.com/meeting/28b02ec3-e35f-4eb7-b3ba-2fefa6bd414a/ (Shayan submits; nothing booked by the agent). Full-day blocks requested.
+**Open question from Kristen:** "Do you have any upcoming deadlines (offers, interviews, travel) we should know about?" Nothing in the tracker qualifies as a live deadline (BMO offer deadline 09-03 outcome unrecorded; TMX letter unanswered; Mubit #61 Applied, no reply). Shayan decides what to disclose.
+**Priority prep:** to be set after the screen questions are captured (`interview/plan` with the onsite date).
+
+### Process Intel
+**Comp discussed:** unknown (screen not yet debriefed)
+**Timeline:** onsite ~2 weeks out from 09-10 → likely week of 09-21 or 09-28
+**Other candidates:** "some candidates finish early depending on fit" (onsite is adaptive)
+**Next steps:** Shayan picks dates in Ashby → Kristen sends scheduling details. Travel Toronto→SF is on Shayan (email does not mention travel coverage; ask her).
