@@ -82,3 +82,8 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Ask/recovery emails: one plain ownership line ('That's on me'), no blow-by-blow justification, never restate scores or level names. Offer a fallback the reader can grant (work tests) instead of a binary ask, and close short ('no hard feelings') without asking to be kept in mind.
 - **was:** I cleared L1 and L2, then misread the L3 spec (the time-scoped tag operations), rebuilt it once I caught the mistake, and ran out of clock. The 500/1000 reflects the misread more than the ability, and I'd like a clean run at it.
 - **now:** I'll be straightforward: my performance on the screen didn't reflect what I can do. I locked onto a wrong design early spent too long there to recover. That's on me.
+
+### D017 · email · 2026-09-10 · cost 0.65 · recur 1
+- **rule:** Recruiter replies: open with a one-line pleasantry ("I hope your week is going well."), thank with an exclamation, drop mechanical references ("through the link"), and prefix the last ask with "Additionally,". Warmer register than ask/recovery emails (D016).
+- **was:** Thank you, this is great news. I'm looking forward to it.
+- **now:** I hope your week is going well. Thank you for the update, I'm looking forward to it!
