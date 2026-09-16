@@ -90,7 +90,7 @@ Likely order: 1 or 2 → 6 → the gap → 5.
 - Trained Qwen3.6-35B-A3B and Qwen3.5-397B-A17B with RL on 1,928 APEX-Agents tasks (consulting, banking, law); 480 held-out eval tasks.
 - Loop: SkyRL fully-async training, in-flight weight updates, vLLM inference, Megatron training. Harbor runs each trial and the verifier in-sandbox (Modal); tasks are Docker images exposing MCP tools (docs, PDF, email, chat). Reward flows back with the trajectory.
 - De-risk before training: (1) run the whole train set at RL concurrency and drive non-model errors to ~0 (timeouts, judge rate limits, MCP client isolation); (2) compare trainer vs inference logprobs (under 0.03 is healthy; this caught a vLLM CPU-offload + GDN + in-flight-update bug); (3) overfit a few tasks first: file-diff-graded tasks were much harder to overfit than final-response-graded ones.
-- Results: 397B Pass@1 16.11 → 27.29. 35B: harness fixes alone 22.74 → 28.69 with zero training; RL added ~10 to 12 more.
+- Results: 397B Pass@1 16.11 → 27.29. 35B: harness fixes alone took **mean reward** (fraction of rubric criteria met, not Pass@1) 22.74 → 28.69 with zero training; the 35B's Pass@1 went 13.96 → 22.71 after RL (eval-trace dataset card). Post-training moved both models 10 to 12 points. Corrected 2026-09-16: the post's sentence is "raised the base Qwen3.6-35B-A3B from 22.74% to 28.69% mean reward, with zero training."
 - Ablations (35B): prompt_mean over token_mean +3.9 (2k to 128k-token trajectories, token_mean let long ones dominate); "wrap up" nudge at 20% context left +3.0; DPPO vs GLM-5 loss within noise; overlong filtering and length penalty neutral or negative.
 - Lesson in their words: algorithm choices mattered less than the data. Generalized to a different harness (OpenCode) and Terminal-Bench 2.1; no regression on HLE/GPQA.
 
@@ -128,7 +128,7 @@ You are not implementing these. You are following a 5-minute exchange without bl
 | Conservative FFT | batch 64, LR 1e-5, stable 8k–27k steps → 42% |
 | LoRA · video prior · too-conservative | 15–21% · 42→35% · 26% |
 | Merlyn | 3 people, nights and weekends |
-| Mercor 397B · 35B harness-only | 16.11→27.29 · 22.74→28.69 |
+| Mercor 397B Pass@1 · 35B harness-only mean reward (not Pass@1) | 16.11→27.29 · 22.74→28.69 |
 | Mercor knobs · tasks | prompt_mean +3.9, nudge +3.0 · 1,928 / 480 |
 | Research-eng band | $180K–$500K + equity |
 
