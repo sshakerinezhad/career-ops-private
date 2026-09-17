@@ -1,0 +1,89 @@
+- key exploit is exact update rule, 
+i know exactly how much credit hit each skill
+
+- one session is 8 attempts, need half the attempts 
+in a session to fail
+
+- i need to pick porblems that have a 50% win rate
+
+- this is seen from the pass prob, at 0.5 we get 
+p(1-p) = 0.25 which is maxed
+
+- spread matehamatically is kike k(8-k)/64
+
+- tho tbf 0.3-7 should also be fine, ~0.21 is a 
+good learning rate to aim for
+
+- so i dont know p for any task yet, i need to do 
+rollouts and observe to figure it out
+
+- also, funny enough, as the model improves tasks 
+get easier so cant spam one
+
+- HOWEVER, this means we can bank hard tasks for later as 
+prof increases :)
+
+- gonna spend first set of training going over every task, 
+which hits exactly 1 epoch, just my luck. 
+
+- bank all ps from the groups
+
+- then we'll do the next 5 epoxhs on a learning schedule
+
+- ideally we want to sample tasks that were around 0.5,
+and have hard tasks that were recently 0-2/8 after several
+groups allowing learning
+
+- we also want to drop tasks that hit 7-8/8, model
+will only get better at them
+
+
+PHASE 2 MATH
+- base task worth is p(1-p), easy peezy
+- cant trust old p estimates. after 1-2 groups they are stale
+- write a simple estimator that calculates a weight for the task based on how old it is (exponential decay)
+- hard tasks get a bonus from age, since they're probably easier now
+- full thing is value now (weighted by age) + maturity bonus for hard ones: phat(1-phat) + B*age*(1-phat) should be right
+
+
+Phase 1 implementation summary: 
+- uniform baseline wastes 52% of budget — 3,016/5,760 rollouts land in flat groups. that's the prize
+- census estimates hit the binomial floor (RMSE 0.095 vs 0.093) — as sharp as 8 samples allow
+- but drift beats decay: mid-band tasks gain +0.11/epoch — stale in under an epoch, so re-measure, don't trust old estimates
+- hard tasks barely drift (+0.03/epoch) — proof that banking them for later actually works
+- census length is min(n_tasks*8, budget), not 960 — grading runs multiple budgets
+- validator reads sim internals, so it lives outside curriculum/, never imported — not cheating, readme allows it
+
+PHASE 2
+
+- value = p̂(1-p̂) x (1 + skill deficit boost), argmax each group, cap consecutive groups so one task cant hog credit
+- old estimates go stale fast (+0.1/epoch mid-band) so re-measure, dont trust decay
+- ~38% of bank is never-reachable, so no blind age bonus — banked 0/8 tasks only get re-probed after real credit lands on their skills
+- eval is a product over skills, weakest skill caps you → deficit boost steers toward starved skills (reasoning = 13 tasks only)
+POISON (didnt build, heres my thinking)
+
+poison = same task, credit sign flipped. damage = spread
+so it hurts most on the exact coinflip tasks i farm lol, my own picker is the attack surface
+worse, my credit tally trusts the flipped sign → skill tilt steers TOWARD the damaged skill
+detection basically hopeless, shared skills mask the drag
+plan was: cap lifetime groups per task (bounds damage, free on clean banks) + quarantine tasks improving less than predicted
+poison fraction can be 0 and youre never told → detector must pay for itself on clean banks
+so shipped honest pass instead of a half-guess
+
+
+
+line 88-102, _W = 0.0 — built a wake term, tested on 16 random banks, it LOST. softmax already probes banked tasks for free. turned it off, left the receipt
+line 245-256, _score — whole policy in 10 lines: fresh p(1-p) decayed by age, bonus only for k=1-2 (the band that pays, NOT k=0 = dead zone), times starved-skill tilt
+line 258-284, softmax — argmax locks in and hammers one task, softmax cant. also spends leftover budget on one task so the last partial group is as fat as possible
+model only learns from mixed results, 8/8 or 0/8 = wasted
+
+
+job = keep betting on ~50% tasks as difficulty shifts under you
+epoch 1: try everything once (census)
+epochs 2-6: score tasks by freshest reading (old ones go stale fast, measured it), bonus for almost-there tasks, tilt toward starved skills (eval multiplies skills so one weak skill tanks you)
+softmax pick so nothing gets hammered
+tested my own wake-up idea, it lost, turned it off
+poison: ran out of time, wrote the threat model honestly instead
+
+
+
