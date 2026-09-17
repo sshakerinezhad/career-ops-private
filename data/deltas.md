@@ -87,3 +87,13 @@ Never hand-edit. `voice-dna.md` is the statute; this file is the case law.
 - **rule:** Recruiter replies: open with a one-line pleasantry ("I hope your week is going well."), thank with an exclamation, drop mechanical references ("through the link"), and prefix the last ask with "Additionally,". Warmer register than ask/recovery emails (D016).
 - **was:** Thank you, this is great news. I'm looking forward to it.
 - **now:** I hope your week is going well. Thank you for the update, I'm looking forward to it!
+
+### D018 · email · 2026-09-17 · cost 0.82 · recur 1
+- **rule:** Start-date answers to recruiters: give the wrap-up preference and the relocation dependency, nothing more. Do not volunteer a weeks-from-offer number or the TN/sponsorship line unless asked.
+- **was:** no hard deadlines on my side right now. The earliest I could start is two to four weeks from an offer, mostly to sort out the move from Toronto. I'm a Canadian citizen and TN-eligible, so no sponsorship needed.
+- **now:** It would be ideal to wrap up the process by early October. Otherwise, I'd just need enough time to sort out the move and relocate prior to the start date.
+
+### D019 · email · 2026-09-17 · cost 0.91 · recur 1
+- **rule:** Recruiter replies: do not restate an assurance the recruiter already gave (e.g. 'not to be contacted until I confirm, as you noted'). Answer the ask plainly and drop the parenthetical.
+- **was:** References (not to be contacted until I confirm, as you noted):
+- **now:** References:
