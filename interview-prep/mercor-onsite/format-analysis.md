@@ -279,6 +279,7 @@ A definition instead of a mechanism. A bluff. Claiming LLM RL you have not run (
 3. Practical: decide the toolkit question (§1.8); add fresh-thread presentation Q&A mocks (§6).
 4. Method: the fresh-thread mock loop (§6) becomes the main knowledge engine, replacing the tutor-skill sessions. It trains retrieval under questioning, which is exactly what the debrief showed you lacked.
 5. The day-by-day schedule in `mercor-onsite-plan.md` §6: rebuilt after this discussion. Superseded, not wrong.
+6. **Depth bar and scope (Shayan, 09-17):** expert in agent evaluation, post-training, and RL as fields, plus the CS core; Mercor-shaped topics are priorities, not the boundary. The bar, the field maps, the derivation deck and the prove-it list are in `theory-syllabus.md`. The mock loop roams the whole field and escalates until it runs out, not until you do.
 
 ---
 
