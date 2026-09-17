@@ -1,5 +1,16 @@
 # Agent Inbox — queued for next session
 
+## Session handoff (2026-09-17, session 12 — remote/web session, branch `claude/interview-format-analysis-330n5v`)
+
+**Shayan reset the approach (09-17):** understand each onsite format first, then rebuild the plan. His friend's framing: the goal is to be someone who has done this before, not someone who practised; use fresh-thread harsh-interviewer mock loops (2 to 3 questions at a time, 20 to 30 per thread, new thread each round) until nothing surprises him.
+
+**Written this session:** `interview-prep/mercor-onsite/format-analysis.md`: what each of the three sessions is, what is scored (every claim tagged their words / verified / inferred / reported / general / judgment), what an expert does differently, what loses it, priority across the gate, what survives from the old material, the mock loop per session, five questions only he can answer (§7), and three paste-ready interviewer prompts (§8). Re-verified today from primary sources: both onsite emails, Aksh's 08-21 email, Austin Bennett's APEX-Agents 1.1 byline, Charlie Ruan's site and the 397B post, the Ashby board (RS APEX Benchmarks JD "don't ship a number you can't defend"; sibling RE JD "Real-world post-training team experience in industry (highest priority)"), PracHub's Mercor page (19 questions; adds marketplace-matching and graph prompts), the Nitski quotes via AOL.
+
+**Two pigeonholes named to undo:** algorithms drills lack matching/ranking and graph problems (Jiwon is Applied AI, not research); post-training prep never had him train anything (proposed: run a small GRPO loop on a rented GPU and read the trainer's advantage/loss code).
+
+**Next session:** get his answers to §7 (Litmus take-home content, GPU access, public toolkit yes/no, Cursor vs Claude Code, "provided models" question), agree or amend §4 priority split and §5 changes, then rebuild `mercor-onsite-plan.md` §6 day-by-day. `mercor-onsite-plan.md` §3 is superseded by the new file; everything else in it still stands until rebuilt. All session-11 open items below (Emily reply, keys, HF gate, mock friends, branch merges, career-ops update) are still open.
+
+
 ## Session handoff (2026-09-16/17, end of session 11 — remote/web session, branch `claude/optimistic-thompson-dy2u7h`, NOT yet merged into main)
 
 **Mercor onsite is Tue 2026-09-29, 11:30–16:00 PT, 181 Fremont St SF, 33rd floor.** Sessions: 11:45 kickoff + 90 min solo "LLM Evaluation and Analysis" practical + 15 min presentation (Austin Bennett; results emailed to apex@mercor.com; Cursor allowed; bring own API key) → 30 min Algorithms (Jiwon Lee; "not Leetcode, not system design, true algorithms") → 45 min Post-Training (Charlie Ruan; only "if the first two interviews are successful"). Shayan flies AC 743 Fri 09-25 13:05 ET, stays with Salman 25–27, hotel near 181 Fremont on 28 (rest day), returns AC 744 Wed 09-30.
