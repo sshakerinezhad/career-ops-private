@@ -65,7 +65,7 @@ The poisoned row is new information. On average the policy still wins, but three
 11. What would you change now? A Beta posterior per task with forgetting instead of a point estimate from one group; Thompson sampling instead of a temperature; a model-based estimate of each task's hidden scale from its k history and the known update rule; an explicit horizon so the last epoch exploits only.
 12. How did you validate without a score? Rebuilt the grader's probe construction from the shipped code, swept salts, tuned on one salt prefix and confirmed on another.
 
-**Discrepancy to resolve.** Two debriefs of the 09-09 screen exist. The 09-10 record (`sessions/mercor-research-engineer-post-training-screen-2026-09-09.md`) lists background, GRPO, environment design for an HLE-style target, masking, then your questions. The 09-09 record from the other machine (`sessions/2026-09-09-mercor-screen.md`, marked partial) lists background, a Litmus walkthrough, a discussion of data quality and RL method choice, and says the call ran 30 minutes. Both can be true of one call. Whether James walked the take-home matters: if he did, Charlie will go deeper on it.
+**Discrepancy, resolved 09-17 (Shayan):** James did not walk the take-home on the screen; the 09-10 debrief (background, GRPO, HLE-style environment design, masking) is the record. The partial 09-09 file now carries a correction note. So Charlie would be the first Mercor interviewer to discuss the scheduler with you, if he does. **The recorded walkthrough questions** were generic, per Shayan: what did you do here, how did you approach the problem, how would this change things, how would you act differently. That is the presentation Q&A shape for the practical too.
 
 ---
 
@@ -256,7 +256,7 @@ A definition instead of a mechanism. A bluff. Claiming LLM RL you have not run (
 
 ## 4. Priority across the three
 
-**[their words]** The first two gate the third. **[judgment]** The practical is the most preparable and the largest block. Algorithms is the highest variance. Post-training is your strongest on paper and the one the hiring decision for this specific role rests on once you are through the gate. So: the gate sessions must be solid; the post-training session must be excellent. Rough split of prep hours: 40% practical, 25% algorithms, 35% post-training. Push back if you see it differently.
+**[their words]** The first two gate the third. **[judgment]** The practical is the most preparable and the largest block. Algorithms is the highest variance. Post-training is your strongest on paper and the one the hiring decision for this specific role rests on once you are through the gate. So: the gate sessions must be solid; the post-training session must be excellent. Rough split of prep hours: 40% practical, 25% algorithms, 35% post-training. Accepted by Shayan 09-17.
 
 ---
 
@@ -296,7 +296,7 @@ Paste-ready prompts are in §8. Every mock ends with a written line in `question
 
 ## 7. Questions only you can answer
 
-1. **The take-home is in the repo now (§0.5).** Two things remain: the five recorded walkthrough questions, in their words as best you recall; and which 09-09 screen debrief is right (did James walk the take-home?).
+1. **Answered 09-17.** Take-home in the repo (§0.5); walkthrough questions were generic; James did not walk it on the screen.
 2. **GPU access** for a two-hour small GRPO run: Colab Pro, Modal, RunPod, a friend's box, or none?
 3. **Toolkit:** public repo plus ask at kickoff (§1.8), or build from scratch on the day?
 4. **Which AI coding tool** you will actually use in the room (Cursor or Claude Code), and whether you have used it to build an eval pipeline before.

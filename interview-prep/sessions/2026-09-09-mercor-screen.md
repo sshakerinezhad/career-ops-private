@@ -12,6 +12,8 @@ tracker: 32
 
 **Partial record.** Shayan gave an impressionistic debrief only; the question-by-question dump never happened. Fill in from memory if more surfaces.
 
+**Correction (Shayan, 2026-09-17):** James did NOT walk the Litmus take-home on this call. The "Litmus walkthrough" line below is wrong. The question list in `mercor-research-engineer-post-training-screen-2026-09-09.md` (background, GRPO, HLE-style environment design, masking, his questions) is the record to trust.
+
 ## What was covered (his summary)
 
 **Interviewer:** Tell me about your background and what you do day to day.
