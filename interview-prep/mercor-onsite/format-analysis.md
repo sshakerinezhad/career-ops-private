@@ -25,6 +25,50 @@ The gate is the single most important fact. Two sessions decide whether the thir
 
 ---
 
+## 0.5 The take-home, read in full today (`post-train/`)
+
+**What it was [verified, `post-train/README.md`].** A 75-minute Litmus assessment titled "Post-train". A seeded, offline GRPO simulator: the model is five proficiency numbers; 120 tasks with visible skill shapes and hidden difficulty; a budget of 5,760 rollouts, six epochs of groups of 8. A closed group teaches in proportion to its spread, k(8−k)/64, which is zero when all pass or all fail. You write a scheduler: `choose()` returns the next task, `observe(task_id, passed)` reports the outcome. Score: mean pass rate on a hidden evaluation set drawn from a different distribution. Part 2: some tasks bank their credit with the sign flipped; nothing marks them; the poisoned fraction is drawn from [0, 0.4] and can be zero.
+
+Their words: "There is more here than fits, on purpose — nobody finishes it, and you are not expected to. What we are watching is which ideas you get to and what you decide to skip." "A strong Part 1 and an honest note about Part 2 beats two rushed halves." "We read every submission." "What we are mainly interested in is the reasoning." Graded by re-running at budgets 960, 2,880, 5,760 and 11,520 (240 runs per class), plus a runtime-growth check, plus a recorded walkthrough.
+
+**What you built [verified, `curriculum/__init__.py`, `notes.txt`, `interview-prep/mercor-call-card.md`].** Phase 1: a census, one group per task, exactly one epoch. Phase 2: score each task as exp(−1.5·age)·p̂(1−p̂) with p̂ from the latest closed group only; a bonus of 0.15·age when the last group returned 1 or 2 of 8; a tilt toward skills your own credit tally says are starved (the biggest term); seeded softmax at temperature 0.08; a full group per pick; leftover budget spent on one task so the final partial group is as large as possible. A wake term for 0-of-8 tasks was built, measured harmful across 16 banks, set to zero, and left in with the receipt. Two analysis tools that read the simulator's hidden state, sanctioned by the README: `tools/check_census.py` (estimator RMSE 0.095 against a binomial floor of 0.093; drift about +0.12 per epoch in the mid band, +0.03 for hard tasks; roughly 38% of the bank unreachable) and `tools/score_run.py` (rebuilds the grader's probe set from the shipped code, sweeps salts against the uniform baseline, sweeps constants). Poison: not built; a written threat model instead. Your call card records the split of authorship: census, p(1−p), banking hard tasks and staleness were yours; targeting k∈{1,2} and softmax came from Claude Code; a draft bonus on 0-of-8 was caught and retargeted.
+
+**Numbers, re-measured by me today on this machine.** Python 3.11; `./bin/check` passes all five checks.
+
+| World | Mean delta vs uniform baseline | Wins | Weakest skill, baseline → yours |
+|---|---|---|---|
+| Clean banks, 16 salts (Part 1) | +0.031 | 16 of 16 | 0.827 → 0.892 |
+| Poisoned banks, 16 salts (Part 2, policy unchanged) | +0.041 | 12 of 16 | 0.686 → 0.714 |
+
+The poisoned row is new information. On average the policy still wins, but three banks lose by 5 to 12 points (salts 03, 08, 09), and the losses land where poisoned tasks sit in the informative band, which is what your threat model predicted. Your call card's clean-bank figure (+0.029, 16 of 16) came from different salt names; the gap is sampling, not a bug. Say "about three points" and "16 of 16".
+
+**What it tells us about how Mercor tests [inferred, high confidence: the README and the onsite email share one voice].** Fully disclosed mechanics, hidden data. More than fits, on purpose. Judgment about what to skip is scored explicitly. Reasoning is scored over the number. Honesty about what is not built is rewarded. Everything is re-run at several scales. Building tooling to measure against what you can see is expected, not cheating. A spoken walkthrough follows the artifact. The practical on the 29th is this format run live: a brief instead of a README, 90 minutes instead of 75, a presentation instead of a recording, Austin instead of a form.
+
+**Implications per session.**
+
+- **Practical.** The behaviours that advanced you are the ones to repeat: read the whole brief; find the structural lever (there: flat groups teach nothing); build the missing feedback loop (there: a stand-in evaluation set); tune on several draws, not one; decide what to skip and say so; ship an honest pass on what you did not build.
+- **Algorithms.** The take-home is drill 3 in `algorithms-drills.md` almost exactly (dynamic sampling under a rollout budget). Mercor has already watched you do that one; expect a different family. The protocol is unchanged.
+- **Post-training.** Charlie can open with your scheduler. You must explain it at mechanism depth without notes, and map each part to real RL: the flat-group rule is DAPO's dynamic sampling; the census is difficulty filtering (keep prompts whose pass rate is strictly between 0 and 1); staleness is why online pass-rate estimates rot as the policy improves; the product over skills is why one starved capability caps a compositional eval; poison is corrupted reward or data.
+
+**Questions Charlie could ask about it, with the answer you need to own:**
+
+1. Why p(1−p)? Derive the expected spread for k ~ Binomial(8, p). It is (7/8)·p(1−p).
+2. Why the latest group only, not a running average? Drift of about +0.12 per epoch passes the estimator's RMSE of 0.095 inside one epoch; pooling hides the drift.
+3. Why did the wake term lose? Softmax already gives banked tasks a few percent of picks; an explicit bid diverts budget from tasks that are informative now.
+4. Why softmax over argmax? A 4-of-8 task resets its own age and wins argmax again, gets hammered until it saturates, and concentrates credit on one task's skills.
+5. Why is the skill tilt the biggest term? Pass probability is a product over skills, so imbalance is punished; reasoning appears in 13 of 120 tasks and a spread-only policy starves it.
+6. What does a poisoned task do to this policy? It banks credit with the sign flipped and looks normal in its own pass rate; you farm coin-flip tasks, so it hits you where you spend most; your tally trusts the flipped sign and steers toward the damaged skill.
+7. What would you build for poison with 30 more minutes? Cap lifetime groups per task; quarantine a skill whose observed improvement lags what the tally predicts; the detector must pay for itself on clean banks because the fraction can be zero. Then the measured numbers above.
+8. How would you detect it statistically? Per skill, compare predicted improvement from banked credit with observed change in pass rates on tasks needing that skill; run a sequential test on the residual.
+9. What is this in real post-training? Curriculum and dynamic sampling under a rollout budget; online difficulty estimation; a bandit over prompts.
+10. Where does the analogy break? Real pass rates are not a product of sigmoids, skills are not five scalars, the update rule is not known, rewards are noisy and gameable, and rollouts are not equally priced.
+11. What would you change now? A Beta posterior per task with forgetting instead of a point estimate from one group; Thompson sampling instead of a temperature; a model-based estimate of each task's hidden scale from its k history and the known update rule; an explicit horizon so the last epoch exploits only.
+12. How did you validate without a score? Rebuilt the grader's probe construction from the shipped code, swept salts, tuned on one salt prefix and confirmed on another.
+
+**Discrepancy to resolve.** Two debriefs of the 09-09 screen exist. The 09-10 record (`sessions/mercor-research-engineer-post-training-screen-2026-09-09.md`) lists background, GRPO, environment design for an HLE-style target, masking, then your questions. The 09-09 record from the other machine (`sessions/2026-09-09-mercor-screen.md`, marked partial) lists background, a Litmus walkthrough, a discussion of data quality and RL method choice, and says the call ran 30 minutes. Both can be true of one call. Whether James walked the take-home matters: if he did, Charlie will go deeper on it.
+
+---
+
 ## 1. LLM Evaluation and Analysis (2 h, Austin Bennett)
 
 ### 1.1 Their words
@@ -226,6 +270,7 @@ A definition instead of a mechanism. A bluff. Claiming LLM RL you have not run (
 - The algorithms protocol, the pattern sheet, and the six drills (`algorithms-drills.md`, `algorithms-grader-key.md`).
 - `post-training-primer.md`: correct. Use it as an answer key, not as reading.
 - `evidence.md`: the method rules stand (practice in the test's format; produce first, check second; space it; mocks with a critical observer; two rehearsals under pressure; no crib sheet; sleep).
+- `post-train/`: the take-home as submitted. Keep it untouched as the record. Its `tools/score_run.py` pattern (rebuild the missing feedback loop, sweep draws, compare to a baseline) is the template for the practical's toolkit.
 
 **Change**
 
@@ -251,7 +296,7 @@ Paste-ready prompts are in §8. Every mock ends with a written line in `question
 
 ## 7. Questions only you can answer
 
-1. **The Litmus take-home** (Aug 21 to 27, titled "Post-train", "75 minute" per Aksh). What was the problem, what did you build, what did the recorded questions ask? It is the only first-hand sample of Mercor's task style for this role and it is written down nowhere. **[reported, Glassdoor, undated 2026, a different candidate]** "a take home assignment related to optimizing GRPO. You need to save GRPO rollouts using a scheduler. After that you have to record answers to 5 questions in 10 mins." Did yours look like that?
+1. **The take-home is in the repo now (§0.5).** Two things remain: the five recorded walkthrough questions, in their words as best you recall; and which 09-09 screen debrief is right (did James walk the take-home?).
 2. **GPU access** for a two-hour small GRPO run: Colab Pro, Modal, RunPod, a friend's box, or none?
 3. **Toolkit:** public repo plus ask at kickoff (§1.8), or build from scratch on the day?
 4. **Which AI coding tool** you will actually use in the room (Cursor or Claude Code), and whether you have used it to build an eval pipeline before.
