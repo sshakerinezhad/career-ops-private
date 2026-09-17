@@ -1,5 +1,27 @@
 # Agent Inbox — queued for next session
 
+## Session handoff (2026-09-16/17, end of session 11 — remote/web session, branch `claude/optimistic-thompson-dy2u7h`, NOT yet merged into main)
+
+**Mercor onsite is Tue 2026-09-29, 11:30–16:00 PT, 181 Fremont St SF, 33rd floor.** Sessions: 11:45 kickoff + 90 min solo "LLM Evaluation and Analysis" practical + 15 min presentation (Austin Bennett; results emailed to apex@mercor.com; Cursor allowed; bring own API key) → 30 min Algorithms (Jiwon Lee; "not Leetcode, not system design, true algorithms") → 45 min Post-Training (Charlie Ruan; only "if the first two interviews are successful"). Shayan flies AC 743 Fri 09-25 13:05 ET, stays with Salman 25–27, hotel near 181 Fremont on 28 (rest day), returns AC 744 Wed 09-30.
+
+**Everything from this session is in `interview-prep/`:**
+- `mercor-onsite-plan.md`: the day, the company, the three interviewers (verified profiles, inferred probes, questions to ask), what each session tests, the method (7 evidence-backed rules + how the LLM/tutor skill is used), tracks A/B/C, day-by-day Sep 16–29 against the real calendar, inputs needed (§7), day-of run sheet, numbers to know.
+- `mercor-onsite/evidence.md`: literature basis for every method rule (MA/RCT labels; what was rejected: expressive writing, power posing, crib sheets, melatonin).
+- `mercor-onsite/mock-1-brief.md` + `mock-1-grader-key.md`: practical rehearsal 1 (Sat 19) on Mercor's ungated `mercor/ApexAgentsRecipe-TBench2_1-EvalTraces`; key numbers precomputed (397B paired gain +4.9 pts CI +0.4..+9.7; 35B trained set has 18 errored rollouts; `tool_calls` field is 0 everywhere = harness artefact).
+- `mercor-onsite/algorithms-drills.md` + `algorithms-grader-key.md`: protocol, pattern sheet, six Mercor-shaped drills with strong-answer keys.
+- `mercor-onsite/research/{interviewers,mercor-output-2026,candidate-reports}.md`: the raw research (verified where marked).
+- `mercor-research-engineer-post-training.md` (the screen prep file, now with the 09-10 Round 1 debrief merged in from branch `claude/session-debrief-vyffp1`): 35B "22.74→28.69" relabelled **mean reward**, not Pass@1 (the post's own sentence).
+- `question-bank.md` and `sessions/mercor-...-screen-2026-09-09.md` (from the merged debrief branch): 🔴 env design for HLE-style target; 🟡 critic-gives-reward slip; 🟡 loss mask vs reward; SkyRL env API unknown → all scheduled in the plan (C2).
+- Tracker #32 note updated with the confirmed onsite (set-status.mjs; `npm install` was run here so js-yaml exists on this box).
+
+**Calendar rules Shayan gave (09-16):** lectures, Strahd (Wed 19–22), Akira (Sun 20 12:30), Readers of Books (Sun 20 midnight ET; Sat 26 12:30 PT) are fixed; everything else (Aemma, Robotics Jam, Serobro, BMO soccer, DnD Sat 19, Walid) is skippable; work is remote and flexible. Plan assumes ~3 h weekdays, 5–6 h weekend days, ~42 h total.
+
+**Still open / needs Shayan (plan §7):** Litmus take-home written from memory (`interview-prep/mercor-litmus-takehome.md`, not yet written); API keys (OpenAI, Anthropic, OpenRouter, Google) tested from the travel laptop; Cursor account; Toronto mock friend's and Salman's expertise and slots; laptop/Python setup; start date + three references for Emily's reply (I draft it once given; corpus-log it); the values section of `Mercor_Benefits_2026.pdf` (attachment not downloadable via the mail tool; ask him to paste); whether Wed RL lecture is recorded; HF gate acceptance on `mercor/apex-agents-v1.1` and `mercor/apex-agents`. Next deliverables from the agent: Emily reply draft, mock 2 (APEX-v1-extended dev) and mock 3 (APEX-Accounting dev) briefs + grader keys, the run-sheet and 5-slide template (Sat 19 09:30 with him).
+
+**Shayan said (09-17) he is starting a new session to rethink a few things.** Do not assume the plan is accepted as-is; ask what he wants to change first. **Branch `claude/optimistic-thompson-dy2u7h` must be merged into main** (contains this session + the debrief branch); laptop: `git fetch && git merge origin/claude/optimistic-thompson-dy2u7h`. `claude/bmo-resume-submission-tgku6c` (09-11, a BMO CV PDF) is also unmerged.
+
+**Other still-open items carried from earlier handoffs:** BMO T&O offer status; BMO CoE return offer; TMX letter; Mubit #61 no reply; career-ops update 1.24.0 → 1.33.0 offered again (unanswered; `node update-system.mjs apply` or `dismiss`); `node data/learn.mjs audit` pre-existing unfinalized drafts; other-machine CV sources merge.
+
 ## Session handoff (2026-09-03, end of session 9 — remote/web session, branch `claude/resume-ashby-application-oeye2e` fast-forwarded into main)
 
 ## Session handoff (2026-09-09, end of session 10 — remote/web session, branch `claude/mercor-interview-prep-svvx9u`, fast-forwarded into main at 1284a0d)
