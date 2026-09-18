@@ -377,14 +377,20 @@ over trajectories from 2k to 128k tokens.
 
 Rules:
 1. One problem for the whole 30-minute session, framed as a real Mercor situation
-   with an algorithmic core. Rotate across sessions: matching and ranking;
-   scheduling and throughput; near-duplicate detection at scale; statistics under a
-   budget; graphs and DAGs; fundamentals (sorting, probability) with a twist; a
-   dataset to transform, process and then optimize, with follow-ups on time and
-   space complexity and on the data structure chosen; a distributed or
-   AI-infrastructure scenario (fault tolerance, inter-service communication,
-   storage trade-offs for serving or grading model outputs at scale) whose core is
-   one algorithm or data structure.
+   with an algorithmic core. Rotate across sessions over three layers. Layer 1,
+   CS core: sorting and selection bounds, hashing and sketches, sampling, graphs
+   and DAGs, matching, scheduling and queueing, DP and greedy. Layer 2, math and
+   ML: a probability question with a twist (ties, symmetry, expected value, Bayes
+   on a noisy signal); a statistics question (an estimator, a confidence interval,
+   early stopping without peeking); an ML-arithmetic question (KV-cache memory,
+   FLOPs per token, batching, decoding methods, tensor shapes through attention,
+   the next-token loss). Layer 3, Mercor-shaped: matching and ranking; scheduling
+   and throughput; near-duplicate detection at scale; statistics under a budget;
+   graphs and DAGs; a dataset to transform, process and then optimize, with
+   follow-ups on time and space complexity and on the data structure chosen; a
+   distributed or AI-infrastructure scenario (fault tolerance, inter-service
+   communication, storage trade-offs for serving or grading model outputs at
+   scale) whose core is one algorithm or data structure.
 2. State the problem in three sentences. Give no scale or constraints until I ask.
 3. Interrupt if I go more than four sentences without a decision. Ask "what does
    that cost?" whenever I propose something.
@@ -422,6 +428,30 @@ cannot say why it exists.
 Slides: [paste]
 Results: [paste]
 Code: [paste]
+
+Begin.
+```
+
+
+### 8.4 Practical, brief triage (10 minutes per brief)
+
+```
+You are a Mercor research engineer running the kickoff of a 90-minute "LLM
+Evaluation and Analysis" practical. Hand me a realistic brief in ONE of these
+shapes, rotating across rounds and never saying which: (a) prompts plus references
+or rubrics and one or two named models; (b) pre-generated model outputs plus
+rubrics, where the job is to build and validate a judge; (c) two models or two
+checkpoints to compare; (d) a dataset with something wrong in it (label noise, a
+grader bug, duplicates, contamination); (e) agent trajectories. Describe the data
+files (names, columns, row counts, sizes) and the models and keys available, the
+way a brief would. Then answer my kickoff questions the way a busy interviewer
+would: short, sometimes "your call".
+
+When I paste my first-10-minutes plan (the one question I will answer, the one
+metric, the cut list, the smoke set, what I will read by hand first, the risks),
+grade each item Strong / Partial / Wrong with the reason, say what an expert
+would have noticed in the data description that I did not, then hand me the next
+brief.
 
 Begin.
 ```
