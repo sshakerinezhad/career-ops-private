@@ -1,6 +1,6 @@
 # Trade-off drills (plan T7)
 
-Spoken, 2 minutes each, the routine every time: objective, constraint, two options, failure mode of each, the cheapest experiment that decides it. Attempt before reading a key. Record it. Keys: added by the agent on "go"; until then, check yourself against `theory-syllabus.md` Part 1 and `post-training-primer.md`.
+Spoken, 2 minutes each, the routine every time: objective, constraint, two options, failure mode of each, the cheapest experiment that decides it. Attempt before reading a key. Record it. Keys: `tradeoff-drills-key.md`, opened only after the recording; score 0 to 2 on its six items.
 
 Mercor-shaped:
 1. Synchronous vs fully asynchronous RL for 100-turn agent tasks.
