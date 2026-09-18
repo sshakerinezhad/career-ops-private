@@ -1,6 +1,6 @@
 # Mock 1 brief: Terminal-Bench traces, before and after RL
 
-Read this at "kickoff" (Sat 19, 10:00). Then 90 minutes on the clock. Then a 15-minute presentation, recorded. Do not open `mock-1-grader-key.md` until the debrief.
+Read this at "kickoff" (Sun 20, 08:30). Then 90 minutes on the clock. Then a 15-minute presentation, recorded. Do not open `mock-1-grader-key.md` until the debrief.
 
 ## The brief, as an interviewer would give it
 

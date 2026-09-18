@@ -1,5 +1,18 @@
 # Agent Inbox — queued for next session
 
+## Session 13 addendum (2026-09-18, late): tracking moved into the repo; merge-to-main is standing
+
+**Read this first, then the session-13 block below it.** Shayan's late-session directives, binding:
+
+1. **He tracks prep in this repo, not in an outside chat.** Any session he opens here can be the tracker. Plain chat agents are only for the Tutor, Examiner, and 8.x threads. The house rule is in `modes/_custom.md`, "Mercor onsite prep: tracking lives in this repo"; the plan's §9 says the same. Reply with full card fields (Read, Do, Test, Done when), never bare IDs: "if you just say do P6a and A1 and A2 and those things are unclear I'm confused."
+2. **Every task must say exactly what to read, what to do, what to drive home, what topics to master, how it is learned with a chatbot, and how mastery is tested, rigorously.** Done: `interview-prep/mercor-onsite/practical-track.md` (P1a to P12), `algorithms-track.md` (A1 to A9), `post-training-track.md` (T1 to T13). The plan (`interview-prep/mercor-onsite-plan.md`) now holds the rules, the Tutor and Examiner prompts (§1), compact ID tables, the schedule (§6, with P2, drills 5 and 6, T7 batches, and P10 days now placed), day of, and §9 tracking rules. The old §9 tracker-prompt is gone.
+3. **Merge to main at every handoff, never ask, across sessions.** House rule in `modes/_custom.md`, "Handoff = merge to main". Done this session: `main` fast-forwarded to the branch and pushed (he could not see `toolkit-spec.md` because he reads `main`).
+4. **Ledger:** `interview-prep/mercor-onsite/ledger.md` is the single status source (next block, fixed dates, status per ID, counters, log, pending question-bank lines). The plan's Now block points at it. Nothing is started as of 09-18 night.
+
+**Artifacts finished this session (all on main):** `run-sheet.md`, `index.md`, `grpo-run.md`, drills 7 to 10 with keys, `mock-2-brief.md` + key (dataset split corrected: 37 CSV-only tasks = 24 Consulting + 13 Finance, plus one docx in 1407 and one xlsx in 1588), `mock-3-brief.md` + key + `mock-3-judge.py` (planted bug: `gold_outputs`, `golds[i - 1]`, line 168; stub scores 7.29% with the bug, 100% without; keep the bug in the shipped file), `tradeoff-drills-key.md` (see the log line below for its state), the three card files, the ledger. `mock-1-brief.md` kickoff line now says Sun 20 08:30.
+
+**Next session, in order:** drain the ledger's "Next block" with him (Sat 19 09:30 P4 is the first agent-assisted slot: read `run-sheet.md` with him section by section, change what does not fit, he prints it). Then follow §9: update the ledger, re-cut only the next 2 to 3 days, commit, push, merge to main. Career-ops update 1.24.0 → 1.33.0 is still unanswered; `js-yaml` is missing on this box so `doctor.mjs` fails.
+
 ## Session handoff (2026-09-18, end of session 13 — remote/web session, branch `claude/tender-ritchie-vn1u03`, NOT merged into main)
 
 **Branch state:** five commits on top of main (1e0ec87, 52530e6, 07850ac, 875a852, plus this handoff). Laptop: `git fetch origin` then `git checkout claude/tender-ritchie-vn1u03`, or ask for a fast-forward of main. `claude/bmo-resume-submission-tgku6c` (09-11) is still unmerged. All 18 prep docs were also sent to Shayan in chat as a zip on 09-18 (from the branch head at 875a852).

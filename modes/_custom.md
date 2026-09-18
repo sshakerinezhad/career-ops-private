@@ -79,7 +79,14 @@
      - "prep <company>": pull the JD, generate STAR stories from
        article-digest.md, and draft 5 likely interview questions. -->
 
-(none yet -- add yours above)
+- **Handoff = merge to main, never ask (user directive, 2026-09-18).** At the end of every session, and whenever work is handed to another session or agent: commit, push the working branch, then fast-forward `main` to it and push `main`. Shayan reads `main`; a branch nobody merged is invisible to him. Shape, one git verb per call: `git checkout main` · `git merge --ff-only <branch>` · `git push origin main` · `git checkout <branch>`. If the fast-forward is refused, merge `main` into the branch first, resolve, push the branch, then repeat. Do not ask for permission; do not skip it because the session is short.
+
+- **Mercor onsite prep: tracking lives in this repo (2026-09-18).** Plan: `interview-prep/mercor-onsite-plan.md` (rules, schedule §6, day of). Cards, one per task ID, with Read / Do / Drive home / Master / Bot / Test / Done when: `interview-prep/mercor-onsite/practical-track.md`, `algorithms-track.md`, `post-training-track.md`. Ledger (the running thread): `interview-prep/mercor-onsite/ledger.md`. When Shayan reports progress, a score, or asks what is next, in any session:
+  1. Read the ledger and plan §6. Never rebuild the lists or the cards; they are stable.
+  2. Update the ledger: the status table, a dated log line with what he did and how it scored, question-bank lines he dictates (also appended to `interview-prep/question-bank.md`), and the "Next block".
+  3. If a block was missed, re-cut only the next 2 to 3 days of plan §6 and say what moved and what was dropped. Fixed dates (rehearsals, laptop, Salman, flight) never move.
+  4. Reply with the next block as full card fields (Read, Do, Test, Done when), never IDs alone, and anything overdue against a fixed date. Only as many words as needed.
+  5. Commit, push, merge to main.
 
 ## Output Preferences
 

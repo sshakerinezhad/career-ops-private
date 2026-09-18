@@ -1,6 +1,6 @@
 # Index: task IDs and files (Mercor onsite prep)
 
-IDs come from `interview-prep/mercor-onsite-plan.md`. P = practical (Austin Bennett), A = algorithms (Jiwon Lee), T = post-training (Charlie Ruan), L = logistics. The number is priority order within the list; a letter suffix is a sub-step. The schedule (plan §6) is written in these IDs. "Key" files are opened only at the debrief.
+IDs come from `interview-prep/mercor-onsite-plan.md`. P = practical (Austin Bennett), A = algorithms (Jiwon Lee), T = post-training (Charlie Ruan), L = logistics. The number is priority order within the list; a letter suffix is a sub-step. The schedule (plan §6) is written in these IDs. Every ID has a card (Read, Do, Drive home, Master, Bot, Test, Done when) in its track file: `practical-track.md` for P, `algorithms-track.md` for A, `post-training-track.md` for T; L tasks are in plan §5. The card names the content files listed below. Status lives in `ledger.md`. "Key" files are opened only at the debrief.
 
 ## Task ID to file
 
@@ -47,8 +47,10 @@ IDs come from `interview-prep/mercor-onsite-plan.md`. P = practical (Austin Benn
 
 | File | What it is | Used by |
 |---|---|---|
-| `../mercor-onsite-plan.md` | The plan: lists, schedule, day of, tracker prompt | everything |
-| `index.md` | This map | tracker agent |
+| `../mercor-onsite-plan.md` | The plan: rules, the Tutor and Examiner prompts, lists, schedule, day of, tracking rules | everything |
+| `practical-track.md`, `algorithms-track.md`, `post-training-track.md` | The cards, one per task ID: exactly what to read, do, drive home, master, which thread, the test, done-when | every task |
+| `ledger.md` | The running record: next block, fixed dates, status per ID, counters, log, pending question-bank lines | every session |
+| `index.md` | This map | every session |
 | `format-analysis.md` | What each session is, what is scored, the take-home digest (§0.5), the four interviewer prompts (§8) | P7, P10, P12, A7, T4, T9, T10 |
 | `theory-syllabus.md` | The depth bar: field maps (Part 0), post-training rows and derivation deck (Part 1), algorithms rows, breadth, math and ML layer, prove-it list (Part 2), method (Part 3) | A3, A4, A5, T1, T5, T6 |
 | `evidence.md` | Why the method is what it is, with sources | plan §1 |
