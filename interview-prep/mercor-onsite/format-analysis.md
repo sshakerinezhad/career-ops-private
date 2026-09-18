@@ -341,6 +341,20 @@ Rules:
    that exposed it.
 6. Use my background below to probe claims: make me explain my own résumé lines at
    mechanism depth.
+7. Escalation rule: on every topic keep escalating (mechanism, then the equation,
+   then the failure mode, then the experiment that exposes it, then the number or
+   regime from a primary source) until I fail or you run out of escalation. In the
+   final summary report the deepest question reached on each topic.
+8. Coverage rule: at least one question in this thread comes from outside Mercor's
+   priorities. Pick from RL foundations (MDPs and Bellman, value methods, natural
+   gradient and TRPO, exploration, credit assignment and GAE, POMDPs, imitation and
+   offline RL, reward learning and overoptimization, multi-agent and self-play,
+   model-based RL and search), the wider post-training pipeline (preference
+   optimization variants, reasoning RL, reward models and judges, data and
+   curriculum, known phenomena, LoRA vs full fine-tuning, trainers and inference
+   engines, test-time compute), or agent evaluation (benchmark design,
+   environments, grading and judges, metrics and intervals, failure analysis,
+   harness engineering, the benchmark landscape).
 
 My background:
 [paste cv.md]
@@ -376,6 +390,12 @@ Rules:
    force with its cost; bottleneck named; two approaches, one chosen with a reason;
    complexity and edge cases; 10x; empirical verification. Then say what the
    strongest answer would have been.
+7. Escalation rule: after the constraint change, keep pushing (a tighter bound, a
+   worse adversary, a second constraint, "prove the greedy choice is optimal")
+   until I cannot improve the design or you run out of escalation. Report the
+   deepest point reached.
+8. Coverage rule: the family used last time was [fill in, or "none"]. Choose a
+   different one, and do not tell me which until the problem is stated.
 
 Begin.
 ```

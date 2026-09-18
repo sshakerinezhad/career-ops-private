@@ -1,5 +1,11 @@
 # Agent Inbox — queued for next session
 
+## Session handoff (2026-09-18, session 13 in progress — remote/web session, branch `claude/tender-ritchie-vn1u03`, NOT merged into main)
+
+**Done so far:** `interview-prep/mercor-onsite-plan.md` rebuilt on Shayan's new structure (his ask 09-18: split prep by interview because the travel laptop may not be at hand; master task lists over a strict regimen; a suggested schedule per day; concise; stick to the research). Per-interview lists P1-P11 / A1-A9 / T1-T13 / L1-L7, each with a done-when test and a device tag (laptop / screen / paper); §6 suggested schedule Fri 18 to Tue 29; §7 day-of and numbers; §8 open items. The 09-16 plan is in git at 022b3dd. Escalation and coverage rules added to `format-analysis.md` §8.1 and §8.2 (handoff item i). **New facts:** Emily confirmed 09-18 16:29Z that an API key from any provider is fine (thread `1a0a3ff4ea1e29f9`); Google Calendar re-read 09-18 for Sep 18 to 30, unchanged from the 09-17 record.
+
+**Not yet written, awaiting Shayan's go (plan §8 item 8):** `mercor-onsite/run-sheet.md` (Sat 19 09:30, with him), `mercor-onsite/tradeoff-drills.md` (Sat 19), algorithm drills 7 to 10 + keys (Sun 20), `mock-2-brief.md` + key (Tue 22), `mock-3-brief.md` + key + planted-bug judge (Fri 25). Inputs for all five are in the session-12 handoff below (items b to g). **Open questions to him:** plan §8 items 1 to 7 (mock friends, course markers, Wed 23, keys tested from the travel laptop, GPU for T13, rehearsal 1 moved to Sun 20, toolkit public). career-ops update 1.24.0 → 1.33.0 offered again 09-18, unanswered.
+
 ## Session handoff (2026-09-17, end of session 12 — remote/web session, branch `claude/interview-format-analysis-330n5v`)
 
 **Branch state:** contains origin/main (merged at 79449be, which brought in his other machine's `post-train/`, `mercor-call-card.md`, a second screen debrief) plus this session's commits. **Remote `main` was fast-forwarded to this branch at 0b6da82 (09-17, on Shayan's ask); both refs point at the same commit.** Laptop: `git pull origin main`. `claude/optimistic-thompson-dy2u7h` is now redundant (its content is in main). `claude/bmo-resume-submission-tgku6c` (09-11) is still unmerged.
