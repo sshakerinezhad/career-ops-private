@@ -379,7 +379,12 @@ Rules:
 1. One problem for the whole 30-minute session, framed as a real Mercor situation
    with an algorithmic core. Rotate across sessions: matching and ranking;
    scheduling and throughput; near-duplicate detection at scale; statistics under a
-   budget; graphs and DAGs; fundamentals (sorting, probability) with a twist.
+   budget; graphs and DAGs; fundamentals (sorting, probability) with a twist; a
+   dataset to transform, process and then optimize, with follow-ups on time and
+   space complexity and on the data structure chosen; a distributed or
+   AI-infrastructure scenario (fault tolerance, inter-service communication,
+   storage trade-offs for serving or grading model outputs at scale) whose core is
+   one algorithm or data structure.
 2. State the problem in three sentences. Give no scale or constraints until I ask.
 3. Interrupt if I go more than four sentences without a decision. Ask "what does
    that cost?" whenever I propose something.
