@@ -25,7 +25,7 @@ Updated 2026-09-18 evening.
 
 ## 1. Rules
 
-- A task is done when its done-when test is met. Tasks are in priority order within each list.
+- A task is done when its done-when test is met. Tasks are in priority order within each list. ID to file map: `mercor-onsite/index.md`.
 - Device: **dev** = any computer with Python and your keys (the travel laptop from Mon 21) · **screen** = any computer or phone · **paper** = paper, whiteboard, or recorder.
 - Every mock or drill ends with a line in `question-bank.md` (question in the interviewer's words, status, gap). No line, no credit.
 - Practise in the test's format. Produce first, check second. Never open a key before its drill. No crib sheet in practice. Bed by 23:00. Nothing new after Sun 27.
