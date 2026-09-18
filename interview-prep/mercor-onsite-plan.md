@@ -7,7 +7,7 @@ Research Engineer, Post Training. Tracker #32. One list per interview; each task
 Updated 2026-09-18 evening.
 - Next: P1a tonight, then P3a. Sat 19 09:30: P4 with the agent, then P3b, P3c.
 - Done: none. In progress: none.
-- Waiting on: "go" for the artifacts (§8).
+- Waiting on: nothing. The last two artifacts land tonight (§8).
 
 ## 0. The day
 
@@ -57,11 +57,11 @@ Scored, their words (`format-analysis.md` §1): design, implement, analyze; "goo
 | P1b | Travel laptop (Tue 22): clone the toolkit, keys in `.env`, smoke test on a phone hotspot; Cursor and Claude Code logged in. | Smoke test passes on the hotspot. | travel laptop |
 | P2 | Mercor's grading code once, 45 min (`research/mercor-output-2026.md` §2). Accept the Hugging Face gates on `mercor/apex-agents-v1.1` and `mercor/apex-agents` (log in, dataset page, accept terms, auto-approved); download one task dir; read `tests/grade.py` and `grading_config.json`. | Say from memory what their judge sees, returns, forbids; one task dir on disk. | screen |
 | P3 | Toolkit v1 per `mercor-onsite/toolkit-spec.md`, public GitHub repo. Order: P3a inference, P3b grade and metrics, P3c failures, report, README. | Clean clone to first result under 5 min, timed; unit tests pass; second run costs $0; every function explainable. | dev |
-| P4 | Run-sheet `mercor-onsite/run-sheet.md` (agent writes Sat 19 09:30 with you): the 90 minutes minute by minute, pre-flight checklist, if-then rules, 5-slide template, kickoff questions. | Printed; used in every rehearsal. | screen |
+| P4 | Run-sheet `mercor-onsite/run-sheet.md` : the 90 minutes minute by minute, pre-flight checklist, if-then rules, 5-slide template, kickoff questions. Read it with the agent Sat 19 09:30; change what does not fit you. | Printed; used in every rehearsal. | screen |
 | P5 | Rehearsal 1, Sun 20: `mock-1-brief.md`. 15 brief, 90 timed, 15 presentation recorded, emailed to yourself by minute 90. Debrief against `mock-1-grader-key.md`. | Score on the key (14+ ready; 10 to 13 repeat the weak rows; under 10 rebuild); fix list. | dev |
 | P6 | Toolkit v2 from the fix list; final fixes after rehearsal 2. | Clean clone under 5 min again. | dev |
 | P7 | After each rehearsal: a §8.3 thread with your slides, results, code. | No function you cannot explain; gaps logged. Three threads by Sat 26. | screen |
-| P8 | Rehearsal 2, Wed 23, travel laptop: `mock-2-brief.md` (agent writes by Tue 22). Camera on; the recording is graded. | Emailed by minute 90; 12+ of 16. | travel laptop |
+| P8 | Rehearsal 2, Wed 23, travel laptop: `mock-2-brief.md`. Camera on; the recording is graded. | Emailed by minute 90; 12+ of 16. | travel laptop |
 | P9 | Rehearsal 3, Sat 26 PT: `mock-3-brief.md` with a planted-bug judge (agent writes by Fri 25). Present to Salman. | Bug found; 14+ of 16. | travel laptop |
 | P10 | Kickoff script from memory (`format-analysis.md` §1.9) plus the toolkit ask: "I have a small open-source eval harness of my own, fine to use it?" | Under 60 s, no notes. | paper |
 | P11 | Sun 27, travel laptop: presentation dry run twice; email flow test; clean clone; keys; Cursor; battery; printouts. | All green; laptop closed. | travel laptop |
@@ -80,7 +80,7 @@ Their words: "real architecture challenges, infrastructure decisions, and scalin
 | A3 | Prove-it list, 12 items (`mercor-onsite/theory-syllabus.md` Part 2), closed book, aloud, scored 0/1/2. Sat 19, Tue 22, Fri 25. | Two consecutive all-2 passes. | paper |
 | A4 | Layer 1: syllabus Part 2 rows A to D and G at L2, then Part 2b (breadth sweep). Fresh rows via the five steps. | Every row L2 closed-book; breadth items cold. | paper |
 | A5 | Layer 2: syllabus Part 2c (probability, statistics, bandits, ML arithmetic, transformer mechanics, decoding) at L2. | Each row L2; the three attested prompts answered aloud in under 5 min each. | paper |
-| A6 | Layer 3: drills 1 to 6 (`algorithms-drills.md`, keys in `algorithms-grader-key.md`) and 7 to 10 (agent writes by Sun 20), each spoken in a §8.2 thread and graded against the key. | Each 12+ of 16; under 10 repeats next day. | screen |
+| A6 | Layer 3: drills 1 to 6 (`algorithms-drills.md`, keys in `algorithms-grader-key.md`) and 7 to 10, each spoken in a §8.2 thread and graded against the key. | Each 12+ of 16; under 10 repeats next day. | screen |
 | A7 | Fresh §8.2 threads, the interviewer picks the layer and family; about one a day, 12 total. | Three consecutive 12+ on families you did not choose. | screen |
 | A8 | Mental arithmetic: calls × latency / concurrency; KV ceiling; staleness bound; Little's law; birthday bound; majority-of-m; FLOPs per step. | Ten estimates under 30 s each, within 2x. | paper |
 | A9 | Salman (robotics research engineer, DeepMind), Sun 27 morning PT: one or two problems, constraint change at 15 min. | Notes in the question bank. | paper |
@@ -105,7 +105,7 @@ Their words: "explaining mechanisms rather than recalling terminology"; "how you
 | T10 | Salman, Sat 26 14:00 PT, 45 + 15, scored aloud on the two rubric lines; leans on RL fundamentals, reward design, imitation vs RL, your VLA and Catan work. | Debrief in the question bank. | paper |
 | T11 | Numbers cold: `mercor-onsite/numbers.md`. | 100% on two days. | paper |
 | T12 | Two questions for Charlie (`numbers.md`). | Two picked. | paper |
-| T13 | Small GRPO run on a rented GPU per `mercor-onsite/grpo-run.md` (agent writes by Tue 22). Wed 23 afternoon, only if rehearsal 2 is 12+ and A6 averages 12+. | One run; the four curves seen (reward, KL, length, zero-advantage fraction); each loss line tied to a T1 item; a 60-second account. | dev |
+| T13 | Small GRPO run on a rented GPU per `mercor-onsite/grpo-run.md`. Wed 23 afternoon, only if rehearsal 2 is 12+ and A6 averages 12+. | One run; the four curves seen (reward, KL, length, zero-advantage fraction); each loss line tied to a T1 item; a 60-second account. | dev |
 
 Track done: T1 two clean passes; T9 three clean threads; T2 clean; T11 100%.
 
@@ -190,7 +190,7 @@ Fixed: lectures, Strahd, Akira, Readers of Books. Skipped: Aemma, Robotics Jam, 
 
 ## 8. Open
 
-Artifacts the agent writes on your "go": `run-sheet.md` (Sat 19 09:30, with you), keys for `tradeoff-drills.md` (Sat 19), drills 7 to 10 with keys (Sun 20), `grpo-run.md` (Tue 22), `mock-2-brief.md` and key (Tue 22), `mock-3-brief.md` with the planted-bug judge (Fri 25).
+Written 09-18: `run-sheet.md`, `grpo-run.md`, drills 7 to 10 with keys, `mock-2-brief.md` and key, `index.md`. Being written 09-18: `tradeoff-drills-key.md`, `mock-3-brief.md` with its key and `mock-3-judge.py`.
 
 ## 9. Tracker prompt
 
