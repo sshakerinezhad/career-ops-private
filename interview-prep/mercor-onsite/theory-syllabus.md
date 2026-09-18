@@ -222,6 +222,40 @@ The round is "true algorithms" on infrastructure problems, 30 minutes, spoken. D
 | DP over DAGs | Expected value through a referral network; memoization; cycles make it a Markov chain instead. |
 | Numerics | log-sum-exp for stable softmax; Kahan or pairwise summation; why float accumulation order changes logprobs across kernels (the mismatch source, in one sentence). |
 
+### Part 2b. Breadth sweep (general CS, added 09-18 on Shayan's call: not from Mercor's attested prompts, insurance)
+
+Each to L1 to L2: the problem shape it solves, its cost, one pitfall.
+
+| Family | Items |
+|---|---|
+| DP patterns | knapsack variants; longest increasing subsequence; edit distance; interval DP; DP over subsets (by name) |
+| Strings | rolling hash; KMP (by name); tries |
+| Range structures | Fenwick tree; segment tree |
+| Array techniques | two pointers; sliding window |
+| Heaps | k-way merge of sorted shards; top-k under memory |
+| Larger than memory | external sort; map-reduce style aggregation |
+| Graphs, extra | grid BFS and shortest path; minimum spanning tree (Kruskal, Prim) |
+| Search | backtracking with pruning |
+| Bits | bit tricks (popcount, masks) |
+| Infra basics | consistent hashing; replication and idempotency; queues and backpressure; at-least-once vs exactly-once |
+
+### Part 2c. Math, probability, statistics, and ML layer (added 09-18)
+
+Anchored by Mercor's attested prompts (`research/candidate-reports.md` R10): a compact GPT-style transformer review (tensor shapes through causal attention, the shifted next-token loss, KV-cache parity); candidate search with an unreliable comparator, memorization, "top-p vs beam"; coffee-cup probability with ties. Each row to L2.
+
+| Area | What you must be able to do |
+|---|---|
+| Probability | Part 2 F (symmetry, linearity of expectation, ties, birthday bound, Bayes on a noisy comparator) plus conditional probability; variance of an estimator; the central limit theorem; Markov chains (a DAG expectation with cycles becomes a chain); Hoeffding and Chernoff by name. |
+| Statistics | Part 1 G and Part 2 E: derive the unbiased Pass@k estimator; task-level bootstrap; paired comparison; Cohen's and Fleiss kappa; Welford; Hoeffding's n; the peeking problem and sequential tests; how many tasks to detect a 3-point difference. |
+| Bandits | Part 2 C: UCB regret, Thompson sampling, when a bandit beats an A/B test. |
+| ML arithmetic | Part 1 E: about 2N FLOPs per token inference and 6N training; about 16 bytes per parameter in mixed-precision training; KV bytes per token = 2 × layers × kv_heads × head_dim × bytes; the KV concurrency ceiling. |
+| Transformer mechanics | Tensor shapes through causal multi-head attention; the shifted next-token loss; KV-cache parity between cached and uncached decoding; attention cost O(n²) and linear-time alternatives by name. |
+| Decoding | Greedy, temperature, top-p, beam, speculative (by name); when beam beats sampling and when it does not. |
+| Serving | Continuous batching; quantization (by name). |
+| Optimization | SGD, Adam, learning-rate schedules, one sentence each. |
+| Classic ML | Bias-variance; cross-validation; k-means and PCA by name; logistic regression is the sigmoid in your take-home. |
+| Numerics | Importance sampling; log-sum-exp. |
+
 ### The prove-it list (whiteboard, aloud, from memory; repeat on days 2, 5, 9)
 
 1. Ω(n log n) for comparison sorting.
