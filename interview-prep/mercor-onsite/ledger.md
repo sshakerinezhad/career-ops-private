@@ -4,9 +4,9 @@ The running thread. Every session in this repo updates it (plan §9, house rule 
 
 ## Next block
 
-- **Fri 18 night:** P1a (45 min). Then P3a (2 h) if awake; otherwise T1 pass 1 (45 min, paper) and bed by 23:00.
-- **Sat 19:** 09:30 P4 with the agent · 10:00 to 13:00 P3a to P3c, time the clean clone · 13:00 P2 · 14:00 T2 · 16:00 A6 drills 1 and 2 · 17:00 A3 pass 1 · 17:30 A4 first family (Part 2 A) · 20:00 T9 thread 1. Night: download the mock 1 data (brief, "Getting the data").
-- **Sun 20:** 08:15 P5 rehearsal 1 · 10:45 debrief, fix list, re-cut Sun to Tue · 15:00 P6 · 16:00 T3 · 17:00 A6 drills 3 and 4 · 18:00 T1 pass 2 and T11 pass 1 · 19:00 A7 round 1.
+- **Fri 18, 21:50 to 22:40:** P1a only. Bed by 23:00. If P1a is done before 22:30, read P3a's Read (`toolkit-spec.md`, `format-analysis.md` §1.3 and §1.5) and stop at 23:00.
+- **Sat 19:** 09:30 P4 with the agent · 10:00 P3a · 12:00 P2 · 13:30 P3b · 16:00 P3c, time the clean clone · 17:30 A1, then A2 first pass · 20:00 T1 pass 1, miss list · 20:45 T9 thread 1 opened with that miss list · night: download the mock 1 data (brief, "Getting the data"). Bed 23:00.
+- **Sun 20:** 08:15 P5 rehearsal 1 · 10:45 debrief, fix list, re-cut Sun to Tue (slot A3 pass 1, A4 Part 2 A, A6 drills 3 and 4, A7 round 1, P12 brief 1) · 15:00 P6 · 16:00 T3 · 17:00 A6 drills 1 and 2 · 18:00 T1 pass 2 and T11 pass 1 · 19:00 T2.
 
 ## Fixed dates
 
@@ -16,12 +16,12 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 
 | ID | Status | Last | Note |
 |---|---|---|---|
-| P1a | todo | | |
+| P1a | doing | 2026-09-18 | started 21:50 ET |
 | P1b | todo | | Tue 22 |
-| P2 | todo | | |
-| P3a | todo | | |
-| P3b | todo | | |
-| P3c | todo | | |
+| P2 | todo |  | Sat 19 12:00 |
+| P3a | todo |  | Sat 19 10:00 |
+| P3b | todo |  | Sat 19 13:30 |
+| P3c | todo |  | Sat 19 16:00 |
 | P4 | todo | | Sat 19 09:30 |
 | P5 | todo | | Sun 20 |
 | P6 | todo | | after each rehearsal |
@@ -30,25 +30,25 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 | P9 | todo | | Sat 26 |
 | P10 | todo | | 0 of 3 days |
 | P11 | todo | | Sun 27 |
-| P12 | todo | | 0 of 5 briefs |
-| A1 | todo | | 0 of 3 days |
-| A2 | todo | | |
-| A3 | todo | | 0 passes |
-| A4 | todo | | |
+| P12 | todo |  | 0 of 5 briefs; brief 1 unslotted, Sun debrief |
+| A1 | todo |  | 0 of 3 days; first Sat 19 17:30 |
+| A2 | todo |  | first pass Sat 19 17:30 |
+| A3 | todo |  | 0 passes; pass 1 unslotted, Sun debrief |
+| A4 | todo |  | Part 2 A unslotted, Sun debrief |
 | A5 | todo | | |
-| A6 | todo | | 0 of 10 drills |
-| A7 | todo | | 0 rounds; consecutive 12+: 0 |
+| A6 | todo |  | 0 of 10 drills; 1 and 2 Sun 20 17:00; 3 and 4 unslotted |
+| A7 | todo |  | 0 rounds; consecutive 12+: 0; round 1 unslotted, Sun debrief |
 | A8 | todo | | |
 | A9 | todo | | Sun 27 |
-| T1 | todo | | 0 passes |
-| T2 | todo | | |
+| T1 | todo |  | 0 passes; pass 1 Sat 19 20:00 |
+| T2 | todo |  | Sun 20 19:00 |
 | T3 | todo | | |
 | T4 | todo | | |
 | T5 | todo | | as gaps appear |
 | T6 | todo | | 0 of 6 sittings |
 | T7 | todo | | 0 of 15 |
 | T8 | todo | | |
-| T9 | todo | | 0 of 8 threads; consecutive clean: 0 |
+| T9 | todo |  | 0 of 8 threads; consecutive clean: 0; thread 1 Sat 19 20:45 |
 | T10 | todo | | Sat 26 |
 | T11 | todo | | days at 100%: 0 |
 | T12 | todo | | |
@@ -62,6 +62,7 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 
 ## Log
 
+- 2026-09-18 21:50 ET. Nothing done yet; the Fri 17:30 block (P1a, P3a, T1 pass 1, A1, A2) was not started. Re-cut Fri to Sun: P1a tonight, bed 23:00. Moved to Sat 19: P3a (10:00), A1 and A2 first pass (17:30), T1 pass 1 (20:00), T9 thread 1 (20:45); P2 pulled ahead of P3b (12:00) since `grade.py` copies its shape. Moved to Sun 20: A6 drills 1 and 2 (17:00, in place of 3 and 4), T2 (19:00, in place of A7 round 1). Unslotted until the Sun debrief re-cut: A3 pass 1, A4 Part 2 A, A6 drills 3 and 4, A7 round 1, P12 brief 1. Fixed dates unchanged. Rehearsal 1 runs Sun 08:15 with whatever of P3 exists.
 - 2026-09-18 night. Ledger opened. Cards written for every ID. Nothing started.
 
 ## Question-bank lines pending

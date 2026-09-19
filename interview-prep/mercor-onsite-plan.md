@@ -174,25 +174,23 @@ Fixed: lectures, Strahd, Akira, Readers of Books. Skipped: Aemma, Robotics Jam, 
 
 | Day | Block | Tasks | Device |
 |---|---|---|---|
-| Fri 18 | 17:30 to 19:30 | P1a, then P3a | dev |
-| | 20:00 to 21:00 | T1 pass 1; write the miss list | paper |
-| | 21:00 to 22:00 | A1, A2 first pass | paper |
-| Sat 19 | 09:30 to 10:00 | P4 with the agent; one P12 brief after | screen |
-| | 10:00 to 13:00 | P3a if not done, P3b, P3c; time the clean clone | dev |
-| | 13:00 to 13:45 | P2 | screen |
-| | 14:00 to 15:30 | T2: three targets recorded; the one-liners; GRPO 90 s | paper |
-| | 16:00 to 17:00 | A6 drills 1 and 2 | screen |
-| | 17:00 to 17:30 | A3 pass 1 | paper |
-| | 17:30 to 18:30 | A4: five steps on Part 2 A | paper |
-| | 20:00 to 21:00 | T9 thread 1 | screen |
+| Fri 18 | 21:50 to 22:40 | P1a. The 17:30 block was not started; P3a, A1, A2, T1 pass 1 moved to Sat 19 (re-cut 2026-09-18 21:50) | dev |
+| Sat 19 | 09:30 to 10:00 | P4 with the agent | screen |
+| | 10:00 to 12:00 | P3a | dev |
+| | 12:00 to 12:45 | P2 | screen |
+| | 13:30 to 16:00 | P3b | dev |
+| | 16:00 to 17:30 | P3c; time the clean clone | dev |
+| | 17:30 to 18:30 | A1, A2 first pass | paper |
+| | 20:00 to 20:45 | T1 pass 1; write the miss list | paper |
+| | 20:45 to 22:15 | T9 thread 1 | screen |
 | | night | download the mock 1 data | dev |
 | Sun 20 | 08:15 to 10:45 | P5 rehearsal 1 | dev |
-| | 10:45 to 11:30 | P5 debrief with the agent; fix list; re-cut Sun to Tue | screen |
+| | 10:45 to 11:30 | P5 debrief with the agent; fix list; re-cut Sun to Tue, slotting A3 pass 1, A4 Part 2 A, A6 drills 3 and 4, A7 round 1, P12 brief 1 | screen |
 | | 15:00 to 16:00 | P6 | dev |
 | | 16:00 to 17:00 | T3 | dev |
-| | 17:00 to 18:00 | A6 drills 3 and 4 | screen |
+| | 17:00 to 18:00 | A6 drills 1 and 2 | screen |
 | | 18:00 to 18:30 | T1 pass 2; T11 pass 1 | paper |
-| | 19:00 to 20:00 | A7 round 1 | screen |
+| | 19:00 to 20:30 | T2: three targets recorded; the one-liners; GRPO 90 s | paper |
 | Mon 21 | 07:30 to 09:00 | A6 drills 7 and 8 | screen |
 | | 12:30 to 13:15 | P7 thread on rehearsal 1 | screen |
 | | 20:15 to 21:30 | T9 thread 2 | screen |
