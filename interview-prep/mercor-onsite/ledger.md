@@ -62,6 +62,7 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 
 ## Log
 
+- 2026-09-18 22:30 ET. Asked whether the 22 patterns (A2) are assumed known: they are not. Expect A2 first pass Sat 17:30 to be mostly misses; A4 (Layer 1) needs an early slot at the Sun debrief re-cut, and A2 Tutor threads will run daily from Sat. Tonight stays A1 only.
 - 2026-09-18 22:10 ET. No dev laptop tonight; P1a not started (back to todo). Re-cut Sat 19 morning: P1a 09:00 to 09:45, P4 09:45 to 10:15, P3a 10:15 to 12:15, P2 12:15 to 13:00; P3b onward unchanged. A1 first pass pulled from Sat 17:30 to tonight 22:15 to 22:45 (paper); Sat 17:30 becomes A2 first pass plus the A1 daily 5 min. Nothing dropped. Fixed dates unchanged. Risk: P1a Sat morning needs the dev laptop back; without it P3a to P3c slide and rehearsal 1 (Sun 08:15, fixed) has no keys and no toolkit.
 - 2026-09-18 21:50 ET. Nothing done yet; the Fri 17:30 block (P1a, P3a, T1 pass 1, A1, A2) was not started. Re-cut Fri to Sun: P1a tonight, bed 23:00. Moved to Sat 19: P3a (10:00), A1 and A2 first pass (17:30), T1 pass 1 (20:00), T9 thread 1 (20:45); P2 pulled ahead of P3b (12:00) since `grade.py` copies its shape. Moved to Sun 20: A6 drills 1 and 2 (17:00, in place of 3 and 4), T2 (19:00, in place of A7 round 1). Unslotted until the Sun debrief re-cut: A3 pass 1, A4 Part 2 A, A6 drills 3 and 4, A7 round 1, P12 brief 1. Fixed dates unchanged. Rehearsal 1 runs Sun 08:15 with whatever of P3 exists.
 - 2026-09-18 night. Ledger opened. Cards written for every ID. Nothing started.
