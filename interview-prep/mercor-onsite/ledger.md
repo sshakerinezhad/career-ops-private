@@ -31,7 +31,7 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 | P10 | todo | | 0 of 3 days |
 | P11 | todo | | Sun 27 |
 | P12 | todo |  | 0 of 5 briefs; brief 1 unslotted, Sun debrief |
-| A1 | doing | 2026-09-18 | 0 of 3 days; first pass started Fri 18 22:15 ET |
+| A1 | doing | 2026-09-18 | 0 of 3 days; day 1 Fri 18: step 3 on drills 1 and 2 (2/4, 1/4); steps 1, 2, 4 not reported |
 | A2 | todo |  | first pass Sat 19 17:30 |
 | A3 | todo |  | 0 passes; pass 1 unslotted, Sun debrief |
 | A4 | todo |  | Part 2 A unslotted, Sun debrief |
@@ -62,6 +62,7 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 
 ## Log
 
+- 2026-09-18 22:35 ET. A1 step 3, moves 1 and 2 dictated in chat, two drills. Drill 1: restate 1, scale 1 (2/4). Restatement dropped the 5 s per call and the independence of errors, no confirm; asked calls vs time, then assumed time only although the brief states both; never asked whether calls can run in parallel, which is the whole wall-clock question. Drill 2: restate 1, scale 0 (1/4). Asking to clarify "2k to 128k, yet some exceed 128k" was the right move; read "no padding waste" as a constraint instead of the objective (minimize micro-batches); read "each data-parallel rank balanced" as similar-length trajectories within a batch; asked for no scale (trajectories per step, number of ranks, offline or streaming, split or drop the >128k tail). Gap: data-parallel rank, micro-batch, padding vocabulary (theory-syllabus Part 1 E, parallelism and packing) → first T6 sitting on E, or a Tutor thread. Timing not verified.
 - 2026-09-18 22:30 ET. Asked whether the 22 patterns (A2) are assumed known: they are not. Expect A2 first pass Sat 17:30 to be mostly misses; A4 (Layer 1) needs an early slot at the Sun debrief re-cut, and A2 Tutor threads will run daily from Sat. Tonight stays A1 only.
 - 2026-09-18 22:10 ET. No dev laptop tonight; P1a not started (back to todo). Re-cut Sat 19 morning: P1a 09:00 to 09:45, P4 09:45 to 10:15, P3a 10:15 to 12:15, P2 12:15 to 13:00; P3b onward unchanged. A1 first pass pulled from Sat 17:30 to tonight 22:15 to 22:45 (paper); Sat 17:30 becomes A2 first pass plus the A1 daily 5 min. Nothing dropped. Fixed dates unchanged. Risk: P1a Sat morning needs the dev laptop back; without it P3a to P3c slide and rehearsal 1 (Sun 08:15, fixed) has no keys and no toolkit.
 - 2026-09-18 21:50 ET. Nothing done yet; the Fri 17:30 block (P1a, P3a, T1 pass 1, A1, A2) was not started. Re-cut Fri to Sun: P1a tonight, bed 23:00. Moved to Sat 19: P3a (10:00), A1 and A2 first pass (17:30), T1 pass 1 (20:00), T9 thread 1 (20:45); P2 pulled ahead of P3b (12:00) since `grade.py` copies its shape. Moved to Sun 20: A6 drills 1 and 2 (17:00, in place of 3 and 4), T2 (19:00, in place of A7 round 1). Unslotted until the Sun debrief re-cut: A3 pass 1, A4 Part 2 A, A6 drills 3 and 4, A7 round 1, P12 brief 1. Fixed dates unchanged. Rehearsal 1 runs Sun 08:15 with whatever of P3 exists.
