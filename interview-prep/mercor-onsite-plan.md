@@ -248,6 +248,6 @@ The ledger `mercor-onsite/ledger.md` is the running thread. In any session in th
 1. reads the ledger and §6;
 2. updates the ledger: status table, a dated log line, scores, question-bank lines (also appended to `question-bank.md`), the next block;
 3. re-cuts only the next 2 to 3 days of §6 if a block was missed, and says what moved and what was dropped; fixed dates never move;
-4. replies with the next block as full card fields (Read, Do, Test, Done when), never bare IDs;
+4. replies with the one task to do now (its card's Do and Done when), one line on what comes next, and any blocker or fixed-date risk; never the whole block, never bare IDs;
 5. commits, pushes, and merges to main.
 Plain chat threads (Tutor, Examiner, 8.1 to 8.4) are for learning and testing; their gap lists come back here as ledger and question-bank lines.

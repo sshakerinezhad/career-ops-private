@@ -85,7 +85,7 @@
   1. Read the ledger and plan §6. Never rebuild the lists or the cards; they are stable.
   2. Update the ledger: the status table, a dated log line with what he did and how it scored, question-bank lines he dictates (also appended to `interview-prep/question-bank.md`), and the "Next block".
   3. If a block was missed, re-cut only the next 2 to 3 days of plan §6 and say what moved and what was dropped. Fixed dates (rehearsals, laptop, Salman, flight) never move.
-  4. Reply with the next block as full card fields (Read, Do, Test, Done when), never IDs alone, and anything overdue against a fixed date. Only as many words as needed.
+  4. Reply with ONE task, the one to do now: its card's Do and Done when (and Read, if any), then one line each for the next one or two tasks, then any blocker or fixed-date risk, only if there is one. Never the whole block, never more than one card, never bare IDs, no thread prompts unless asked. Low stress, piece by piece.
   5. Commit, push, merge to main.
 
 ## Output Preferences
