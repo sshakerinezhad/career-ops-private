@@ -31,7 +31,7 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 | P10 | todo | | 0 of 3 days |
 | P11 | todo | | Sun 27 |
 | P12 | todo |  | 0 of 5 briefs; brief 1 unslotted, Sun debrief |
-| A1 | doing | 2026-09-18 | 0 of 3 days; day 1 Fri 18: step 3 on drills 1 and 2 (2/4, 1/4); steps 1, 2, 4 not reported |
+| A1 | doing | 2026-09-18 | 0 of 3 days; day 1 Fri 18: step 3 on drills 1 and 2 (2/4, 1/4); steps 1, 2, 4 not reported; tutor concepts 1 to 2 of 5 done |
 | A2 | todo |  | first pass Sat 19 17:30 |
 | A3 | todo |  | 0 passes; pass 1 unslotted, Sun debrief |
 | A4 | todo |  | Part 2 A unslotted, Sun debrief |
@@ -62,6 +62,7 @@ Sun 20 rehearsal 1 · Sun 20 or Mon 21 travel laptop arrives · Tue 22 12:30 P1b
 
 ## Log
 
+- 2026-09-18 23:05 ET. Tutor session (chat, tutor skill) on the drill 1 and 2 vocabulary, closed at bedtime. Taught: 1 independent errors and majority voting (needed one hint: counted P(two wrong) as 0.1^2 without the 0.9 or the three orderings; then computed the 20% case to 10.4% with one arithmetic slip); 2 wall-clock vs number of calls (first try: 20 batches x 5 s = 100 s, round 2 = 50 s). Not yet taught: 3 micro-batch, 4 padding waste as an objective (bin packing, FFD), 5 data-parallel rank and per-step balance. Next up: concept 3; review of 1 and 2 due Sat 20 to Sun 21, folded into the A1 daily 5 min or the first T6 sitting on Part 1 E. A1 steps 1, 2, 4 still unreported.
 - 2026-09-18 22:35 ET. A1 step 3, moves 1 and 2 dictated in chat, two drills. Drill 1: restate 1, scale 1 (2/4). Restatement dropped the 5 s per call and the independence of errors, no confirm; asked calls vs time, then assumed time only although the brief states both; never asked whether calls can run in parallel, which is the whole wall-clock question. Drill 2: restate 1, scale 0 (1/4). Asking to clarify "2k to 128k, yet some exceed 128k" was the right move; read "no padding waste" as a constraint instead of the objective (minimize micro-batches); read "each data-parallel rank balanced" as similar-length trajectories within a batch; asked for no scale (trajectories per step, number of ranks, offline or streaming, split or drop the >128k tail). Gap: data-parallel rank, micro-batch, padding vocabulary (theory-syllabus Part 1 E, parallelism and packing) → first T6 sitting on E, or a Tutor thread. Timing not verified.
 - 2026-09-18 22:30 ET. Asked whether the 22 patterns (A2) are assumed known: they are not. Expect A2 first pass Sat 17:30 to be mostly misses; A4 (Layer 1) needs an early slot at the Sun debrief re-cut, and A2 Tutor threads will run daily from Sat. Tonight stays A1 only.
 - 2026-09-18 22:10 ET. No dev laptop tonight; P1a not started (back to todo). Re-cut Sat 19 morning: P1a 09:00 to 09:45, P4 09:45 to 10:15, P3a 10:15 to 12:15, P2 12:15 to 13:00; P3b onward unchanged. A1 first pass pulled from Sat 17:30 to tonight 22:15 to 22:45 (paper); Sat 17:30 becomes A2 first pass plus the A1 daily 5 min. Nothing dropped. Fixed dates unchanged. Risk: P1a Sat morning needs the dev laptop back; without it P3a to P3c slide and rehearsal 1 (Sun 08:15, fixed) has no keys and no toolkit.
