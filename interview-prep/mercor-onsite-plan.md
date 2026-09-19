@@ -174,13 +174,14 @@ Fixed: lectures, Strahd, Akira, Readers of Books. Skipped: Aemma, Robotics Jam, 
 
 | Day | Block | Tasks | Device |
 |---|---|---|---|
-| Fri 18 | 21:50 to 22:40 | P1a. The 17:30 block was not started; P3a, A1, A2, T1 pass 1 moved to Sat 19 (re-cut 2026-09-18 21:50) | dev |
-| Sat 19 | 09:30 to 10:00 | P4 with the agent | screen |
-| | 10:00 to 12:00 | P3a | dev |
-| | 12:00 to 12:45 | P2 | screen |
+| Fri 18 | 22:15 to 22:45 | A1 first pass. P1a not started, no dev laptop, moved to Sat 19 09:00 (re-cut 2026-09-18 22:10). The 17:30 block was not started; P3a, A2, T1 pass 1 moved to Sat 19 (re-cut 2026-09-18 21:50) | paper |
+| Sat 19 | 09:00 to 09:45 | P1a, from Fri 18 | dev |
+| | 09:45 to 10:15 | P4 with the agent | screen |
+| | 10:15 to 12:15 | P3a | dev |
+| | 12:15 to 13:00 | P2 | screen |
 | | 13:30 to 16:00 | P3b | dev |
 | | 16:00 to 17:30 | P3c; time the clean clone | dev |
-| | 17:30 to 18:30 | A1, A2 first pass | paper |
+| | 17:30 to 18:30 | A2 first pass; A1 daily 5 min | paper |
 | | 20:00 to 20:45 | T1 pass 1; write the miss list | paper |
 | | 20:45 to 22:15 | T9 thread 1 | screen |
 | | night | download the mock 1 data | dev |
